@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
+
+development:
+  <<: *default
+  database: nyasocom_beta_development
+
+test:
+  <<: *default
+  database: nyasocom_beta_test
+
+production:
+  <<: *default
+  database: nyasocom_beta_production
+  username: nyasocom_beta
+  password: <%= ENV['DATABASE_DEFAULT_PASSWORD'] %>

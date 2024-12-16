@@ -1,0 +1,1 @@
+SELECT * FROM blogs order by days DESC;

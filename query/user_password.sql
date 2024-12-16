@@ -1,0 +1,1 @@
+SELECT encrypted_password FROM users;

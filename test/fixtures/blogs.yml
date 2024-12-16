@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  days: 2022-02-24
+  title: MyString
+  body: MyText
+
+two:
+  days: 2022-02-24
+  title: MyString
+  body: MyText

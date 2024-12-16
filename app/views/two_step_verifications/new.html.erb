@@ -1,0 +1,19 @@
+<div align="center">
+  <br />
+  <h2>2段階認証 (QRコード版)</h2>
+  <%= form_with url: top_index_path do %>
+    <%= hidden_field_tag :otp_secret, @otp_secret %>
+    <br />
+    <div class='field'>
+      <%= image_tag @qr_code %>
+    </div>
+    <br />
+    <div class='field' style="display: inline-block; _display: inline;">
+      <%= label_tag :otp_attempt, '数字を入力してください' %><br />
+      <%= text_field_tag :otp_attempt, '', placeholder: '6桁の数字、入力先' %>
+    </div>
+    <div class='actions' style="display: inline-block; _display: inline;">
+      <%= submit_tag '認証' %>
+    </div>
+  <% end %>
+</div>

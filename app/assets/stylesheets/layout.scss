@@ -1,0 +1,128 @@
+body {
+    overflow-x: hidden;
+}
+
+td{
+    white-space: nowrap;
+}
+
+.text-area-position {
+    width: 90vw;
+    margin-left: 60;
+    margin-top: 10;
+    resize: none;
+}
+
+.button_view {
+    text-decoration: none;
+    font: inherit;
+    color: inherit;
+}
+
+.font-review {
+    font-size: 18;
+}
+
+.submit-position {
+    margin-top: 20;
+    margin-left: 60;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.horizen-line {
+    display: inline-block;
+    _display: inline;
+}
+
+.left_blog {
+    position: relative;
+    top: 0vw;
+    left: 16vw;
+}
+
+.blog_white {
+    color: black;
+    background-color: white;
+    width: fit-content;
+}
+
+.left_top {
+    position: relative;
+    top: 0vw;
+    left: 5vw;
+}
+
+.top_white {
+    color: black;
+    background-color: white;
+}
+
+.left_comment {
+    position: relative;
+    top: 0vw;
+    left: 16vw;
+}
+
+.left_search {
+    position: relative;
+    top: -0.1vw;
+    left: -0.6vw;
+}
+
+.left_search_icon {
+    position: relative;
+    top: -0.2vw;
+    left: 1vw;
+}
+
+.login {
+    position: relative;
+    top: 150px;
+    vertical-align: middle;
+}
+
+.login_admin {
+    position: relative;
+    top: 150px;
+    left: 150px;
+    vertical-align: middle;
+}
+
+
+.mw-md {
+    max-width: 550px;
+}
+
+// ***** 以下を追加 *****
+
+//   .mw-xl {
+//     max-width: 1200px;
+//   }
+
+// likes.scss
+
+.like-link {
+    text-decoration: none;
+}
+
+// .like-link:hover {
+//     background-color: #222 !important;
+// }
+
+.like-btn {
+    font-size: 15px;
+    color: #808080;
+}
+
+.unlike-btn {
+    font-size: 15px;
+    color: #e54747;
+}
+
+.smile-btn {
+    font-size: 15px;
+    color: #e5e547;
+}

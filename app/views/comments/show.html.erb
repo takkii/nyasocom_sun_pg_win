@@ -1,0 +1,4 @@
+<%= render @comment %>
+<%= link_to "編集", edit_comment_path(@comment), class: "btn btn-info btn-sm" %> <%= link_to "戻る", comments_path, class: "btn btn-success btn-sm" %> <%= link_to "トップ", root_path , class: "btn btn-info btn-sm" %>
+<br /><br />
+<%= button_to "削除", @comment, method: :delete, class: "btn btn-warning btn-sm" %>

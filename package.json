@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.1",
+    "@rails/ujs": "^7.1.501",
+    "audiojs": "^0.1.0",
+    "bootswatch": "^5.3.3",
+    "esbuild": "^0.24.0",
+    "jquery": "^3.7.1",
+    "jquery-ujs": "^1.2.3",
+    "pygments-rouge-css": "^0.1.0",
+    "sass": "^1.83.0"
+  },
+  "scripts": {
+    "build": "esbuild app/assets/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --load-path=node_modules --silence-deprecation=import --quiet-deps"
+  }
+}

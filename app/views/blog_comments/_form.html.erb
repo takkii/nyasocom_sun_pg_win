@@ -1,0 +1,10 @@
+<%= form_with model: @blog_comment || @blog_comment=false, local: false, class: "like-link", data: { turbo: false } do |f| %>
+  <%= f.text_area :review,
+              rows: "5",
+              placeholder: "コメントはこちら",
+              class: "text-area-position",
+              id: "comment_textarea" %>
+  <div class="submit-position">
+    <%= f.submit "投稿", class: "btn btn-success" %> <%= link_to "期間限定削除", blog_comments_path, method: :delete, remote: true, data: {"turbolinks" => false}, class: "btn btn-danger", id: "comment_d" %> <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary") %>
+  </div>
+<% end %>

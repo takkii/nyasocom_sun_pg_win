@@ -1,0 +1,2 @@
+// Not Likes count case reload.
+document.getElementById('blog_<%= @blog.id %>').innerHTML = '<%= link_to create_like_path(@blog), class: "like-link" , method: :POST, remote: true, data: {"turbolinks" => false} do %><i class="fa fa-heart like-btn"></i> <%= @blog.likes.count %><% end %>'

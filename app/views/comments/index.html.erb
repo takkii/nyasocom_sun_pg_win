@@ -1,0 +1,47 @@
+<div align="center">
+  <br />
+  <h2>コメント一覧</h2>
+  <br />
+</div>
+<br />
+<div class="left_search">
+  <ul>
+    <div class="left_search_icon">
+      <p>全文検索 :
+        <%= @comments_index.size %> 行 (全テキスト数)</p>
+    </div>
+    <br />
+    <%= form_tag(comments_path, method: "get") do %> <i class="fab fa-searchengin"></i> :
+      <%= search_field_tag "query", params["query"],  placeholder: '本文を入力' %>
+      <%= submit_tag '検索', :name => '鬼灯' %>
+    <% end %>
+  </div>
+  <br />
+  <div class="left_comment">
+    <table width="87%">
+      <div id="comments">
+        <% @comments.each do |comment| %>
+          <%= simple_format(comment.body) %>
+          <%= link_to "閲覧", comment, class: "btn btn-info btn-sm" %>
+          <%= link_to "新コメント", new_comment_path,class: "btn btn-primary btn-sm" %>
+          <%= link_to "トップ", root_path , class: "btn btn-success btn-sm" %>
+          <br />
+          <br />
+        <% end %>
+      </div>
+    </table>
+  </div>
+  <br />
+  <%= paginate @comments %>
+  <div align="center" <p> Copyright &copy; 2018 -
+    <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center">
+  <p><b> Not Yet Another Software design of Computer
+      <%= @version %> <br />
+      powered by Ruby
+      <%= RUBY_VERSION %> / Rails
+      <%= Rails.gem_version %> / with
+      <%= @pg_version %></b></p>
+</div>
+<br />

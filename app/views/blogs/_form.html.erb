@@ -1,0 +1,67 @@
+<%= form_with(model: blog) do |form| %>
+  <% if blog.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <%= pluralize(blog.errors.count, "error") %>
+        prohibited this blog from being saved:</h2>
+      <ul>
+        <% blog.errors.each do |error| %>
+          <li>
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :days, style: "display: block" %>
+    <%= form.date_field :days %>
+  </div>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body, size: "40x20" %>
+  </div>
+  <br/>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <p>
+      <%= form.check_box :remove_image %>
+      画像を削除</p>
+  </div>
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.file_field :video, accept: "video/*" %>
+    <p>
+      <%= form.check_box :remove_video %>
+      動画を削除</p>
+  </div>
+  <div class="field">
+    <p>
+      <%= form.label :status %>
+      <%= form.hidden_field :status, value: false %>
+      <%= form.check_box :status, {}, true, false %>
+      非公開
+    </p>
+  </div>
+  <div class="field">
+    <%= form.label :switch %>
+    <%= form.hidden_field :switch, value: false %>
+    <%= form.check_box :switch, {}, true, false %>
+    <div
+      style="width: fit-content; color: black; background-color: white; display: inline-block;"
+    >　本文 : こんにちは、世界！　</div>
+    <br/><br/>
+  </div>
+  <div class="actions">
+    <button type="submit" class="btn btn-success">登録</button>
+    <%= link_to "閲覧", @blog, class: "btn btn-primary" %>
+    <%= link_to "戻る", blogs_path, class: "btn btn-warning" %>
+    <%= link_to "一覧", root_path, class: "btn btn-danger" %>
+    <%= link_to "トップ", root_path, class: "btn btn-info" %>
+  </div>
+<% end %>

@@ -1,0 +1,507 @@
+<title>にゃそこんSUN🌞</title>
+<%= favicon_link_tag "nyasocom2.ico", skip_pipeline: true %>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+<%= notice %>
+<div class="header__bar row">
+    <div align="right">
+        <div class="user_nav grid-6 m-1">
+            <% if user_signed_in? %>
+            <%= link_to "新規投稿", new_blog_url, class: "btn btn-success" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+            <%= link_to "記事一覧", blogs_path, class: "btn btn-info" %>
+            <%= link_to "期間限定", secret_index_path, class: "btn btn-warning" %>
+            <%= link_to "マイページ", users_path, class: "btn btn-dark" %>
+            <br />
+        </div>
+    </div>
+</div>
+<hr />
+<div align="center">
+    <h1>
+        <br />
+        <p>『にゃそこん参 with ぴーじーるんが』</p>
+        <br />
+    </h1>
+</div>
+<hr />
+<div align="center">
+    <br />
+    <%= paginate @blogs %>
+    <br />
+</div>
+<div class="left_top">
+    <table>
+        <% @blogs.each do |blog| %>
+        <tr>
+            <td>
+                <p>
+                    <strong>
+                        <h2>
+                            <div align="left">
+                                <%= blog.days %>
+                            </div>
+                        </h2>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <h3>
+                            <div align="left">
+                                <%= blog.title %>
+                            </div>
+                        </h3>
+                    </strong>
+                </p>
+                <p>
+                    <div align="left">
+                        <%= image_tag(blog.image.url) if blog.image.present? %>
+                    </div>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <% blog.images.each do |image| %>
+                            <%= image_tag image, class: "image", width: '25%', height: '25%' %>
+                            <% end %>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <div class="video-player">
+                                <%= video_tag blog.video.url, autoplay: false, multiple: true, muted: false, controls: true , width: "50%", height: "50%" if blog.video.present? %>
+                            </div>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <% if blog.file.present? %>
+                    <div align="left">
+                        <audio src="<%= " #{blog.file}" %>" controls=""></audio>
+                    </div>
+                    <% else %>
+                    <% end %>
+                </p>
+                <% if blog.switch? %>
+                <div class="top_white">
+                    <% end %>
+                    <p>
+                        <div align="left">
+                            <%= markdown(blog.body).html_safe %>
+                        </div>
+                    </p>
+                </div>
+                <div align="left">
+                    <%= link_to '新規作成', new_blog_path, class: "btn btn-success btn-sm" %>
+                    <%= link_to '閲覧', blog, class: "btn btn-primary btn-sm" %>
+                    <%= link_to '編集', edit_blog_path(blog), class: "btn btn-info btn-sm" %>
+                    <%= link_to '削除', blog, method: :delete, data: { confirm: '記事を削除してもよろしいですか？' }, class: "btn btn-light btn-sm" %>
+                    <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-dark btn-sm") %>
+                    <% Array(blog.user_id).each do |blog_user| %>
+                    <% if "#{blog_user}".match?(/^[0]$/) %>
+                    原文 : <i class="fa fa-smile smile-btn"></i>
+                    <% else%>
+                    編集 : <i class="fa fa-smile smile-btn"></i>
+                    <%= blog_user %>
+                    <% end %>
+                    <% end %>
+                    <div id="blog_<%= blog.id %>" class="horizen-line">
+                        <% if current_user.liked_by?(blog.id) %>
+                        <%= link_to destroy_like_path(blog), class: "like-link" , method: :DELETE, remote: true, data: {"turbolinks"=> false} do %>
+                        <i class="fa fa-heart unlike-btn"></i>
+                        <%= blog.likes.count %>
+                        <% end %>
+                        <% else %>
+                        <%= link_to create_like_path(blog), class: "like-link" , method: :POST, remote: true, data: {"turbolinks" => false} do %>
+                        <i class="fa fa-heart like-btn"></i>
+                        <%= blog.likes.count %>
+                        <% end %>
+                        <% end %>
+                    </div>
+            </td>
+            <% end %>
+        </tr>
+    </table>
+</div>
+<br />
+<hr size="10" />
+<hr size="10" />
+<strong>
+    <h4>
+        <div align="center">
+            <p>
+                『コメント投稿』<i class="fa-solid fa-pen"></i> <span id="comment_count">
+                    <%= @bl_com.count %></span>
+            </p>
+        </div>
+    </h4>
+</strong>
+<strong>
+    <h4>
+        <%= render "blog_comments/form", blog_comment: @blog_comment, id: "comment_form", class: "like-link" %>
+    </h4>
+</strong>
+<hr size="10" />
+<strong>
+    <h4>
+        <%= render "blog_comments/view", blog_comment: @blog_comment, id: "comment_view", class: "like-link" %>
+    </h4>
+</strong>
+<strong>
+    <h4>
+        <div align="center">
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+    <h4>
+        <div align="center">
+            <p>『メンテナンス』</p>
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<% @comments.each do |comment| %>
+<strong>
+    <h5>
+        <div align="center">
+            <p>
+                <%= simple_format(comment.body) %>
+            </p>
+        </div>
+    </h5>
+</strong>
+<% end %>
+<strong>
+    <h4>
+        <div align="center">
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<%= paginate @blogs %>
+<div align="center" , class="font-review">
+    <h5>
+        <p> 現在日時 :
+            <%= @himekuri %>
+        </p>
+    </h5>
+</div>
+<div align="center" , class="font-review">
+    <p> Copyright &copy; 2018 -
+        <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center" , class="font-review">
+    <p>
+        <b> Not Yet Another Software design of Computer
+            <%= @version %> <br />
+            powered by Ruby
+            <%= RUBY_VERSION %> / Rails
+            <%= Rails.gem_version %> / with
+            <%= @pg_version %>
+        </b>
+    </p>
+</div>
+<br />
+<div class="header__bar row">
+    <div align="right">
+        <div class="user_nav grid-6 m-1">
+            <% elsif admin_signed_in? %>
+            <%= link_to '新規コメント', new_comment_url, class: "btn btn-primary" %>
+            <%= link_to 'コメント一覧', comments_path, class: "btn btn-warning" %>
+            <%= link_to '記事一覧', reblogs_path, class: "btn btn-dark" %>
+            <%= link_to '管理画面', user_index_path, class: "btn btn-info" %>
+            <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-success" %>
+            <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-secondary")  %>
+            <br />
+        </div>
+    </div>
+</div>
+<div align="center">
+    <hr />
+    <br />
+    <h1> 『にゃそこん参 with ぴーじーるんが』</h1>
+    <br />
+    <hr />
+</div>
+<div align="center">
+    <br />
+    <%= paginate @blogs %>
+    <br />
+</div>
+<div class="left_top">
+    <table>
+        <% @blogs.each do |blog| %>
+        <tr>
+            <td>
+                <p>
+                    <strong>
+                        <h2>
+                            <div align="left">
+                                <%= blog.days %>
+                            </div>
+                        </h2>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <h3>
+                            <div align="left">
+                                <%= blog.title %>
+                            </div>
+                        </h3>
+                    </strong>
+                </p>
+                <p>
+                    <div align="left">
+                        <%= image_tag(blog.image.url) if blog.image.present? %>
+                    </div>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <% blog.images.each do |image| %>
+                            <%= image_tag image, class: "image", width: '25%', height: '25%' %>
+                            <% end %>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <div class="video-player">
+                                <%= video_tag blog.video.url, autoplay: false, multiple: true, muted: false, controls: true , width: "50%", height: "50%" if blog.video.present? %>
+                            </div>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <% if blog.file.present? %>
+                    <div align="left">
+                        <audio src="<%= " #{blog.file}" %>" controls=""></audio>
+                    </div>
+                    <% end %>
+                </p>
+                <% if blog.switch? %>
+                <div class="top_white">
+                    <% end %>
+                    <p>
+                        <div align="left">
+                            <%= markdown(blog.body).html_safe %>
+                        </div>
+                    </p>
+                </div>
+                <div id="blog_<%= blog.id %>">
+                    <% if blog.likes.count == 0 %>
+                    <i class="fa fa-heart like-btn"></i>
+                    <% else %>
+                    <i class="fa fa-heart unlike-btn"></i>
+                    <% end %>
+                    <%= blog.likes.count %>
+                </div>
+            </td>
+            <% end %>
+        </tr>
+    </table>
+</div>
+<strong>
+    <h4>
+        <div align="center">
+            <p>『メンテナンス』</p>
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<% @comments.each do |comment| %>
+<strong>
+    <h5>
+        <div align="center">
+            <p>
+                <%= simple_format(comment.body) %>
+            </p>
+        </div>
+    </h5>
+</strong>
+<% end %>
+<strong>
+    <h4>
+        <div align="center">
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<br />
+<%= paginate @blogs %>
+<div align="center">
+    <p> 現在日時 :
+        <%= @himekuri %>
+    </p>
+</div>
+<div align="center">
+    <p> Copyright &copy; 2018 -
+        <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center">
+    <p>
+        <b> Not Yet Another Software design of Computer
+            <%= @version %> <br />
+            powered by Ruby
+            <%= RUBY_VERSION %> / Rails
+            <%= Rails.gem_version %> / with
+            <%= @pg_version %>
+        </b>
+    </p>
+</div>
+<br />
+<div class="header__bar row">
+    <div align="right">
+        <div class="user_nav grid-6 m-1">
+            <% else %>
+            <!-- %= link_to "新規登録", new_user_registration_path, class: "btn btn-light" % -->
+            <!-- %= link_to "ログイン", new_user_session_path, class: "btn btn-success" % -->
+            <!-- %= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %-->
+            <br />
+        </div>
+    </div>
+</div>
+<div class="left_top">
+    <table>
+        <% @status.each do |blog| %>
+        <tr>
+            <td>
+                <p>
+                    <strong>
+                        <h2>
+                            <div align="left">
+                                <%= blog.days %>
+                            </div>
+                        </h2>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <h3>
+                            <div align="left">
+                                <%= blog.title %>
+                            </div>
+                        </h3>
+                    </strong>
+                </p>
+                <p>
+                    <div align="left">
+                        <%= image_tag(blog.image.url) if blog.image.present? %>
+                    </div>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <% blog.images.each do |image| %>
+                            <%= image_tag image, class: "image", width: '25%', height: '25%' %>
+                            <% end %>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                        <div align="left">
+                            <div class="video-player">
+                                <%= video_tag blog.video.url, autoplay: false, multiple: true, muted: false, controls: true , width: "50%", height: "50%" if blog.video.present? %>
+                            </div>
+                        </div>
+                    </strong>
+                </p>
+                <p>
+                    <% if blog.file.present? %>
+                    <div align="left">
+                        <audio src="<%= " #{blog.file}" %>" controls=""></audio>
+                    </div>
+                    <% else %>
+                    <% end %>
+                </p>
+                <% if blog.switch? %>
+                <div class="top_white">
+                    <% end %>
+                    <p>
+                        <div align="left">
+                            <%= markdown(blog.body).html_safe %>
+                        </div>
+                    </p>
+                </div>
+                <div id="blog_<%= blog.id %>">
+                    <% if blog.likes.count == 0 %>
+                    <i class="fa fa-heart like-btn"></i>
+                    <% else %>
+                    <i class="fa fa-heart unlike-btn"></i>
+                    <% end %>
+                    <%= blog.likes.count %>
+                </div>
+            </td>
+            <% end %>
+        </tr>
+    </table>
+</div>
+<strong>
+    <h4>
+        <div align="center">
+            <p>『メンテナンス』</p>
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<% @comments.each do |comment| %>
+<strong>
+    <h5>
+        <div align="center">
+            <p>
+                <%= simple_format(comment.body) %>
+            </p>
+        </div>
+    </h5>
+</strong>
+<% end %>
+<strong>
+    <h4>
+        <div align="center">
+            <p>
+                <hr size="10" />
+            </p>
+        </div>
+    </h4>
+</strong>
+<br />
+<%= paginate @status %>
+<div align="center">
+    <p> 現在日時 :
+        <%= @himekuri %>
+    </p>
+</div>
+<div align="center">
+    <p> Copyright &copy; 2018 -
+        <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center">
+    <p><b> Not Yet Another Software design of Computer
+            <%= @version %> <br />
+            powered by Ruby
+            <%= RUBY_VERSION %> / Rails
+            <%= Rails.gem_version %> / with
+            <%= @pg_version %></b></p>
+</div>
+<br />
+<% end %>

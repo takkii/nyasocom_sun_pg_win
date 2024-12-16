@@ -1,0 +1,98 @@
+<div align="right">
+  <div class="user_nav grid-6 m-1">
+    <% if user_signed_in? && admin_signed_in?  %>
+      <%= form_tag import_blogs_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "インポート", class: 'btn btn-warning' %>
+      <% end %>
+      <br />
+      <%= link_to "トップ", root_path , class: "btn btn-info" %>
+      <%= link_to "CSV", blogs_path(format: :csv), class: "btn btn-light" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-success" %>
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
+    <% elsif user_signed_in? %>
+      <%= link_to "トップ", root_path , class: "btn btn-info" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-success" %>
+      <%= link_to "マイページ", users_path, class: "btn btn-secondary" %>
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
+    <% else %>
+      <!-- %= link_to "新規登録", new_user_registration_path, class: 'post' , class: "btn btn-light" % -->
+      <%= link_to "ログイン", new_user_session_path, class: 'post' , class: "btn btn-success" %>
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
+    <% end %>
+  </div>
+</div>
+<br />
+<div class="left_search">
+  <ul>
+    <div class="left_search_icon">
+      <p>全文検索 :
+        <%= @blogs_index.size %> 行 (全テキスト数)</p>
+    </div>
+    <br />
+    <%= form_tag(blogs_path, method: "get") do %> <i class="fab fa-searchengin"></i> :
+      <%= search_field_tag "query", params["query"],  placeholder: '本文を入力' %>
+      <%= submit_tag '検索', :name => '鬼灯' %>
+    <% end %>
+  </div>
+  <br />
+  <div class="left_blog">
+    <table width="87%">
+      <thead>
+        <tr>
+          <th>
+            <div align="center">日時</div>
+          </th>
+          <th>
+            <div align="center">タイトル</div>
+          </th>
+          <th></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @blogs.each do |blog| %>
+          <tr>
+            <td>
+              <div align="center">
+                <%= blog.days %>
+              </div>
+            </td>
+            <td>
+              <div align="center">
+                <%= blog.title %>
+              </div>
+            </td>
+            <td>
+              <div align="left">
+                <%= link_to '閲覧', blog, class: "btn btn-primary" %>
+                <%= link_to '編集', edit_blog_path(blog), class: "btn btn-info" %>
+                <%= link_to '削除', blog, method: :delete, data: { confirm: '記事を削除してもよろしいですか？' }, class: "btn btn-light" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</ul>
+</div>
+<br>
+<%= paginate @blogs %>
+<div align="center">
+  <p> 現在日時 :
+    <%= @himekuri %>
+  </p>
+</div>
+<div align="center">
+  <p> Copyright &copy; 2018 -
+    <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center">
+  <p><b> Not Yet Another Software design of Computer
+      <%= @version %> <br />
+      powered by Ruby
+      <%= RUBY_VERSION %> / Rails
+      <%= Rails.gem_version %> / with
+      <%= @pg_version %></b></p>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>にゃそこんさん😹</title>
+    <%= favicon_link_tag "nyasocom2.ico", skip_pipeline: true %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <%= notice %>
+  <body>
+    <div class="container-fluid <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
+      <%= yield %>
+    </div>
+  </body>
+</html>

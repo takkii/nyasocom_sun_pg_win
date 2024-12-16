@@ -1,0 +1,366 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.2
+-- Dumped by pg_dump version 14.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.ar_internal_metadata OWNER TO postgres;
+
+--
+-- Name: blogs; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.blogs (
+    id bigint NOT NULL,
+    days date,
+    title character varying,
+    body text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.blogs OWNER TO postgres;
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.blogs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.blogs_id_seq OWNER TO postgres;
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.blogs_id_seq OWNED BY public.blogs.id;
+
+
+--
+-- Name: comments; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.comments (
+    id bigint NOT NULL,
+    body text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.comments OWNER TO postgres;
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.comments_id_seq OWNER TO postgres;
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO postgres;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
+    reset_password_sent_at timestamp(6) without time zone,
+    remember_created_at timestamp(6) without time zone,
+    confirmation_token character varying,
+    confirmed_at timestamp(6) without time zone,
+    confirmation_sent_at timestamp(6) without time zone,
+    unconfirmed_email character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: blogs id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blogs ALTER COLUMN id SET DEFAULT nextval('public.blogs_id_seq'::regclass);
+
+
+--
+-- Name: comments id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.comments_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	development	2022-03-24 15:53:00.596074	2022-03-24 15:53:00.596074
+\.
+
+
+--
+-- Data for Name: blogs; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.blogs (id, days, title, body, created_at, updated_at) FROM stdin;
+1	2021-10-08	初投稿、祝ブログ機能。	### ブログ機能が付きました。\n\n> ブログ機能なので、JavaやDBやRubyなど、電気・電子、PCパーツなどの記事を書いていきたい。もちろん、実装した機能の説明も入れていく。※ 容量は気にするべきかもしれない。\n\n```ruby\n\nrequire "date"\n\nclass Sample\n\n  def self.ruby\n\n     puts Time.now\n\n  end\n\nend\n\nSample.ruby\n\n```\n\n_現在時刻を発生するコード_\n\n>チャット機能にするか迷った。\n\n異なるユーザを必要としない多対多の関連付けなどがなく比較的に実装数が少ないブログ機能にした。\n\n	2022-03-24 15:53:02.246524	2022-03-24 15:53:02.246524
+2	2021-10-08	Wikiフォルダより	## Project Name, nyasocom2.\n\n_nyasocomのRails版_\n\n※ nyasocom_betaの名称も使用しています。\n\n試作品として当初は作っていました。その後、nyasocom2として公開しました。\n\n### Web Library System Name is "鬼灯""\n\n```markdown\n\n- Ruby version 3.0.1\n\n  ※ GitHubのHEAD（v1.1.5 ~）では、mroongaの依存をなくしました。\n\n- Configuration Rails 6.1.3.2\n\n動作確認\n\n- Windows ×\n\n※ 起動時、no implicit conversion of Hash into Integerを踏んでerror画面へ変移するため。\n\n- UNIX系統 (MacOS and Ubuntu 20.04(wsl) ) ○\n\n※ main and develop branch → MacOS\n\n※ wsl branch → ubuntu20.04(wsl)\n\n```\n\n### ログインするためには\n\n```markdown\n\n> .bashrc or etc shell.\n\nexport NYASOCOM_BETA_DATABASE_PASSWORD="database password"\n\n> Google アカウントを登録\n\nconfig/environments/development.rb\n\n> 67-68 行目 認証時 Google アカウント指定\n\n:username => Settings.gmail[:user_name],\n\n:password => Settings.gmail[:password],\n\n> config/database.yml\n\npassword: <%= Settings.database.password %>\n\n> 環境構築\n\n> cp settings.sample.yml config/settings.yml\n\ndatabase:\n\n  password: "Your_Local_MySQL_Password"\n\n```\n\n### Google セキュリティ管理\n\n[Google_Access_Admin](https://www.google.com/settings/security/lesssecureapps)\n\n```markdown\n\n> セキュリティを下げておく → 認証後、設定を戻す\n\nsign up → Gmail and Gmail パスワード登録\n\n→ Gmail に本登録メールが届く → 認証\n\n```\n\n<s>Gmail でメールが受信できなかった場合</s>\n\n※ HEADでは確認用メール認証を解除しました。\n\n```markdown\n\nrails server 実行コンソール内\n\n<p>Welcome karuma.reason@gmail.com!</p>\n\n<p>You can confirm your account email through the link below:</p>\n\n<p><a href="　(URL and TOKEN)　"> (URL and TOKENをブラウザに貼り付けで本人確認できる) Confirm my account</a></p>\n\n```\n\n### 管理者権限付与\n\n```markdown\n\nrails c\n\nuser = User.find(1) # 管理者対象を User(id 番号指定)\n\nuser.update_attribute(:admin, "true") # 指定した番号の User を登録\n\n```\n\n### 管理者のみ管理画面設定 (11~12 行目)\n\n> config/initializers/rails_admin.rb\n\n```markdown\n\n## == CancanCan ==\n\nconfig.authorize_with :cancancan\n\n```\n\n### macports (対処: mysql57)\n\n```markdown\n\nMysql2::Error::ConnectionError: Can not connect to local MySQL server through socket "/tmp/mysql.sock" (2)\n\nsudo ln -s /opt/local/var/run/mysql57/mysqld.sock /tmp/mysql.sock\n\n```\n\n### 新レイアウト適用\n\n```markdown\n\nnpm install -g yarn\n\nyarn add jquery\n\nyarn add bootswatch@4.5.2\n\n```\n\n### 鬼灯 ( 環境構築 )\n\n```markdown\n\n環境構築\n\n----------------\n\ngit clone https://github.com/takkii/nyasocom2.git\n\ncd nyasocom2\n\nrm -rf Gemfile.lock\n\nbundle install\n\n----------------\n\nDB操作\n\n----------------\n\nrake db:create\n\nrake db:migrate\n\nrake db:seed\n\n----------------\n\nRails 起動&停止\n\n----------------\n\n# Server Start\n\nrails s\n\n# Server Stop\n\nCtrl + C\n\n#----------------\n\n#必要なとき\n\n#----------------\n\n# mysql -uroot -p\n\n# パスワード入力:\n\n# use nyasocom_beta_development;\n\n# drop table active_storage_variant_records;\n\n#rake db:migrate\n\n必要なときはないと思います。\n\n# webpack依存を外す前\n\n# npm install -g yarn\n\n# yarn add jquery\n\n# rails webpacker:install\n\nTypeScriptが必要になれば戻します。\n\n----------------\n\n#wsl (ubuntu)\n\n----------------\n\nsudo service mysql start\n\n----------------\n\n#wsl (centos8.1)\n\n----------------\n\nsudo mkdir /var/run/mysqld\n\nsudo touch /var/run/mysqld/mysqld.pid\n\ncd /var/run/mysqld\n\nsudo chown mysql:mysql mysqld.pid\n\nsudo systemctl start mysqld\n\nsudo systemctl status mysqld\n\n# mysqld.service - MySQL 8.0 database server\n\n    Loaded: loaded (/usr/lib/systemd/system/mysqld.service, enabled)\n\n    Active: active (running)\n\nmysql_config --socket\n\nsudo ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock\n\n※ 自分の環境では、PCを再起動後もう一度同じ手順でつながりました。\n\n# RockyLinux\n\n# Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (111)\n\nsudo genie -i\n\n# Ctrl+Cのあと繰り返し\n\ngenie -s\n\nsudo systemctl start mysqld\n\n# sudo systemctl enable mysqld\n\n※ WSL2では2つのディストロでmysqlプロセスは起動できないみたいです。\n\nrmagick\n\nsudo dnf --enablerepo=powertools install lcms2-devel\n\nsudo dnf --enablerepo=powertools install ghostscript-devel\n\nsudo dnf --enablerepo=powertools install openexr-devel\n\nsudo dnf --enablerepo=powertools install jasper-devel\n\nsudo yum -y install ImageMagick ImageMagick-devel\n\n----------------\n\n# Sakura VPS\n\n----------------\n\nrails s -b 0.0.0.0\n\n```\n\n<s>sudo ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock</s>\n\n> 管理画面URL\n\nhttp://tk2-410-46434.vs.sakura.ne.jp:3000/admin\n\n> ダンプ、リストア\n\n```markdown\n\n# destroyするときのために\n\nrails g task db\n\n# ダンプ\n\nrails db:dump\n\n# リストア\n\nrails db:restore\n\n#※ ダンプ、リセット\n\nrails db:dump_reset\n\n#※ ダンプ、リセット、リストア\n\nrails db:dump_reset_restore\n\n# デフォルト (作成、マイグレーション、シードデータ投入)\n\nrails db:default_db\n\n# DB操作 (削除、作成、マイグレーション、シードデータ投入)\n\nrails db:my_default_db\n\n```\n\n※ ダンプ、リストアの対象、自前MySQLのDBすべてです。\n\n	2022-03-24 15:53:02.268123	2022-03-24 15:53:02.268123
+3	2021-10-09	にゃそこんのREADME	<div align="center"><img src="https://github.com/takkii/nyasocom2/blob/main/public/images/hozuki.png" alt="hozuki" title="logo">\n\n<br />\n\n<br />\n\n<a href="https://github.com/takkii/nyasocom2/wiki/manual">Wiki</a>に環境構築を移動しました。\n\n<br />\n\n<br />\n\n<div style="text-align: center;">にゃそこん2、始動 !</div>\n\n</div>\n\n※ タグが読めてないのもあります。	2022-03-24 15:53:02.279688	2022-03-24 15:53:02.279688
+4	2021-10-09	実装記録	### カミナリのページネーション追加\n\n```markdown\n\nブログページにもカミナリのページネーション追加しました。これにより、検索機能も付帯します。\n\n```\n\n#### より使いやすくなりました。\n\n※ ログを乗せようとしたのですが、文字数が多すぎて入りきりませんでした。文字制限あるようですね。	2022-03-24 15:53:02.285277	2022-03-24 15:53:02.285277
+5	2021-10-10	本登録	### さくらVPSの契約、本登録しました。\n\n> 今日からスタートですね。\n\n朝方、メールが来て驚いたので、\n\n早めることにしました。\n\n継続して利用できるといいなぁ。	2022-03-24 15:53:02.290383	2022-03-24 15:53:02.290383
+6	2021-10-11	erb-linter導入	>ERBを書くときにLinterが動作するようにしました。これからのための変更です。\n\n#### もう少し、その先へ。	2022-03-24 15:53:02.295543	2022-03-24 15:53:02.295543
+7	2021-10-12	レイアウト調整	> レイアウト調整しました。\n\n```markdown\n\n・ 投稿一覧にタイトルと日付追加\n\n・ ログインフォームの位置\n\n・ ブログ一覧の中央寄せ\n\n・ erb-lintの不要な設定削除\n\n・ erb-lintの設定の見直し\n\n・ erb-lintの消しすぎた設定の戻し\n\n```\n\n#### 今後も少しずつ改良していきます。\n\n_ブログは自分で作る時代。_	2022-03-24 15:53:02.301194	2022-03-24 15:53:02.301194
+8	2021-10-15	PostgreSQLの書籍購入	### Excelと連動しているPostgreSQLの本を購入。\n\n\n\n> タイトル：「内部構造から学ぶPostgreSQL　設計・運用計画の鉄則　改訂新版」\n\n\n\n```markdown\n\nできれば、にゃそこん２のDB周りもpostgresに変更したいけれど、インデックス作成まわりでつまずくので時間があるときに移行する。\n\n```\n\n#### 近況と記録。\n\n	2022-03-24 15:53:02.306588	2022-03-24 15:53:02.306588
+9	2021-10-15	PostgreSQL	### 考察\n\n\n\n> PostgreSQLでWindows環境構築ができた。\n\n\n\n```Markdown\n\n・ RubyMineでデバッグをWindows環境のRubyInstaller2でもできる。\n\n・ PostgreSQLでダンプリセットリストアシードコマンドが使える。\n\n・ IDEで書くことができるので書きやすい、治しやすい。\n\n```\n\n\n\n※ PostgreSQLにいずれは移行する。\n\n	2022-03-24 15:53:02.311824	2022-03-24 15:53:02.311824
+10	2021-10-15	MySQL	### 懸念\n\n```markdown\n\n・ 環境構築に時間がかかる。\n\n・ Windowsではmysql2が動かない。\n\n・ さくらVPSでMySQLがあるが、PostgreSQLのRails側をマージする予定である。\n\n```\n\n※ しばらくMySQLも残しておく。\n\n	2022-03-24 15:53:02.317794	2022-03-24 15:53:02.317794
+11	2021-11-26	MySQL2	### 達成\n\n```markdown\n\n・ MySQLのコネクタ、mysql2がWindowsで動作できた。wikiに記録してある。\n\n・ ローカル環境で、にゃそこん2を構築できるので反映も楽になった。\n\n・ MySQLとPostgreSQLの環境構築ができるのは良いことである。\n\n・ 2つのDB間、動作もほぼ同じになっている。\n\n```\n\n※ MySQLとPostgreSQLでにゃそこん２を作っていく。\n\n	2022-03-24 15:53:02.32308	2022-03-24 15:53:02.32308
+12	2021-12-12	🎉画像投稿機能追加	### 変更点\n\n```markdown\n\n🎉 blogs側、画像投稿機能追加しました\n\n🎨 全体、絵文字表示可能にしました。\n\n❎ books側、seedデータのstatus=>'0'を解除（未所持をデフォルト）しました。\n\n⭕ 起動時、ログインレイアウトの調整をしました。\n\n```\n\n#### 🍭本日のChangeLogsでした。\n\n\n\n	2022-03-24 15:53:02.328689	2022-03-24 15:53:02.328689
+13	2021-12-13	🌠 作業記録	### ChangeLogs\n\n```markdown\n\n# さくらVPS稼働版\n\n# mysql側nyasocom2\n\n⛄ 絵文字表示\n\n🍬 画像投稿機能追加\n\n🎮 DBバックアップ\n\n```\n\n以上です。\n\n	2022-03-24 15:53:02.334308	2022-03-24 15:53:02.334308
+14	2021-12-31	大晦日🌞	\n\n```markdown\n\n# Windows環境\n\n・ ruby3.1.0がでているがnokogiriでrailsを起動できない。依存ライブラリzlibなどでこける。\n\n・ ruby3.0.3を入れ直し。2.7.xを削除。\n\n・ Vimの設定ファイル書き直し。\n\n```\n\n	2022-03-24 15:53:02.340015	2022-03-24 15:53:02.340015
+15	2022-01-01	新年🔔	#### 記録\n\n```markdown\n\n・ コワーキングスペースと弁済金の入金済み\n\n・ ATMは動いていた。\n\n・ Excelに入力完了、あとどれくらいか見られる\n\n```\n\n#### 新年の抱負\n\n```markdown\n\n・ Ruby技術者Goldを取得する\n\n・ Railsエンジニア5basicを取得する\n\n# 挑戦\n\n・ OSS-DB Silverに挑戦する\n\n・ Python3 データ分析に挑戦する\n\n# どちらでも\n\n・ Oracle java bronze 合格を目指す\n\n```\n\n以上\n\n	2022-03-24 15:53:02.345456	2022-03-24 15:53:02.345456
+16	2022-01-04	🍬 新年開始	### 明けましておめでとうございます。今年もよろしくお願いします。🙇\n\n```markdown\n\n・ RubyInstaller2で3.1.0を入れてそれぞれの環境を設置 (にゃそこん2、にゃそこん、zinbei、zinbeijettなど)\n\n・ にゃそこんのRubyを3.1.0にバージョンアップ\n\n・ go_straightの更新\n\n・ configの新規作成\n\n・ install.rb、installer.rbで自動生成確認\n\n```\n\n以上です。\n\n	2022-03-24 15:53:02.3509	2022-03-24 15:53:02.3509
+17	2022-01-05	did_you_meanに対処🚆	### 変更点\n\n```markdown\n\nCalling `DidYouMean::SPELL_CHECKERS.merge!(error_name => spell_checker)' has been deprecated. Please call `DidYouMean.correct_error(error_name, spell_checker)' instead.\n\n```\n\nこれに対応しました。\n\n> Qiitaに投稿\n\n[Railsの謎メッセージ対処](https://qiita.com/takkii/items/7d4d1279b5f9ad75f647)\n\n#### 文章化成功💡\n\n	2022-03-24 15:53:02.356244	2022-03-24 15:53:02.356244
+18	2022-03-05	にゃそこん3😹	### 変更点\n\n  ```markdown\n  ・ にゃそこん2よりDBコマンドを移植\n  ・ トップに戻れるボタンを編集画面などに追加\n  ・ レイアウト調整\n  ・ 削除ボタンと編集リンクなどをバリアフリー化\n  変更があればまた記事します。\n  ```\n\n※ 前回、削除ボタンの動作確認のため、DBを入れ直しました。	2022-03-24 15:53:02.361328	2022-03-24 15:53:02.361328
+19	2022-03-19	人修羅🚶	### 更新\n\n  ```markdown\n  ・ 人修羅Lv.99とライドウLV.99で、メタトロン、ベルゼブブ、ミカエル、ガブリエル、ラファエル、ウリエル、ギリガメラの貫通持ち所有、御魂に貫通継承などをして1週目クリアしました。\n  \n  奥さんに、クリア画面を見せれてよかったです。少し疲れたので、2週目はすぐにはしないですね。ちょっとずつ進めていきます。\n  \n  # スパロボ、クリアできる自信ないな。面白くないんだよな。難易度も、ストーリーも、出現する機体も。\n  ```	2022-03-24 15:53:02.366365	2022-03-24 15:53:02.366365
+20	2022-03-05	真女神転生Ⅴ👿	### 更新\n\n  > メガテン5を買いました。ユニバーサルエンジンというのを積んでいて、立体的に主人公が動きます。女性かなと想っていたのですが少年という設定で、名前を三毛猫ホームズにしました。どっちかわからなかったし、本名は伏せたかったので。\n  \n  ```markdown\n  ・ にゃん太郎のショルダーバッグ待ち。来るかな。午前中に来ました。やったね。Amazonに評価付けておいた。ありがとう。\n  \n  ・ コワーキングスペースのポストみてきた。何も無し。自転車の空気を入れてきた。行って良かった。天気も良くサイクリング日よりでした。\n  \n  ・ にゃそこん3のブログ側検索窓、タイトルだけなの本文にもヒットするように変更した。あとコメント一覧に検索窓設置。コメント検索できるようにした。\n  ```	2022-03-24 15:53:02.374048	2022-03-24 15:53:02.374048
+21	2021-08-18	himekuri2を更新しました。	<p><iframe src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fgithub.com%2Ftakkii%2Fhimekuri2" title="GitHub - takkii/himekuri2: [  Ruby/C++ ] 日めくり 2 📅" class="embed-card embed-webcard" scrolling="no" frameborder="0" style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"></iframe><cite class="hatena-citation"><a href="https://github.com/takkii/himekuri2">github.com</a></cite></p>\n\n  <h3>変更点</h3>\n  \n  <pre class="code lang-markdown" data-lang="markdown" data-unlink>・ rice3からrice4に対応しました。\n  ・ windows環境に対応しました。(himekuri2<span class="synError">_</span>winでビルドしました)\n        → プロジェクト外で実行するとロードエラーを返すのに対処しました。\n  ・ 不要なrequireを消しました。\n  </pre>\n  \n  \n  <p><s><a class="keyword" href="http://d.hatena.ne.jp/keyword/windows">windows</a>環境に対応しました。(himekuri_c_plusplusでビルドしました)</s></p>\n  \n  <p>以上です。</p>	2022-03-24 15:53:02.379403	2022-03-24 15:53:02.379403
+22	2022-03-25	よく眠れました💤	### 更新\r\n\r\n```markdown\r\n・ メガテン5のユニバーサルエンジンに慣れない。早速、全滅してしまった。ロードからやり直し。クエストもいいけど、クリアすることにも念頭に置くべし。\r\n\r\n・ BIZUDGothicとBIZUDMincho、UDEVGoshic、UDEVGoshicLGをvscodeのファミリーに追加してみた。HackGenと共存している。もう少し見やすくなったかな。homebrewでリストがあれば追加しておく。\r\n\r\n・ はてなブログを退会しました。書いた記事のテキストは手に入れたのでにゃそこん3のseed.rbに少しずつ追加していきます。どれくらいかかるだろう。本文を検索対象にしたので、該当する内容を調べることはできそう。\r\n```	2022-03-25 12:43:26.078781	2022-03-25 16:40:22.358461
+23	2022-03-27	リンク解除🔏	### 更新\r\n\r\n```markdown\r\n・ reactで作ろうとしているwelcomesページのリンクを解除しました。とりあえず、作ってからもう一度張り直します。\r\n\r\n※ GitHubのdependentbotがマージをよく投げてくるようになったためです。\r\n```	2022-03-27 13:33:48.248727	2022-03-27 13:33:48.248727
+24	2022-04-06	コワーキング🔏	### 更新内容\r\n\r\n```markdown\r\n・ Ping-tに登録した1年分前払い。とりあえず505問を2日でしたが意味がわからず。よく理解するまで繰り返し解く。\r\n\r\n・ やっとこさ、RubyGemsで依存ライブラリを登録できた。インストール時に自動的に入るため、手動で入れなくてよくなった。対象は、zinbeiとzinbeijett。\r\n\r\n・ Findyの伸びしろが120ぐらいまで伸びて、73の偏差値に変わった。特段何かあるわけじゃないが、偏差値が加算されたのはうれしい。\r\n```\r\n\r\n#### 自分を認め、生きていく。	2022-04-06 13:12:24.486045	2022-04-06 13:12:24.486045
+25	2022-04-13	コロナワクチン3回目💉	### 活動内容\r\n\r\n```markdown\r\n・ 虎徹(CPUクーラー)を買いました。\r\nTwitterやFindyなどの懸賞に応募して当たったのを割引に使いました。\r\n\r\nコロナワクチンを接種した日に取り付けたのですが、ディスプレイに映らない問題が発生しました。\r\n\r\n対処、ディスプレイの電源を切る→PC本体の電源を切る→1日放置→\r\n\r\nボタン電池(CR2032)を取り替える→\r\n\r\nグリスの量を調整(はみ出る部分をティッシュで拭き取る)などをしました。\r\n\r\n・BIOSがついて、CPUファンの接続先ケーブル違いが発生したのに対処→Windows起動でした。\r\n\r\n・PCを初期化、入れ直しました。PBO(Precision Boost Overdrive)があるともはや遅い処理のコンピュータにイライラするようになりましたね。きっと怠惰な技術者には必要な機能です。\r\n\r\n・コロナワクチン3回目接種、接種証明アプリを入れました。ちゃんと証明書発行までしました。\r\n\r\n・接種当日、腕に痛みあり。接種2日目、38.1℃を超える体温になりました。\r\n\r\nこのとき頭痛と目が腫れていて痛みがありました。接種3日目、頭痛は少しだけになり、目の腫れは止まり痛みはなくなりました。\r\n\r\n完全復活までもう少し。コロナをなめていましたね。\r\n```\r\n\r\n※ 話題はたくさん。盛りだくさん。	2022-04-13 16:25:21.539127	2022-04-18 13:44:47.625631
+26	2022-04-18	備忘録⚽	### 最近の活動記録🏀\r\n\r\n```markdown\r\n・ Windows 10 pro → Windows 11 proにアップグレードした。やりたいことに制限はなくなり、動作は前より軽い。後日、グラフィックドライバーも更新した。ドライバーのみ入れた。\r\n\r\n・ opencvの電子書籍を買ったので、試しに動作をWSLでみると動く。サンプルとして、動作をみるのもよい。ついでにディープラーニングとはどういうものかも知ろう。テストケースを機械学習に変更も良いかもしれない。いろいろopencvで改良してみよう。\r\n\r\n・ コロナワクチン3回目、4日も経てば痛みはとれた。体調は万全だけど、数日経過してしまったpostgresの知識は入れ直し。すぐには境界線まで行かないもんだね。繰り返し解く。\r\n```	2022-04-18 13:50:25.782738	2022-04-18 13:50:25.782738
+27	2022-04-24	一週間振り返り🎾	### 備忘録 💵\r\n\r\n```markdown\r\n・ power-rubyist(ryzen2700x)のディスプレイを2枚に増やした。起動も確認。\r\n\r\n・ Ping-tを続けている。得点は、0~70%で変動する。安定してきたら、よいのだけどね。\r\n\r\n・ コワーキングスペースのポスト確認。入らないときは入ってないのだけど、選挙の封筒が入っていた。\r\n\r\n・ WSLに22.04を入れた。ruby、python、node.js、perl、postgresqlを設定した。\r\n\r\n・ iMac側、OSの更新を含めていろいろ更新した。Commandlinetoolsからhomebrewやneovim、macvimなど。neovimにcopilotをセットした。\r\n```\r\n\r\nそんな一週間、右隣の人が引っ越してきた。	2022-04-24 14:12:30.331957	2022-04-24 14:17:40.781784
+28	2022-04-25	備忘録📋	### 行動記録👱\r\n\r\n```markdown\r\n・ Ping-tで10問50%、まだまだだけどとりあえず点数をキープできるようにする。\r\n\r\n・ ゲンキーで買い出し、3日分あればよい。2300円弱だったけれど、良い買い物かどうかは食料がどれくらいまで持つかによりけり。\r\n\r\n・ Gemfileの依存ライブラリ更新。いつものことだけど、更新しておくに超したことはない。\r\n```\r\n\r\n今日の振り返り、報告。	2022-04-25 14:13:00.423391	2022-04-25 14:13:35.692454
+\.
+
+
+--
+-- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.comments (id, body, created_at, updated_at) FROM stdin;
+1	ブログの追記、コメントはこちら。	2022-03-24 15:53:02.395032	2022-03-24 15:53:02.395032
+2	コメント、データベース入れ直し後。追加	2022-03-24 15:53:02.406294	2022-03-24 15:53:02.406294
+3	記事、レイアウト調整。2022/03/05。	2022-03-24 15:53:02.412316	2022-03-24 15:53:02.412316
+4	コメント、更新。2022/03/19。	2022-03-24 15:53:02.417489	2022-03-24 15:53:02.417489
+5	2022/03/24更新。メガテン。バッグなど。	2022-03-24 15:53:02.422467	2022-03-24 15:53:02.422467
+6	2022/03/25、更新。メガテン、フォントなど。	2022-03-25 16:41:19.838203	2022-03-25 16:41:19.838203
+7	2022/03/27、にゃそこん3の更新内容。	2022-03-27 13:34:18.803023	2022-03-27 13:34:18.803023
+8	2022/04/06、更新。	2022-04-06 13:13:22.366844	2022-04-06 13:13:22.366844
+\.
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.schema_migrations (version) FROM stdin;
+20220223072228
+20220224025356
+20220225054324
+20220314073952
+20220324012633
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, confirmation_token, confirmed_at, confirmation_sent_at, unconfirmed_email, created_at, updated_at) FROM stdin;
+1	karuma.reason@gmail.com	$2a$12$kUli0TeMOfcAEhkXxeGbHOD00SnWFQCAP6TCjTSlKSyeZSyn6IPWC	\N	\N	\N	2PzusoNsohySRCVZT2ZF	2022-03-24 15:54:46.02932	2022-03-24 15:54:26.644198	\N	2022-03-24 15:54:26.644008	2022-03-24 15:54:46.029824
+\.
+
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.blogs_id_seq', 28, true);
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.comments_id_seq', 8, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+
+
+--
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: blogs blogs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blogs
+    ADD CONSTRAINT blogs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_blogs_on_body; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX index_blogs_on_body ON public.blogs USING hash (body);
+
+
+--
+-- Name: index_blogs_on_title; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX index_blogs_on_title ON public.blogs USING btree (title);
+
+
+--
+-- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX index_users_on_confirmation_token ON public.users USING btree (confirmation_token);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX index_users_on_email ON public.users USING btree (email);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING btree (reset_password_token);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

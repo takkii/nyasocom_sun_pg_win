@@ -1,0 +1,1 @@
+SELECT body FROM comments order by created_at DESC;
