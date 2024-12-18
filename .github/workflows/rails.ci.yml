@@ -10,10 +10,8 @@ jobs:
     services:
         postgres:
           image: groonga/pgroonga:latest-alpine-16
-        env:
-          POSTGRES_PASSWORD: '20070920'
-        ports:
-          - '5432:5432'
+          ports:
+            - '5432:5432'
 
     steps:
     - name: Checkout code
