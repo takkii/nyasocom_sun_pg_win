@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.6'
+#ruby '3.4.0-preview2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails'
@@ -75,7 +76,7 @@ gem 'ostruct'
 
 # gem 'license_finder'
 
-# group :development, :test do
+group :development, :test do
 #   See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
 #   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
@@ -84,15 +85,16 @@ gem 'ostruct'
 #   gem 'debase'
 
 #   rspec
-#   gem 'factory_bot_rails'
-#   gem 'rspec-rails'
-#   gem 'spring-commands-rspec'
+  gem 'rspec'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 
 #   rubocop
 #   gem 'rubocop', require: false
 #   gem 'rubocop-performance', require: false
 #   gem 'rubocop-rails', require: false
-# end
+end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -104,12 +106,12 @@ group :development do
   # gem 'erb-formatter'
 end
 
-# group :test do
+group :test do
 #   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-#   gem 'capybara'
-#   gem 'selenium-webdriver'
-#   gem 'webdrivers'
-# end
+ gem 'capybara'
+ gem 'selenium-webdriver'
+ gem 'webdrivers'
+end
 
 # use windows env
 gem 'tzinfo-data' if Gem.win_platform?
