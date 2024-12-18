@@ -12,7 +12,7 @@ jobs:
         image: groonga/pgroonga:latest-alpine-16
         env:
           POSTGRES_PASSWORD: '20070920'
-       ports:
+        ports:
           - '5432:5432'
 
     steps:
