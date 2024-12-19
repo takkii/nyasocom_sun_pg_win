@@ -6,7 +6,7 @@ describe User do
     end
 
     it "is valid with a email, and password" do
-        user = User.new(email: "karuma.reason1@gmail.com", password: "rubyist1122")
+        user = User.new(email: "karuma.reason1@gmail.com", password: "jbUuwYC-4lWO8JMFruPvePQGA")
         expect(user).to be_valid
     end
 
