@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.6'
-#ruby '3.4.0-preview2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails'
@@ -65,7 +64,7 @@ gem 'bootsnap', require: false
 gem 'rotp'
 gem 'rqrcode'
 
-# ostruct.rb was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.5.0.
+# The default gems starting from Ruby 3.5.0.
 gem 'ostruct'
 
 # mail opener
@@ -73,16 +72,13 @@ gem 'ostruct'
 # gem 'readapt'
 
 # License view
-
 # gem 'license_finder'
 
 group :development, :test do
-#   See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-#   gem 'debug', platforms: %i[mri mingw x64_mingw]
-
-#   vscode debug
-#   gem 'ruby-debug-ide'
-#   gem 'debase'
+#   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 
 #   rspec
   gem 'rspec'
@@ -108,9 +104,10 @@ end
 
 group :test do
 #   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
- gem 'capybara'
- gem 'selenium-webdriver'
- gem 'webdrivers'
+# gem 'capybara'
+# gem 'selenium-webdriver'
+# gem 'webdrivers'
+# gem 'debug'
 end
 
 # use windows env
