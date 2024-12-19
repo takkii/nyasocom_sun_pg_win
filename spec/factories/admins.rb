@@ -1,8 +1,8 @@
 # spec/factories/admins.rb
 FactoryBot.define do
     factory :admin do
-      sequence(:email) { |n| "karuma_reason#{n}@yahoo.co.jp" }
-      password              { "1122rubyist" }
-      password_confirmation { "1122rubyist" }
+      sequence(:email) { |n| "sound_gear_0830#{n}@yahoo.co.jp" }
+      password              { "DQjZs!edkzrgbM$4VVte2!LZE" }
+      password_confirmation { "DQjZs!edkzrgbM$4VVte2!LZE" }
   end
 end
