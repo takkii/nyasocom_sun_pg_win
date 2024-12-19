@@ -2,7 +2,7 @@
 FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "karuma.reason#{n}@gmail.com" }
-    password              { "rubyist1122" }
-    password_confirmation { "rubyist1122" }
+    password              { "jbUuwYC-4lWO8JMFruPvePQGA" }
+    password_confirmation { "jbUuwYC-4lWO8JMFruPvePQGA" }
   end
 end
