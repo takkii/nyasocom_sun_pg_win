@@ -34,7 +34,7 @@ jobs:
     - name: Cache Ruby gems
       uses: actions/cache@v3
       with:
-        path: vendor/bundle # キャッシュするディレクトリを指定します。
+        path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gems-
@@ -47,9 +47,9 @@ jobs:
     
     - name: Run Migration
       run: |
-          bundle exec rails db:create
-          bundle exec rails db:migrate:reset
-          bundle exec rails db:seed
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate:reset RAILS_ENV=test
+          bundle exec rails db:seed RAILS_ENV=test
   
     - name: Run RSpec
       run: bundle exec rspec
