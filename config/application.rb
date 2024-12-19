@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 module Nyasocom3
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 8.0
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.fallbacks = true
@@ -39,6 +39,14 @@ module Nyasocom3
     # config.factory_bot.definition_file_paths = ["spec/factories"]
 
     # warning
-    ActiveSupport::Deprecation.silenced = true if Rails.version == '7.0.3'
+    # ActiveSupport::Deprecation.silenced = true if Rails.version == '8.0.1'
+    
+    # rspec
+    config.generators do |g|
+      g.test_framework = "rspec"
+      g.controller_specs = false
+      g.helper_specs = false
+      g.view_specs = false
+    end
   end
 end
