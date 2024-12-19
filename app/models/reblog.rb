@@ -12,9 +12,6 @@ class Reblog < ApplicationRecord
   # movie video uploder
   mount_uploader :video, VideoUploader
 
-  # music
-  mount_uploader :file, AudiofileUploader
-
   # seach method
   def self.search(search)
     return Blog.preload(@reblogs).all unless search
