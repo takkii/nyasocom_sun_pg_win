@@ -6,7 +6,7 @@ describe Admin do
     end
 
     it "is valid with a email, and password" do
-        admin = Admin.new(email: "karuma_reason1@yahoo.co.jp", password: "1122rubyist")
+        admin = Admin.new(email: "sound_gear_08301@yahoo.co.jp", password: "DQjZs!edkzrgbM$4VVte2!LZE")
         expect(admin).to be_valid
     end
 
