@@ -1,7 +1,5 @@
 # rspec sample string matcher.
 
-require 'spec_helper'
-
 describe String do
   it 'should be a kind of String' do
     expect('hello').to be_kind_of(String)
