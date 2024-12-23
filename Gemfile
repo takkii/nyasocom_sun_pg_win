@@ -51,7 +51,7 @@ gem 'rouge'
 
 # uploads images
 gem 'carrierwave'
-#gem 'rmagick'
+gem 'rmagick'
 
 # csv
 gem 'csv'
@@ -76,7 +76,6 @@ gem 'ostruct'
 
 group :development, :test do
 #   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 
