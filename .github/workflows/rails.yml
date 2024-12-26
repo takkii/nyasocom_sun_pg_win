@@ -24,7 +24,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3.6'
+        ruby-version: '3.4.1'
       env:
         RAILS_ENV: develop
         POSTGRES_HOST: postgres
