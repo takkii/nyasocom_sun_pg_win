@@ -2,8 +2,8 @@
 FROM ubuntu:focal
 # mkdir users
 LABEL maintainer="Takayuki Kamiyama <karuma.reason@gmail.com>"
-# ruby 3.3.x
-FROM ruby:3.3.6
+# ruby 3.4.x
+FROM ruby:3.4.1
 # http://manpages.ubuntu.com/manpages/xenial/man7/debconf.7.html
 ENV DEBCONF_NOWARNINGS=yes
 # build package
