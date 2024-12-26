@@ -11,7 +11,7 @@ class TopController < ActionController::Base
     @status = Kaminari.paginate_array(Blog.where(status: 'false').order(days: :desc)).page(params[:page])
     # comment paginate 5 page
     @comments = Kaminari.paginate_array(Comment.search(params[:search]).order(created_at: :desc)).page(params[:page]).per(5)
-    @version = 3
+    @version = 3.1
     sql = "SHOW pgroonga.libgroonga_version;"
     query = ActiveRecord::Base.connection.select_all(sql).to_a
     pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip
