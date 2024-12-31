@@ -2,7 +2,7 @@ require 'open3'
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
-  before_filter :validate_ipadress
+  before_action :validate_ipadress
 
   def after_sign_in_path_for(resource)
     #root_path # ログイン後に遷移するpathを設定
