@@ -1,4 +1,4 @@
-#### rails 8.0.1
+### rails 8.0.1
 
 ```markdown
 Information for cause: ArgumentError (Passed nil to the :model argument, expect an object or false):
@@ -197,13 +197,21 @@ mkcert --uninstall
 
 # localhost
 mkcert localhost
+
+```````
+#### Node.js、依存ライブラリ
+
+```markdown
+cd nyasocom_sun_pg_win
+cd /app/controllers
+npm install
 ```
 
 #### 依存ライブラリ
 
+```markdown
 > license_finder
 
-```markdown
 Dependencies that need approval:
 @esbuild/win32-x64, 0.24.0, MIT
 @fortawesome/fontawesome-free, 6.7.1, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
