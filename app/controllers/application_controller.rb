@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
   private
 
   def validate_ipaddress
-     local_ip = AllowedSource.all
      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
 
