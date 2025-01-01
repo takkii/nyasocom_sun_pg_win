@@ -30,10 +30,15 @@ class ApplicationController < ActionController::Base
      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
      # When the server is running, only a few permissions are granted.
-     ip_match = ENV['IPADDRESS_USER']
+     ip_win = ENV['IPADDRESS_WIN ']
+     ip_wsl = ENV['IPADDRESS_WSL ']
      
      # Development is assumed to be in a local environment.
-     unless "#{stdout_js}".match( /#{ip_match}/o) || {}[:match]
+     if "#{stdout_js}".match( /#{ip_win}/o) || {}[:match]
+     	 # windows, ip address specification, nothing displayed.
+     elsif "#{stdout_js}".match( /#{ip_wsl}/o) || {}[:match]
+     	 # wsl2, ip address specification, nothing displayed.
+     else
      	raise MyError, "An exception was raised on its own. Something other than an IP address was matched. Please review." 
      end
   end
