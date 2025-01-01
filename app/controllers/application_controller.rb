@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   }
 
   def after_sign_in_path_for(resource)
-    #root_path # ログイン後に遷移するpathを設定
+    #root_path # Set the path to transition to after logging in
     new_two_step_verification_path
   end
 
   def after_sign_out_path_for(resource)
-    root_path # ログアウト後に遷移するpathを設定
+    root_path # Set the path to transition to after logging out
   end
 
   def set_locale
