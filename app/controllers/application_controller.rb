@@ -29,8 +29,10 @@ class ApplicationController < ActionController::Base
   def validate_ipaddress
      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
+     # Specify a single IP address you want to allow
+     ip_match = ""
 
-     unless "#{stdout_js}".match(/^10\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$|^172\.(1[6-9]|2[0-9]|3[0-1])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$|^192\.168\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/o) || {}[:match]
+     unless "#{stdout_js}".match( /#{ip_match}/o) || {}[:match]
      	raise MyError, "An exception was raised on its own. Something other than an IP address was matched. Please review." 
      end
   end
