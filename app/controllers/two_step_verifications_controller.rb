@@ -5,7 +5,7 @@ class TwoStepVerificationsController < ApplicationController
   def new
     @otp_secret = ROTP::Base32.random
     totp = ROTP::TOTP.new(
-      @otp_secret, issuer: 'にゃそこん参'
+      @otp_secret, issuer: 'nyasocom sun'
     )
     @qr_code = RQRCode::QRCode
       .new(totp.provisioning_uri(current_user.email))
@@ -16,7 +16,7 @@ class TwoStepVerificationsController < ApplicationController
   def create
     @otp_secret = params[:otp_secret]
     totp = ROTP::TOTP.new(
-      @otp_secret, issuer: 'にゃそこん参'
+      @otp_secret, issuer: 'nyasocom sun'
     )
 
     last_otp_at = totp.verify(

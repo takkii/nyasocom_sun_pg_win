@@ -20,7 +20,7 @@ class UserController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = 'ユーザーを削除しました。'
+    flash[:notice] = 'The user has been deleted.'
     redirect_to user_index_path
   end
 

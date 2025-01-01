@@ -32,7 +32,7 @@ class BlogsController < ApplicationController
 
   def import
     Blog.import(params[:file])
-    redirect_to blogs_url, notice: 'CSVインポートしました'
+    redirect_to blogs_url, notice: 'CSV imported.'
   end
 
   def set_csrf_token_header
@@ -58,7 +58,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to blog_url(@blog), notice: "ブログの記事を新規作成しました。" }
+        format.html { redirect_to blog_url(@blog), notice: "Created a new blog post." }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -71,7 +71,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to blog_url(@blog), notice: "ブログの記事を更新しました！" }
+        format.html { redirect_to blog_url(@blog), notice: "The blog post has been updated!" }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -85,7 +85,7 @@ class BlogsController < ApplicationController
     @blog.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "ブログの記事を削除しました。" }
+      format.html { redirect_to root_path, notice: "The blog post has been deleted." }
       format.json { head :no_content }
     end
   end
