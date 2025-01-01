@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
 
      unless "#{stdout_js}".match(/^10\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$|^172\.(1[6-9]|2[0-9]|3[0-1])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$|^192\.168\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/o) || {}[:match]
-     	 blog_comments.errors.add('The conditional expression returned false.')
+     	raise MyError, "An exception was raised on its own. Something other than an IP address was matched. Please review." 
      end
   end
 
