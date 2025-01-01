@@ -9,7 +9,7 @@ class BlogCommentsController < ApplicationController
 
 
   def destroy
-    # 1週間分削除
+    # Delete one week
     @review = BlogComment.where("created_at > ?", Time.now - 7.days).destroy_all
   end
 
