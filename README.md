@@ -12,11 +12,9 @@
 
 #### テスト駆動開発、テストコードが通らない機能を追加しません。
 
-> テストコード、各項目検証中！
+> テストコード、各項目随時検証。
 
 - [x] 文字列の評価
-
-- [ ] 検証中 
 
 ※ 無料プラン移行のため、[Wiki](https://github.com/takkii/nyasocom_sun_pg_win/blob/main/wiki/manual.md)フォルダ内に移動しました。
 
