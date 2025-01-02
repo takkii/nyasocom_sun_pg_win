@@ -1,10 +1,8 @@
 require 'open3'
 
 class ApplicationController < ActionController::Base
-  before_action ->{
-   :set_locale
-   :validate_ipaddress
-  }
+  before_action :set_locale
+  before_action :validate_ipaddress
 
   def after_sign_in_path_for(resource)
     #root_path # Set the path to transition to after logging in
@@ -30,17 +28,27 @@ class ApplicationController < ActionController::Base
      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
      # When the server is running, only a few permissions are granted.
-     ip_win = ENV['IPADDRESS_WIN']
-     ip_wsl = ENV['IPADDRESS_WSL']
+
+     # IP address(IPv4), enter one digit at a time in ascending order.
+     win_ip_one = ENV['WIN_IP_ONE']
+     win_ip_two = ENV['WIN_IP_TWO']
+     win_ip_three = ENV['WIN_IP_THREE']
+     win_ip_four = ENV['WIN_IP_FOUR']
+     wsl_ip_one = ENV['WSL_IP_ONE']
+     wsl_ip_two = ENV['WSL_IP_TWO']
+     wsl_ip_three = ENV['WSL_IP_THREE']
+     wsl_ip_four = ENV['WSL_IP_FOUR']
      
-     # Development is assumed to be in a local environment.
-     if "#{stdout_js}".match( /#{ip_win}/o) || {}[:match]
-     	 # windows, ip address specification, nothing displayed.
-     elsif "#{stdout_js}".match( /#{ip_wsl}/o) || {}[:match]
-     	 # wsl2, ip address specification, nothing displayed.
-     else
-     	raise MyError, "An exception was raised on its own. Something other than an IP address was matched. Please review." 
-     end
+      # Development is assumed to be in a local environment.
+      if "#{stdout_js}".match( /#{win_ip_one}.#{win_ip_two}.#{win_ip_three}.#{win_ip_four}/o) || {}[:match]
+	 # windows, ip address specification, nothing displayed.
+     elsif "#{stdout_js}".match( /#{wsl_ip_one}.#{wsl_ip_two}.#{wsl_ip_three}.#{wsl_ip_four}/o) || {}[:match]
+	 # wsl2, ip address specification, nothing displayed.
+     else 
+ 	puts "An exception was raised on its own. Something other than an IP address was matched. Please review." 
+	raise MyError => e
+	puts e.backtrace
+    end
   end
 
   def render_404(e)
