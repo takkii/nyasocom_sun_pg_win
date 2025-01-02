@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
      # When the server is running, only a few permissions are granted.
-     ip_win = ENV['IPADDRESS_WIN ']
-     ip_wsl = ENV['IPADDRESS_WSL ']
+     ip_win = ENV['IPADDRESS_WIN']
+     ip_wsl = ENV['IPADDRESS_WSL']
      
      # Development is assumed to be in a local environment.
      if "#{stdout_js}".match( /#{ip_win}/o) || {}[:match]
