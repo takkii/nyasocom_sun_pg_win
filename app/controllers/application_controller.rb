@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :validate_ipaddress
 
   def after_sign_in_path_for(resource)
-    #root_path # Set the path to transition to after logging in
-    new_two_step_verification_path
+    root_path # Set the path to transition to after logging in
   end
 
   def after_sign_out_path_for(resource)
