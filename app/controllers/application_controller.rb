@@ -44,9 +44,8 @@ class ApplicationController < ActionController::Base
      elsif "#{stdout_js}".match( /#{wsl_ip_one}.#{wsl_ip_two}.#{wsl_ip_three}.#{wsl_ip_four}/o) || {}[:match]
 	 # wsl2, ip address specification, nothing displayed.
      else 
- 	puts "An exception was raised on its own. Something other than an IP address was matched. Please review." 
-	raise MyError => e
-	puts e.backtrace
+ 	# An exception was raised on its own. Something other than an IP address was matched. Please review. 
+       render file: "public/404.html", status: :not_found, layout: false
     end
   end
 
