@@ -2,19 +2,7 @@
 
 ### にゃそこん参ぴーじーうぃん / [動画マニュアル_実環境編](https://youtu.be/6Rq5Jdilko0)
 
-> 2024/12/19 : 更新履歴
-
-- [x] 目的: GitHub Action、rspecで自動テストを行うため。
-
-- [x] Rspecで自動テスト、ローカルからテストしたコーディング。
-
-※ GitHub Action側、ビルドエラーはなくなりました。
-
 #### テスト駆動開発、テストコードが通らない機能を追加しません。
-
-> テストコード、各項目随時検証。
-
-- [x] 文字列の評価
 
 ※ 無料プラン移行のため、[Wiki](https://github.com/takkii/nyasocom_sun_pg_win/blob/main/wiki/manual.md)フォルダ内に移動しました。
 
