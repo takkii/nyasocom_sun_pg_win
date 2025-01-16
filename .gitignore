@@ -47,3 +47,7 @@ yarn.lock
 
 # Node.js
 /app/controllers/node_modules/*
+
+# Sass
+.sass-cache/*
+
