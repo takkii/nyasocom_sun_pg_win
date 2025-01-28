@@ -1,9 +1,10 @@
 var Env = /** @class */ (function () {
     function Env() {
-        this.ip = require('ip');
+        var ip = require('ip');
+        this.ip_address = ip.address();
     }
     Env.prototype.run = function () {
-        console.log("".concat(this.ip.address()));
+        console.log("".concat(this.ip_address));
     };
     return Env;
 }());
