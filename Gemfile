@@ -60,10 +60,6 @@ gem 'roo'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-# two factor
-gem 'rotp'
-gem 'rqrcode'
-
 # The default gems starting from Ruby 3.5.0.
 gem 'ostruct'
 
