@@ -112,8 +112,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_05_195341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.string "otp_secret"
-    t.integer "last_otp_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", using: :pgroonga
