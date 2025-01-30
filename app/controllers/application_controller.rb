@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
 
   def validate_ipaddress
      begin
+       unless Dir.exist?("./app/controllers/node_modules/")
+         npm_install = "cd #{File.dirname(__FILE__)} && npm install"
+         stdout_npm, stderr_npm, status_npm = Open3.capture3(npm_install)
+         stdout_npm
+       end
+
        # If you do not resolve the dependent libraries, a runtime error may occur.
        nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
        stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
