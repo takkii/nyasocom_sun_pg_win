@@ -327,7 +327,7 @@ zeitwerk, 2.7.1, MIT
 ### yarn licenses list
 
 ```markdown
-  yarn licenses v1.22.22
+yarn licenses v1.22.22
 ├─ (CC-BY-4.0 AND OFL-1.1 AND MIT)
 │  └─ @fortawesome/fontawesome-free@6.7.2
 │     ├─ URL: https://github.com/FortAwesome/Font-Awesome
@@ -422,6 +422,48 @@ zeitwerk, 2.7.1, MIT
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
 Done in 0.35s.
+```
+
+> ./app/controllers/
+
+```markdown
+yarn licenses v1.22.22
+warning package.json: No license field
+warning No license field
+├─ BSD-3-Clause
+│  └─ sprintf-js@1.1.3
+│     ├─ URL: https://github.com/alexei/sprintf.js.git
+│     └─ VendorName: Alexandru Mărășteanu
+└─ MIT
+   ├─ @types/ip@1.1.3
+   │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
+   │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ip
+   ├─ @types/node@22.13.1
+   │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
+   │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
+   ├─ ip-address@9.0.5
+   │  ├─ URL: git://github.com/beaugunderson/ip-address.git
+   │  ├─ VendorName: Beau Gunderson
+   │  └─ VendorUrl: https://beaugunderson.com/
+   ├─ ip@2.0.1
+   │  ├─ URL: http://github.com/indutny/node-ip.git
+   │  ├─ VendorName: Fedor Indutny
+   │  └─ VendorUrl: https://github.com/indutny/node-ip
+   ├─ jsbn@1.1.0
+   │  ├─ URL: https://github.com/andyperlitch/jsbn.git
+   │  └─ VendorName: Tom Wu
+   ├─ smart-buffer@4.2.0
+   │  ├─ URL: https://github.com/JoshGlazebrook/smart-buffer.git
+   │  ├─ VendorName: Josh Glazebrook
+   │  └─ VendorUrl: https://github.com/JoshGlazebrook/smart-buffer/
+   ├─ socks@2.8.3
+   │  ├─ URL: https://github.com/JoshGlazebrook/socks.git
+   │  ├─ VendorName: Josh Glazebrook
+   │  └─ VendorUrl: https://github.com/JoshGlazebrook/socks/
+   └─ undici-types@6.20.0
+      ├─ URL: git+https://github.com/nodejs/undici.git
+      └─ VendorUrl: https://undici.nodejs.org/
+Done in 4.40s.
 ```
 
 ※ 更新: 2025/02/06

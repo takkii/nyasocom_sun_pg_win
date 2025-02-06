@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "@types/ip": "^1.1.3"
+  },
+  "resolutions": {
+    "socks": ">=2.8.3"
   }
 }
