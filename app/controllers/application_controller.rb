@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   def validate_ipaddress
      begin
        unless Dir.exist?("./app/controllers/node_modules/")
-         npm_install = "cd #{File.dirname(__FILE__)} && npm install"
-         stdout_npm, stderr_npm, status_npm = Open3.capture3(npm_install)
+         yarn_install = "cd #{File.dirname(__FILE__)} && yarn install"
+         stdout_npm, stderr_npm, status_npm = Open3.capture3(yarn_install)
          stdout_npm
        end
 
