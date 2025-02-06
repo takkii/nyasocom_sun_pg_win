@@ -43,7 +43,6 @@
 
 # lock
 Gemfile.lock
-yarn.lock
 
 # Node.js
 /app/controllers/node_modules/*
