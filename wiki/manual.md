@@ -214,7 +214,7 @@ dotenv-rails, 3.1.7, MIT
 drb, 2.2.1, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
 esbuild, 0.24.2, MIT
-factory_bot, 6.5.0, MIT
+factory_bot, 6.5.1, MIT
 factory_bot_rails, 6.4.4, MIT
 ffi, 1.17.1, "New BSD"
 fill-range, 7.1.1, MIT
@@ -247,11 +247,11 @@ micromatch, 4.0.8, MIT
 mini_magick, 4.13.2, MIT
 mini_mime, 1.1.5, MIT
 minitest, 5.25.4, MIT
-msgpack, 1.7.5, "Apache 2.0"
+msgpack, 1.8.0, "Apache 2.0"
 net-imap, 0.5.5, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
-net-smtp, 0.5.0, "Simplified BSD, ruby"
+net-smtp, 0.5.1, "Simplified BSD, ruby"
 nio4r, 2.7.4, "MIT, Simplified BSD"
 node-addon-api, 7.1.1, MIT
 nokogiri, 1.18.2, MIT
@@ -270,7 +270,7 @@ public_suffix, 6.0.1, MIT
 puma, 6.6.0, "New BSD"
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
-rack, 3.1.8, MIT
+rack, 3.1.9, MIT
 rack-session, 2.1.0, MIT
 rack-test, 2.2.0, MIT
 rackup, 2.2.1, MIT
@@ -287,7 +287,7 @@ redcarpet, 3.6.0, MIT
 regexp_parser, 2.10.0, MIT
 reline, 0.6.0, ruby
 responders, 3.1.1, MIT
-rmagick, 6.1.0, MIT
+rmagick, 6.1.1, MIT
 roo, 2.10.1, MIT
 rouge, 4.5.1, "MIT, Simplified BSD"
 rspec, 3.9.0, MIT
@@ -298,7 +298,7 @@ rspec-rails, 3.9.1, MIT
 rspec-support, 3.9.4, MIT
 ruby-vips, 2.2.2, MIT
 rubyzip, 2.4.1, "Simplified BSD"
-sass, 1.83.4, MIT
+sass, 1.84.0, MIT
 sassc, 2.4.0, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
 source-map-js, 1.2.1, "New BSD"
@@ -327,7 +327,7 @@ zeitwerk, 2.7.1, MIT
 ### yarn licenses list
 
 ```markdown
-yarn licenses v1.22.22
+  yarn licenses v1.22.22
 ├─ (CC-BY-4.0 AND OFL-1.1 AND MIT)
 │  └─ @fortawesome/fontawesome-free@6.7.2
 │     ├─ URL: https://github.com/FortAwesome/Font-Awesome
@@ -413,7 +413,7 @@ yarn licenses v1.22.22
    │  ├─ URL: git://github.com/paulmillr/readdirp.git
    │  ├─ VendorName: Thorsten Lorenz
    │  └─ VendorUrl: https://github.com/paulmillr/readdirp
-   ├─ sass@1.83.4
+   ├─ sass@1.84.0
    │  ├─ URL: https://github.com/sass/dart-sass
    │  ├─ VendorName: Natalie Weizenbaum
    │  └─ VendorUrl: https://github.com/sass/dart-sass
@@ -421,7 +421,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/micromatch/to-regex-range.git
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 0.47s.
+Done in 0.35s.
 ```
 
-※ 更新: 2025/01/31
+※ 更新: 2025/02/06
