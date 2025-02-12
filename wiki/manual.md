@@ -167,7 +167,7 @@ mkcert localhost
 
 ```markdown
 Dependencies that need approval:
-@esbuild/win32-x64, 0.24.2, MIT
+@esbuild/win32-x64, 0.25.0, MIT
 @fortawesome/fontawesome-free, 6.7.2, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
 @parcel/watcher, 2.5.1, MIT
 @parcel/watcher-win32-x64, 2.5.1, MIT
@@ -213,7 +213,7 @@ dotenv, 3.1.7, MIT
 dotenv-rails, 3.1.7, MIT
 drb, 2.2.1, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
-esbuild, 0.24.2, MIT
+esbuild, 0.25.0, MIT
 factory_bot, 6.5.1, MIT
 factory_bot_rails, 6.4.4, MIT
 ffi, 1.17.1, "New BSD"
@@ -221,7 +221,7 @@ fill-range, 7.1.1, MIT
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.2.1, MIT
 i18n, 1.14.7, MIT
-image_processing, 1.13.0, MIT
+image_processing, 1.14.0, MIT
 immutable, 5.0.3, MIT
 io-console, 0.8.0, "Simplified BSD, ruby"
 irb, 1.15.1, "Simplified BSD, ruby"
@@ -244,11 +244,11 @@ mail, 2.8.1, MIT
 marcel, 1.0.4, "Apache 2.0, MIT"
 matrix, 0.4.2, "Simplified BSD, ruby"
 micromatch, 4.0.8, MIT
-mini_magick, 4.13.2, MIT
+mini_magick, 5.1.2, MIT
 mini_mime, 1.1.5, MIT
 minitest, 5.25.4, MIT
 msgpack, 1.8.0, "Apache 2.0"
-net-imap, 0.5.5, "Simplified BSD, ruby"
+net-imap, 0.5.6, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
 net-smtp, 0.5.1, "Simplified BSD, ruby"
@@ -270,7 +270,7 @@ public_suffix, 6.0.1, MIT
 puma, 6.6.0, "New BSD"
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
-rack, 3.1.9, MIT
+rack, 3.1.10, MIT
 rack-session, 2.1.0, MIT
 rack-test, 2.2.0, MIT
 rackup, 2.2.1, MIT
@@ -281,7 +281,7 @@ railties, 8.0.1, MIT
 rake, 13.2.1, MIT
 rb-fsevent, 0.11.2, MIT
 rb-inotify, 0.11.1, MIT
-rdoc, 6.11.0, ruby
+rdoc, 6.12.0, ruby
 readdirp, 4.1.1, MIT
 redcarpet, 3.6.0, MIT
 regexp_parser, 2.10.0, MIT
@@ -296,7 +296,7 @@ rspec-expectations, 3.9.4, MIT
 rspec-mocks, 3.9.1, MIT
 rspec-rails, 3.9.1, MIT
 rspec-support, 3.9.4, MIT
-ruby-vips, 2.2.2, MIT
+ruby-vips, 2.2.3, MIT
 rubyzip, 2.4.1, "Simplified BSD"
 sass, 1.84.0, MIT
 sassc, 2.4.0, MIT
@@ -343,7 +343,7 @@ yarn licenses v1.22.22
 │     ├─ VendorName: Valentin 7rulnik Semirulnik
 │     └─ VendorUrl: https://github.com/7rulnik/source-map-js
 └─ MIT
-   ├─ @esbuild/win32-x64@0.24.2
+   ├─ @esbuild/win32-x64@0.25.0
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ @parcel/watcher-win32-x64@2.5.1
    │  └─ URL: https://github.com/parcel-bundler/watcher.git
@@ -365,7 +365,7 @@ yarn licenses v1.22.22
    │  ├─ URL: git+https://github.com/paulmillr/chokidar.git
    │  ├─ VendorName: Paul Miller
    │  └─ VendorUrl: https://github.com/paulmillr/chokidar
-   ├─ esbuild@0.24.2
+   ├─ esbuild@0.25.0
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ fill-range@7.1.1
    │  ├─ URL: https://github.com/jonschlinkert/fill-range.git
@@ -421,7 +421,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/micromatch/to-regex-range.git
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 0.35s.
+Done in 0.63s.
 ```
 
 > ./app/controllers/
@@ -466,4 +466,4 @@ warning No license field
 Done in 4.40s.
 ```
 
-※ 更新: 2025/02/06
+※ 更新: 2025/02/13
