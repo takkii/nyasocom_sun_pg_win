@@ -10,7 +10,7 @@
     "jquery": "^3.7.1",
     "jquery-ujs": "^1.2.3",
     "pygments-rouge-css": "^0.1.0",
-    "sass": "^1.84.0"
+    "sass": "^1.85.0"
   },
   "scripts": {
     "build": "esbuild app/assets/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
