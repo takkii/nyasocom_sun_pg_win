@@ -2,4 +2,4 @@
 
 ### にゃそこん参ぴーじーうぃん : [動画](https://youtu.be/6Rq5Jdilko0)
 
-※ 現在、今後の[計画](https://github.com/takkii/nyasocom_sun_pg_win/wiki/manual)を進行しています。
+※ 仕様書は、[こちら](https://github.com/takkii/nyasocom_sun_pg_win/wiki/manual)です。
