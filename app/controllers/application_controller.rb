@@ -33,21 +33,28 @@ class ApplicationController < ActionController::Base
 
       # xxx_utf8.csv (default)
       unless File.exist?("./pass.txt")
-        CSV.foreach('./config/xxx_utf8.csv') do |xxx_csv|
-          if "#{stdout_py}".match(/#{xxx_csv}/o) || {}[:match]
-            mypass = File.expand_path('./pass.txt')
-            File.open(myhome, 'a:utf-8', perm = 0o777) do |f|
-              f.puts <<-DOC
+        while true do
+          CSV.foreach('./config/xxx_utf8.csv') do |xxx_csv|
+            elements = "#{stdout_py}".scrub('?').chomp.split("\t")
+            if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
+              mypass = File.expand_path('./pass.txt')
+              File.open(mypass, 'a:utf-8', perm = 0o777) do |f|
+                f.puts <<-DOC
 TRUE
-              DOC
+                DOC
+              end
+              # passed, word match in csv file
+              puts 'Created, ./pass.txt'
+              return
+            else
+              # Something other than an not xxx_utf8.csv file was matched.
+              exit!
             end
-            puts 'Created, ./pass.txt'
-          # passed, word match in csv file
-          else
-            # Something other than an not xxx_utf8.csv file was matched.
+              redirect_to root_path
           end
+            break
         end
-        puts 'None, pass.txt not created.'
+          puts 'None, pass.txt not created.'
       end
     rescue exception => ex
       puts ex.backtrace
@@ -75,7 +82,7 @@ TRUE
         # Passed, ip address specification, nothing displayed.
       else
         # Something other than an IP address was matched.
-        render file: "public/404.html", status: :not_found, layout: false
+        exit!
       end
     rescue exception => e
       puts e.backtrace
