@@ -45,13 +45,12 @@ TRUE
           # passed, word match in csv file
           else
             # Something other than an not xxx_utf8.csv file was matched.
-            render file: "public/404.html", status: :not_found, layout: false
           end
         end
-        puts 'None, pass.txt has been created and configured.'
+        puts 'None, pass.txt not created.'
       end
-    rescue exception => e
-      puts e.backtrace
+    rescue exception => ex
+      puts ex.backtrace
       exec("#{File.dirname(__FILE__) + '/hutomen.exe'}")
     ensure
       GC.compact
