@@ -40,7 +40,7 @@ module Nyasocom3
 
     # warning
     # ActiveSupport::Deprecation.silenced = true if Rails.version == '8.0.1'
-    
+
     # rspec
     config.generators do |g|
       g.test_framework = "rspec"
