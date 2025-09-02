@@ -51,7 +51,7 @@ gem 'rouge'
 
 # uploads images
 gem 'carrierwave'
-#gem 'rmagick'
+gem 'rmagick'
 
 # csv
 gem 'csv'
