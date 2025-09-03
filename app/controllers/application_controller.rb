@@ -1,5 +1,8 @@
 require 'csv'
 require 'open3'
+require 'open-uri'
+require 'nokogiri'
+require 'sanitize'
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
@@ -27,15 +30,15 @@ class ApplicationController < ActionController::Base
 
   def validate_justice
     begin
-      # Once Run scriping.py, no match ReStart Server.
-      python_path = "python" + " " + "#{File.dirname(__FILE__) + '/scriping.py'}"
-      stdout_py, stderr_py, status_py = Open3.capture3(python_path)
+      html = URI.open('http://localhost:8000/hyokapp/').read
+      doc = Nokogiri::HTML.parse(html)
+      doc_h1 = doc.at_css('h1')
+      elements = Sanitize.clean(doc_h1).parse_csv
 
       # xxx_utf8.csv (default)
       unless File.exist?("./pass.txt")
         while true do
           CSV.foreach('./config/xxx_utf8.csv') do |xxx_csv|
-            elements = "#{stdout_py}".scrub('?').chomp.split("\t")
             if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
               mypass = File.expand_path('./pass.txt')
               File.open(mypass, 'a:utf-8', perm = 0o777) do |f|
