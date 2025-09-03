@@ -30,17 +30,17 @@ class ApplicationController < ActionController::Base
 
   def validate_justice
     begin
-      html = URI.open('http://localhost:8000/hyokapp/').read
-      doc = Nokogiri::HTML.parse(html)
-      doc_h1 = doc.at_css('h1')
-      elements = Sanitize.clean(doc_h1).parse_csv
+      mypass = File.expand_path('./pass.txt')
+      xxx_utf8 = './config/xxx_utf8.csv'
 
-      # xxx_utf8.csv (default)
-      unless File.exist?("./pass.txt")
+      unless File.exist?(mypass)
         while true do
-          CSV.foreach('./config/xxx_utf8.csv') do |xxx_csv|
+          html = URI.open('http://localhost:8000/hyokapp/').read
+          doc = Nokogiri::HTML.parse(html)
+          doc_h1 = doc.at_css('h1')
+          elements = Sanitize.clean(doc_h1).parse_csv
+          CSV.foreach(xxx_utf8) do |xxx_csv|
             if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
-              mypass = File.expand_path('./pass.txt')
               File.open(mypass, 'a:utf-8', perm = 0o777) do |f|
                 f.puts <<-DOC
 TRUE
@@ -57,7 +57,9 @@ TRUE
           end
             break
         end
-          puts 'None, pass.txt not created.'
+      else
+        puts 'None, pass.txt not created.'
+        return
       end
     rescue exception => ex
       puts ex.backtrace
