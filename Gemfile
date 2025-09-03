@@ -57,6 +57,9 @@ gem 'rmagick'
 gem 'csv'
 gem 'roo'
 
+# html tag delete
+gem 'sanitize'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
