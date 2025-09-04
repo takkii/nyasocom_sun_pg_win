@@ -31,7 +31,6 @@ class ApplicationController < ActionController::Base
   def validate_justice
     begin
       mypass = File.expand_path('./pass.txt')
-      xxx_utf8 = './config/xxx_utf8.csv'
 
       unless File.exist?(mypass)
         while true do
@@ -39,6 +38,8 @@ class ApplicationController < ActionController::Base
           doc = Nokogiri::HTML.parse(html)
           doc_h1 = doc.at_css('h1')
           elements = Sanitize.clean(doc_h1).parse_csv
+          xxx_utf8 = './config/xxx_utf8.csv'
+
           CSV.foreach(xxx_utf8) do |xxx_csv|
             if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
               File.open(mypass, 'a:utf-8', perm = 0o777) do |f|
