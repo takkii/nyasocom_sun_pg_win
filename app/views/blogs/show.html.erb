@@ -15,17 +15,6 @@
 <p> <strong>写真: </strong>
     <%= image_tag(@blog.image.url) if @blog.image.present? %>
 </p>
-<p> <strong>連続写真: </strong>
-    <% @blog.images.each do |image| %>
-    <%= image_tag image, class: "image" %>
-    <% end %>
-</p>
-<p> <strong>音楽: </strong>
-<% if @blog.file.present? %>
-    <audio src= "<%= "#{@blog.file}" %>" controls=""></audio>
-<% else %>
-<% end %>
-</p>
 <br />
 <p>
     <div class="video-player"> <strong>動画: </strong>
