@@ -93,8 +93,7 @@ group :development do
 
   # Don't delete My Gemfile in Library.
   gem 'listen'
-  # gem 'htmlbeautifier'
-  # gem 'erb-formatter'
+  gem 'htmlbeautifier'
 end
 
 group :test do

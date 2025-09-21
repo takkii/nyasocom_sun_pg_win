@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "aliariff.vscode-erb-beautify",
+    ],
+    "files.associations": {
+        "*.html.erb": "erb"
+    },
+    "[erb]": {
+        "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+        "editor.formatOnSave": true
+    },
+    "vscode-erb-beautify.executePath": "path_to_htmlbeautifier",
+    "vscode-erb-beautify.customEnvVar": {
+        "LC_ALL": "en_US.UTF-8"
+    }
+}

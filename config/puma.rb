@@ -25,8 +25,8 @@ begin
   case host_os
   when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
     begin
-    	# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-    	port ENV.fetch('PORT') { 80 }
+      # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+      port ENV.fetch('PORT') { 80 }
     rescue Exception => e
       puts e.backtrace
     end
@@ -38,9 +38,9 @@ begin
     bind "unix://#{app_root}/tmp/sockets/puma.sock"
   else
     begin
-    	raise
+      raise
     rescue Exception => ce
-    	puts 'Env, UNIX and Windows only. Other OS is Exception.'
+      puts 'Env, UNIX and Windows only. Other OS is Exception.'
     end
   end
 rescue StandardError => ex

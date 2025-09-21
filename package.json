@@ -2,15 +2,15 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.0.0",
+    "@fortawesome/fontawesome-free": "^7.0.1",
     "@rails/ujs": "^7.1.502",
     "audiojs": "^0.1.0",
-    "bootswatch": "^5.3.7",
-    "esbuild": "^0.25.9",
+    "bootswatch": "^5.3.8",
+    "esbuild": "^0.25.10",
     "jquery": "^3.7.1",
     "jquery-ujs": "^1.2.3",
     "pygments-rouge-css": "^0.1.0",
-    "sass": "^1.91.0"
+    "sass": "^1.93.0"
   },
   "scripts": {
     "build": "esbuild app/assets/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",

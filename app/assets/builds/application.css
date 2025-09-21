@@ -1,13 +1,13 @@
 @charset "UTF-8";
 /*!
- * Bootswatch v5.3.7 (https://bootswatch.com)
+ * Bootswatch v5.3.8 (https://bootswatch.com)
  * Theme: darkly
  * Copyright 2012-2025 Thomas Park
  * Licensed under MIT
  * Based on Bootstrap
 */
 /*!
- * Bootstrap  v5.3.7 (https://getbootstrap.com/)
+ * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -561,6 +561,11 @@ legend + * {
 [type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-cancel-button {
+  cursor: pointer;
+  filter: grayscale(1);
 }
 
 /* rtl:raw:
@@ -6520,6 +6525,7 @@ textarea.form-control-lg {
 .spinner-grow,
 .spinner-border {
   display: inline-block;
+  flex-shrink: 0;
   width: var(--bs-spinner-width);
   height: var(--bs-spinner-height);
   vertical-align: var(--bs-spinner-vertical-align);
@@ -12791,10 +12797,21 @@ td {
 .fa-brands,
 .fa-classic,
 .fa)::before {
-  content: var(--fa);
   content: var(--fa)/"";
 }
 
+@supports not (content: ""/"") {
+  :is(.fas,
+  .far,
+  .fab,
+  .fa-solid,
+  .fa-regular,
+  .fa-brands,
+  .fa-classic,
+  .fa)::before {
+    content: var(--fa);
+  }
+}
 .fa-1x {
   font-size: 1em;
 }
@@ -13147,10 +13164,11 @@ td {
 
 .fa-stack-1x,
 .fa-stack-2x {
-  left: 0;
+  --fa-width: 100%;
+  inset: 0;
   position: absolute;
   text-align: center;
-  width: 100%;
+  width: var(--fa-width);
   z-index: var(--fa-stack-z-index, auto);
 }
 
