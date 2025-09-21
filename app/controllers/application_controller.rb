@@ -4,6 +4,15 @@ require 'open-uri'
 require 'nokogiri'
 require 'sanitize'
 
+class Net::HTTP
+  def initialize_new(address, port = nil)
+    initialize_old(address, port)
+    @read_timeout = 900 # timeoutを15分に変更
+  end
+  alias :initialize_old :initialize
+  alias :initialize :initialize_new
+end
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :validate_ipaddress
