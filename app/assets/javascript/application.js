@@ -2,7 +2,6 @@
 import jquery from "jquery";
 window.$ = jquery
 import {} from "jquery-ujs";
-import {} from "audiojs";
 import '@fortawesome/fontawesome-free/js/all';
 
 import Rails from '@rails/ujs';
