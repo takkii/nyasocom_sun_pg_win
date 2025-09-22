@@ -73,6 +73,9 @@ gem 'ostruct'
 # License view
 # gem 'license_finder'
 
+# my project
+gem 'sheltered-girl', '4.0.4.5' if Gem.win_platform?
+
 group :development, :test do
 #   rspec
   gem 'rspec'
