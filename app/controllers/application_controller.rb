@@ -3,6 +3,7 @@ require 'open3'
 require 'open-uri'
 require 'nokogiri'
 require 'sanitize'
+require 'tanraku'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
@@ -16,7 +17,8 @@ end
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :validate_ipaddress
-  before_action :validate_justice
+  before_action :validate_passcard
+  before_action :validate_welcome
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
@@ -37,7 +39,27 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def validate_justice
+  def validate_welcome
+    mypass = File.expand_path('./pass.txt')
+    eq_str = 'TRUE'.to_s
+
+    unless File.exist?(mypass)
+      puts 'Do not have passcard, Exec tanraku.'
+      tanraku_execute
+    else
+      aqua_cmd = "aqua" + " " + "-t" + " " + mypass + " " + eq_str
+      stdout_aq, stderr_aq, status_aq = Open3.capture3(aqua_cmd)
+
+      if "#{stdout_aq}".match(/#{eq_str}/o) || {}[:match]
+        puts "match word contain #{eq_str} in passcard."
+        return
+      else
+        exit!
+      end
+    end
+  end
+
+  def validate_passcard
     begin
       mypass = File.expand_path('./pass.txt')
 
