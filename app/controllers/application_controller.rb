@@ -44,7 +44,9 @@ class ApplicationController < ActionController::Base
 
   def validate_memberscard
     begin
-      member = File.expand_path('./pass.txt')
+      # Change, Can do customize naming to memberscard.
+      memberscard = './pass.txt'.to_s
+      member = File.expand_path(memberscard)
 
       unless File.exist?(member)
         while true do
@@ -57,12 +59,13 @@ class ApplicationController < ActionController::Base
           CSV.foreach(xxx_utf8) do |xxx_csv|
             if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
               File.open(member, 'a:utf-8', perm = 0o777) do |f|
+                # Input, secret word in memberscard.
                 f.puts <<-DOC
 TRUE
                 DOC
               end
               # passed, Match word contain in csv file.
-              puts 'Created, ./pass.txt'
+              puts "Created, #{memberscard}"
               return
             else
               # Something other than an not xxx_utf8.csv file was matched.
@@ -73,7 +76,7 @@ TRUE
             break
         end
       else
-        puts 'Check, members card process.'
+        puts 'Pass, memberscard checked.'
         return
       end
     rescue Exception => e
