@@ -129,11 +129,12 @@ TRUE
     begin
       ip_add = "#{request.env['HTTP_CLIENT_IP']}"
       # Development is assumed to be in a local environment.
-      if "#{my_address}".match(/#{ip_add}/o) || {}[:match]
-        puts 'Passed, ip address specification.'
-      else
+      unless "#{my_address}" =~ /#{ip_add}/o
+        puts "#{my_address} | #{ip_add}"
         puts 'Something other than an IP address was matched.'
         exit!
+      else
+        puts 'Passed, ip address specification.'
       end
     rescue StandardError => s
       puts s.backtrace
