@@ -8,7 +8,7 @@ require 'tanraku'
 class Net::HTTP
   def initialize_new(address, port = nil)
     initialize_old(address, port)
-    @read_timeout = 900 # timeoutを15分に変更
+    @read_timeout = 900 # timeout, 15 minute settings.
   end
   alias :initialize_old :initialize
   alias :initialize :initialize_new
@@ -16,9 +16,11 @@ end
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
-  before_action :validate_ipaddress
-  before_action :validate_memberscard
-  before_action :validate_welcome # If not use, head position is comment add.
+  before_action :validate_ipaddress # ※1
+  before_action :validate_memberscard # ※1
+  before_action :validate_welcome # ※1
+
+  # ※1 If not use, head position is comment add.
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
