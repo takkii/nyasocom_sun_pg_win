@@ -3,6 +3,7 @@ require 'open3'
 require 'open-uri'
 require 'nokogiri'
 require 'sanitize'
+require 'socket'
 require 'tanraku'
 
 class Net::HTTP
@@ -84,7 +85,9 @@ TRUE
 
   def validate_welcome
     begin
+      # Text file reading directly below under this project.
       member = File.expand_path('./pass.txt')
+      # Check, that two strings are equal.
       eq_str = 'TRUE'.to_s
 
       unless File.exist?(member)
@@ -114,21 +117,19 @@ TRUE
     end
   end
 
+  def my_address
+    udp = UDPSocket.new
+    udp.connect("128.0.0.0", 7)
+    adrs = Socket.unpack_sockaddr_in(udp.getsockname)[1]
+    udp.close
+    adrs
+  end
+
   def validate_ipaddress
     begin
-      unless Dir.exist?("./app/controllers/node_modules/")
-        yarn_install = "cd #{File.dirname(__FILE__)} && yarn install"
-        stdout_npm, stderr_npm, status_npm = Open3.capture3(yarn_install)
-        stdout_npm
-      end
-
-      # If you do not resolve the dependent libraries, a runtime error may occur.
-      nodejs_path = "node" + " " + "#{File.dirname(__FILE__) + '/myipad.js'}"
-      stdout_js, stderr_js, status_js = Open3.capture3(nodejs_path)
       ip_add = "#{request.env['HTTP_CLIENT_IP']}"
-
       # Development is assumed to be in a local environment.
-      if "#{stdout_js}".match(/#{ip_add}/o) || {}[:match]
+      if "#{my_address}".match(/#{ip_add}/o) || {}[:match]
         puts 'Passed, ip address specification.'
       else
         puts 'Something other than an IP address was matched.'
