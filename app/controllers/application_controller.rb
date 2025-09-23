@@ -46,6 +46,7 @@ class ApplicationController < ActionController::Base
     begin
       # Change, Can do customize naming to memberscard.
       memberscard = './pass.txt'.to_s
+      # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
 
       unless File.exist?(member)
@@ -88,8 +89,10 @@ TRUE
 
   def validate_welcome
     begin
+      # Change, Can do customize naming to memberscard.
+      memberscard = './pass.txt'.to_s
       # Text file reading directly below under this project.
-      member = File.expand_path('./pass.txt')
+      member = File.expand_path(memberscard)
       # Check, that two strings are equal.
       eq_str = 'TRUE'.to_s
 
@@ -106,7 +109,7 @@ TRUE
               puts 'No, Match Word in members card.'
               exit!
             else
-              puts "Match word contain #{eq_str} in members card."
+              puts "Match word contain #{eq_str} in memberscard."
               return
             end
           end
