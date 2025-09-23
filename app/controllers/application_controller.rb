@@ -17,8 +17,8 @@ end
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :validate_ipaddress
-  before_action :validate_passcard
-  before_action :validate_welcome
+  before_action :validate_memberscard
+  before_action :validate_welcome # If not use, head position is comment add.
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
@@ -39,31 +39,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def validate_welcome
-    mypass = File.expand_path('./pass.txt')
-    eq_str = 'TRUE'.to_s
-
-    unless File.exist?(mypass)
-      puts 'Do not have passcard, Exec tanraku.'
-      tanraku_execute
-    else
-      aqua_cmd = "aqua" + " " + "-t" + " " + mypass + " " + eq_str
-      stdout_aq, stderr_aq, status_aq = Open3.capture3(aqua_cmd)
-
-      if "#{stdout_aq}".match(/#{eq_str}/o) || {}[:match]
-        puts "match word contain #{eq_str} in passcard."
-        return
-      else
-        exit!
-      end
-    end
-  end
-
-  def validate_passcard
+  def validate_memberscard
     begin
-      mypass = File.expand_path('./pass.txt')
+      member = File.expand_path('./pass.txt')
 
-      unless File.exist?(mypass)
+      unless File.exist?(member)
         while true do
           html = URI.open('http://localhost:8000/hyokapp/').read
           doc = Nokogiri::HTML.parse(html)
@@ -73,12 +53,12 @@ class ApplicationController < ActionController::Base
 
           CSV.foreach(xxx_utf8) do |xxx_csv|
             if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
-              File.open(mypass, 'a:utf-8', perm = 0o777) do |f|
+              File.open(member, 'a:utf-8', perm = 0o777) do |f|
                 f.puts <<-DOC
 TRUE
                 DOC
               end
-              # passed, word match in csv file
+              # passed, Match word contain in csv file.
               puts 'Created, ./pass.txt'
               return
             else
@@ -90,14 +70,41 @@ TRUE
             break
         end
       else
-        puts 'None, pass.txt not created.'
+        puts 'Check, members card process.'
         return
       end
-    rescue exception => ex
-      puts ex.backtrace
-      exec("#{File.dirname(__FILE__) + '/hutomen.exe'}")
+    rescue Exception => e
+      puts e.backtrace
     ensure
-      GC.compact
+      GC.auto_compact
+    end
+  end
+
+  def validate_welcome
+    begin
+      member = File.expand_path('./pass.txt')
+      eq_str = 'TRUE'.to_s
+
+      unless File.exist?(member)
+        puts 'Do not have members card, Exec tanraku.'
+        tanraku_execute
+      else
+        aqua_cmd = "aqua" + " " + "-t" + " " + member + " " + eq_str
+        stdout_aq, stderr_aq, status_aq = Open3.capture3(aqua_cmd)
+
+        # stdout_aq, 1 : TRUE
+        unless "#{stdout_aq}".match(/#{eq_str}/o) || {}[:match]
+          puts 'No, Match Word in members card.'
+          exit!
+        else
+          puts "Match word contain #{eq_str} in members card."
+          return
+        end
+      end
+    rescue StandardError=> a
+      puts a.backtrace
+    ensure
+      GC.auto_compact
     end
   end
 
@@ -116,16 +123,15 @@ TRUE
 
       # Development is assumed to be in a local environment.
       if "#{stdout_js}".match(/#{ip_add}/o) || {}[:match]
-        # Passed, ip address specification, nothing displayed.
+        puts 'Passed, ip address specification.'
       else
-        # Something other than an IP address was matched.
+        puts 'Something other than an IP address was matched.'
         exit!
       end
-    rescue exception => e
-      puts e.backtrace
-      exec("#{File.dirname(__FILE__) + '/hutomen.exe'}")
+    rescue StandardError => s
+      puts s.backtrace
     ensure
-      GC.compact
+      GC.auto_compact
     end
   end
 
