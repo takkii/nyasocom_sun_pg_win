@@ -48,7 +48,7 @@ rescue StandardError => ex
 rescue Exception => er
   puts er.printStackTrace
 ensure
-  GC.compact
+  GC.auto_compact
 end
 
 # Specifies the `environment` that Puma will run in.
