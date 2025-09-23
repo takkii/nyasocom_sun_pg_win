@@ -31,10 +31,7 @@
 #/app/assets/builds/*
 !/app/assets/builds/.keep
 
-/node_modules
-/app/views/welcomes/node_modules
-
-# config/settings.yml
+/node_modules/*
 
 # mysql db backup folder
 /backup
@@ -43,9 +40,6 @@
 
 # lock
 Gemfile.lock
-
-# Node.js
-/app/controllers/node_modules/*
 
 # Sass
 .sass-cache/*
