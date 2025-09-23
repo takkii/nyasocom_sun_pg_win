@@ -91,18 +91,22 @@ TRUE
         puts 'Do not have members card, Exec tanraku.'
         tanraku_execute
       else
-        aqua_cmd = "aqua" + " " + "-t" + " " + member + " " + eq_str
-        stdout_aq, stderr_aq, status_aq = Open3.capture3(aqua_cmd)
-
-        # stdout_aq, 1 : TRUE
-        unless "#{stdout_aq}".match(/#{eq_str}/o) || {}[:match]
-          puts 'No, Match Word in members card.'
-          exit!
-        else
-          puts "Match word contain #{eq_str} in members card."
-          return
+        open(member) do |f|
+          while (name = f.readlines)
+            name.sort!
+            name.each do |str_n|
+            unless "#{str_n}" =~ /#{eq_str}/o
+              puts "#{str_n}"
+              puts 'No, Match Word in members card.'
+              exit!
+            else
+              puts "Match word contain #{eq_str} in members card."
+              return
+            end
+          end
         end
       end
+    end
     rescue StandardError=> a
       puts a.backtrace
     ensure
