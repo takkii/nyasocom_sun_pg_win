@@ -66,15 +66,17 @@ gem 'bootsnap', require: false
 # The default gems starting from Ruby 3.5.0.
 gem 'ostruct'
 
-# mail opener
-# gem 'letter_opener_web', '~> 2.0'
-# gem 'readapt'
-
 # License view
 # gem 'license_finder'
 
-# my project
-gem 'sheltered-girl', '4.0.4.5' if Gem.win_platform?
+# Windows ENV.
+if Gem.win_platform?
+  gem 'sheltered-girl', '4.0.4.5'
+  gem 'tzinfo-data'
+  gem 'wdm'
+else
+  gem 'sheltered-girl'
+end
 
 group :development, :test do
 #   rspec
@@ -105,7 +107,3 @@ group :test do
 # gem 'webdrivers'
 # gem 'debug'
 end
-
-# use windows env
-gem 'tzinfo-data' if Gem.win_platform?
-gem 'wdm' if Gem.win_platform?
