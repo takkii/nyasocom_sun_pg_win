@@ -123,7 +123,7 @@ TRUE
     end
   end
 
-  def my_address
+  def udp_socket
     udp = UDPSocket.new
     udp.connect("128.0.0.0", 7)
     adrs = Socket.unpack_sockaddr_in(udp.getsockname)[1]
@@ -131,12 +131,16 @@ TRUE
     adrs
   end
 
+  def eq_socket
+    Socket.ip_address_list.find do |ai|
+      ai.ipv4? && !ai.ipv4_loopback?
+    end.ip_address
+  end
+
   def validate_ipaddress
     begin
-      ip_add = "#{request.env['HTTP_CLIENT_IP']}"
-      # Development is assumed to be in a local environment.
-      unless "#{my_address}" =~ /#{ip_add}/o
-        puts "#{my_address} | #{ip_add}"
+      unless "#{udp_socket}" == "#{eq_socket}"
+        puts "#{udp_socket} | #{eq_socket}"
         puts 'Something other than an IP address was matched.'
         exit!
       else
