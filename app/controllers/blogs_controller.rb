@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
       @blogs_index = @blogs_index.full_text_search(query)
     end
     @blogs = Kaminari.paginate_array(Blog.search(params[:query]).order(days: :desc)).page(params[:page])
-    @version = 3
+    @version = 3.2
     dt = Time.new.getlocal('+09:00')
     week = %w(日 月 火 水 木 金 土)[dt.wday]
     @himekuri = "#{dt.year}年" + "#{dt.month}月" + "#{dt.day}日" + ' : '.to_s + "#{dt.hour}時"+"#{dt.min}分"+"#{dt.sec}秒" + ' : '.to_s + week + "曜日"
