@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       @comments_index = @comments_index.full_text_search(query)
     end
     @comments = Kaminari.paginate_array(Comment.search(params[:query]).order(created_at: :desc)).page(params[:page])
-    @version = 3
+    @version = 3.2
     sql = "SHOW pgroonga.libgroonga_version;"
     query = ActiveRecord::Base.connection.select_all(sql).to_a
     pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip
