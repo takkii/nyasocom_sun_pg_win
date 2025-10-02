@@ -79,6 +79,9 @@ docker-compose exec web rails db:default_db
 
 docker-compose exec web rails db:environment:set RAILS_ENV=development
 docker-compose exec web rails db:pg_default_db
+
+# rails c / docker-compose exec web rails c
+adminとuserのメールアドレスとパスワードを入れる。
 ```
 
 #### 管理者側
