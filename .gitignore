@@ -44,3 +44,6 @@ Gemfile.lock
 # Sass
 .sass-cache/*
 
+# settings file
+.env
+pass.txt
