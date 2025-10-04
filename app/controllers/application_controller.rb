@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
       memberscard = ENV['MEMBERS_CARD']
       # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
+      secretword = ENV['SECRET_WORD']
 
       unless File.exist?(member)
         while true do
@@ -62,11 +63,11 @@ class ApplicationController < ActionController::Base
               File.open(member, 'a:utf-8', perm = 0o777) do |f|
                 # Input, secret word in memberscard.
                 f.puts <<-DOC
-TRUE
+#{secretword}
                 DOC
               end
               # passed, Match word contain in csv file.
-              puts "Created, #{memberscard}"
+              puts "Created, #{secretword} writed to #{memberscard}"
               return
             else
               # Something other than an not xxx_utf8.csv file was matched.
