@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   def validate_memberscard
     begin
       # Change, Can do customize naming to memberscard.
-      memberscard = './pass.txt'.to_s
+      memberscard = ENV['MEMBERS_CARD']
       # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
 
@@ -90,11 +90,11 @@ TRUE
   def validate_welcome
     begin
       # Change, Can do customize naming to memberscard.
-      memberscard = './pass.txt'.to_s
+      memberscard = ENV['MEMBERS_CARD']
       # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
-      # Check, that two strings are equal.
-      eq_str = 'TRUE'.to_s
+      # Check, that String are equal password.
+      eq_pass = ENV['EQUAL_PASSWORD']
 
       unless File.exist?(member)
         puts 'Do not have members card, Exec tanraku.'
@@ -103,13 +103,13 @@ TRUE
         open(member) do |f|
           while (name = f.readlines)
             name.sort!
-            name.each do |str_n|
-            unless "#{str_n}" =~ /#{eq_str}/o
-              puts "#{str_n}"
+            name.each do |pass_n|
+            unless "#{pass_n}" =~ /#{eq_pass}/o
+              puts "#{pass_n}"
               puts 'No, Match Word in members card.'
               exit!
             else
-              puts "Match word contain #{eq_str} in memberscard."
+              puts "Match word contain #{eq_pass} in memberscard."
               return
             end
           end
