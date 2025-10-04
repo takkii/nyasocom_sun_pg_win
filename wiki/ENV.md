@@ -48,6 +48,12 @@ rails s
 > → 継続|停止を条件分岐で確認するのを繰り返します。
 
 ```ruby
+# .env / 設定例
+
+# postgresユーザ
+DATABASE_USER = "postgres"
+# postgresユーザ、パスワード
+DATABASE_PASSWORD = "password"
 # 比較先: パスワード
 EQUAL_PASSWORD = "TRUE"
 # 比較元: パスワードをもう一度入れてください。
