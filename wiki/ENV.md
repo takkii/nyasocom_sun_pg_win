@@ -17,26 +17,40 @@ cd picture
 
 pip3 install -r requiremens.txt
 
-# Webカメラを起動します
+# Webカメラを起動、撮影します。
 python take.py
 
 # images/face.jpg → face.gifに変換します。
 python convert.py
 
-# パスはその都度変えてください
+# 移動先はその都度変えてください。
 mv ./images/face.gif ./hyokaproject/hold/face.gif
 
 python manage.py migrate
 
 python manage.py runserver
 
-# wiki/manual.mdを読んで環境構築
+# wiki/README.mdを参考に環境構築します。
 
 rails s
 ```
 
-#### ブラウザに文字列(百人一首)が表示されていればOK!
+#### ブラウザに文字列が表示されていれば顔認識システムが正しく動作しています。
 
-> nyasocom_sun_pg_winを起動、スクレイピング開始 → 顔認証、./pass.txtを生成 (処理の起動対象)。
+※ 顔認証で例外を発生させているとき、精度評価の数値を小数点数単位で上げてみてください。
 
-※ 問題の調査は終わりました、ユーザテスト済みです。
+ログが出力されていれば、顔認識の精度評価以外の理由で例外が発生しています。
+
+> nyasocom_sun_pg_win起動 → スクレイピング開始
+>
+> → 顔認証後メンバーズカード生成 → パスワードを動作中にチェック
+>
+> → 継続|停止を条件分岐で確認するのを繰り返します。
+
+```ruby
+# パスワード、メンバーズカードの設定
+EQUAL_PASSWORD = "TRUE"
+MEMBERS_CARD = "./pass.txt"
+```
+
+※ 問題の調査は終わりました、ユーザテスト済みです。照明を点けて顔認証してください。
