@@ -4,8 +4,9 @@
 ・ Windows11
 ・ Docker
 ・ Nginx
-・ hyokaproject ./wiki/ENV.md参照
 ```
+
+※ nyasocom_sun_pg_win/wiki/[ENV.md](https://github.com/takkii/nyasocom_sun_pg_win/blob/main/wiki/ENV.md)、顔認識システムを環境構築すること。
 
 #### ログイン
 
