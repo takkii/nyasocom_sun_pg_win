@@ -2,7 +2,7 @@
   "name": "nyasocom_sun_pg_win",
   "private": "true",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.0.1",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@rails/ujs": "^7.1.502",
     "bootswatch": "^5.3.8",
     "esbuild": "^0.25.10",
