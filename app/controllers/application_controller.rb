@@ -59,17 +59,16 @@ class ApplicationController < ActionController::Base
           ng_word = '❎'
 
           unless elements =~ /#{ng_word}/o
-            File.open(member, 'a:utf-8', perm = 0o777) do |f|
-              # Input, secret word in memberscard.
+            File.open(member, 'a:utf-8', perm = 0o777) do |f|d
               f.puts <<-DOC
 #{secretword}
               DOC
             end
-            # passed, Match word contain in csv file.
+            # passed, hyoka accuary number is normal.
             puts "Created, #{secretword} writed to #{memberscard}"
             return
           else
-            # Something other than an not xxx_utf8.csv file was matched.
+            # misstake, hyoka accuary number is unusual.
             puts '❎, contain message, exec tanraku_execute.'
             tanraku_execute
           end
