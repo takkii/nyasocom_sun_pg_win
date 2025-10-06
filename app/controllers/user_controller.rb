@@ -3,7 +3,7 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'version'
+require 'core'
 
 class UserController < ApplicationController
   before_action :authenticate_admin!
@@ -17,11 +17,8 @@ class UserController < ApplicationController
     end
     @users = Kaminari.paginate_array(User.search(params[:query]).order(created_at: :desc)).page(params[:page])
     @version = CoreNYM.version
-    sql = "SHOW pgroonga.libgroonga_version;"
-    query = ActiveRecord::Base.connection.select_all(sql).to_a
-    pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip
-    pg_number = (query).to_s.gsub(/[^.0-9A-Za-z]/, '').rstrip.delete("A-Za-z").delete_prefix(".").delete_suffix(".")
-    @pg_version = pg_string + " " + pg_number
+    @himekuri = CoreNYM.koyomi
+    @pg_version = CoreNYM.pg_version
   end
 
   def destroy
