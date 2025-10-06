@@ -60,6 +60,8 @@ EQUAL_PASSWORD = "TRUE"
 SECRET_WORD = "TRUE"
 # 設定: ./ファイル名.txt
 MEMBERS_CARD = "./pass.txt"
+# バージョン情報: x.x
+NYASOCOMSUN_VERSION = "3.2"
 ```
 
 ※ 問題の調査は終わりました、ユーザテスト済みです。照明を点けて顔認証してください。
