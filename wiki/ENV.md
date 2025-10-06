@@ -62,6 +62,8 @@ SECRET_WORD = "TRUE"
 MEMBERS_CARD = "./pass.txt"
 # バージョン情報: x.x
 NYASOCOMSUN_VERSION = "3.2"
+# スクレイピング先
+HYOKAPROJECT_URL = "http://localhost:8000/hyokapp/"
 ```
 
 ※ 問題の調査は終わりました、ユーザテスト済みです。照明を点けて顔認証してください。

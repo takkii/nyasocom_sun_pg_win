@@ -48,17 +48,18 @@ class ApplicationController < ActionController::Base
       # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
       secretword = ENV['SECRET_WORD']
+      hyoka_url = ENV['HYOKAPROJECT_URL']
 
       unless File.exist?(member)
         while true do
-          html = URI.open('http://localhost:8000/hyokapp/').read
+          html = URI.open(hyoka_url).read
           doc = Nokogiri::HTML.parse(html)
           doc_h1 = doc.at_css('h1')
           elements = Sanitize.clean(doc_h1).to_s
           ng_word = '❎'
 
           unless elements =~ /#{ng_word}/o
-            File.open(member, 'a:utf-8', perm = 0o777) do |f|d
+            File.open(member, 'a:utf-8', perm = 0o777) do |f|
               f.puts <<-DOC
 #{secretword}
               DOC
