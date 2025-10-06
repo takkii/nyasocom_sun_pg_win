@@ -173,7 +173,7 @@ mkcert localhost
 ```markdown
 Dependencies that need approval:
 @esbuild/win32-x64, 0.25.10, MIT
-@fortawesome/fontawesome-free, 7.0.1, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
+@fortawesome/fontawesome-free, 7.1.0, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
 @parcel/watcher, 2.5.1, MIT
 @parcel/watcher-win32-x64, 2.5.1, MIT
 @rails/ujs, 7.1.502, MIT
@@ -198,7 +198,7 @@ bootsnap, 1.18.6, MIT
 bootswatch, 5.3.8, MIT
 braces, 3.0.3, MIT
 builder, 3.3.0, MIT
-bundler, 2.6.9, MIT
+bundler, 2.7.2, MIT
 capybara, 3.40.0, MIT
 carrierwave, 3.1.2, MIT
 chokidar, 4.0.3, MIT
@@ -227,7 +227,7 @@ feedjira, 3.2.6, MIT
 ffi, 1.17.2, "New BSD"
 fill-range, 7.1.1, MIT
 font-awesome-sass, 6.7.2, MIT
-globalid, 1.2.1, MIT
+globalid, 1.3.0, MIT
 htmlbeautifier, 1.4.3, MIT
 httparty, 0.23.1, MIT
 i18n, 1.14.7, MIT
@@ -260,7 +260,7 @@ mini_mime, 1.1.5, MIT
 minitest, 5.25.5, MIT
 msgpack, 1.8.0, "Apache 2.0"
 multi_xml, 0.7.2, MIT
-net-imap, 0.5.10, "Simplified BSD, ruby"
+net-imap, 0.5.11, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
 net-smtp, 0.5.1, "Simplified BSD, ruby"
@@ -276,11 +276,11 @@ picomatch, 2.3.1, MIT
 pkg-config, 1.6.4, LGPLv2+
 pp, 0.6.2, "Simplified BSD, ruby"
 prettyprint, 0.2.0, "Simplified BSD, ruby"
-propshaft, 1.2.1, MIT
+propshaft, 1.3.1, MIT
 pry, 0.15.2, MIT
 psych, 5.2.6, MIT
 public_suffix, 6.0.2, MIT
-puma, 7.0.3, "New BSD"
+puma, 7.0.4, "New BSD"
 pycall, 1.5.2, MIT
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
@@ -296,7 +296,7 @@ railties, 8.0.3, MIT
 rake, 13.3.0, MIT
 rb-fsevent, 0.11.2, MIT
 rb-inotify, 0.11.1, MIT
-rdoc, 6.14.2, ruby
+rdoc, 6.15.0, ruby
 readdirp, 4.1.2, MIT
 redcarpet, 3.6.1, MIT
 regexp_parser, 2.11.3, MIT
@@ -304,8 +304,8 @@ reline, 0.6.2, ruby
 responders, 3.1.1, MIT
 rinku, 2.0.6, ISC
 rmagick, 6.1.4, MIT
-roo, 2.10.1, MIT
-rouge, 4.6.0, "MIT, Simplified BSD"
+roo, 3.0.0, MIT
+rouge, 4.6.1, "MIT, Simplified BSD"
 rspec, 3.9.0, MIT
 rspec-core, 3.9.3, MIT
 rspec-expectations, 3.9.4, MIT
@@ -313,9 +313,9 @@ rspec-mocks, 3.9.1, MIT
 rspec-rails, 3.9.1, MIT
 rspec-support, 3.9.4, MIT
 ruby-vips, 2.2.5, MIT
-rubyzip, 2.4.1, "Simplified BSD"
+rubyzip, 3.1.1, "Simplified BSD"
 sanitize, 7.0.0, MIT
-sass, 1.93.1, MIT
+sass, 1.93.2, MIT
 sassc, 2.4.0, MIT
 sax-machine, 1.3.2, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
@@ -333,7 +333,7 @@ thor, 1.4.0, MIT
 timeout, 0.4.3, "Simplified BSD, ruby"
 to-regex-range, 5.0.1, MIT
 tsort, 0.2.0, "Simplified BSD, ruby"
-turbo-rails, 2.0.16, MIT
+turbo-rails, 2.0.17, MIT
 tzinfo, 2.0.6, MIT
 tzinfo-data, 1.2025.2, MIT
 uri, 1.0.3, "Simplified BSD, ruby"
@@ -352,7 +352,7 @@ zeitwerk, 2.7.3, MIT
 ```markdown
 yarn licenses v1.22.22
 ├─ (CC-BY-4.0 AND OFL-1.1 AND MIT)
-│  └─ @fortawesome/fontawesome-free@7.0.1
+│  └─ @fortawesome/fontawesome-free@7.1.0
 │     ├─ URL: https://github.com/FortAwesome/Font-Awesome
 │     ├─ VendorName: The Font Awesome Team
 │     └─ VendorUrl: https://fontawesome.com/
@@ -435,7 +435,7 @@ yarn licenses v1.22.22
    │  ├─ URL: git://github.com/paulmillr/readdirp.git
    │  ├─ VendorName: Thorsten Lorenz
    │  └─ VendorUrl: https://github.com/paulmillr/readdirp
-   ├─ sass@1.93.1
+   ├─ sass@1.93.2
    │  ├─ URL: https://github.com/sass/dart-sass
    │  ├─ VendorName: Natalie Weizenbaum
    │  └─ VendorUrl: https://github.com/sass/dart-sass
@@ -443,42 +443,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/micromatch/to-regex-range.git
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 3.46s.
+Done in 0.50s.
 ```
 
-> ./app/controllers/
-
-```markdown
-yarn licenses v1.22.22
-warning package.json: No license field
-warning No license field
-└─ MIT
-   ├─ @types/ip@1.1.3
-   │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
-   │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ip
-   ├─ @types/node@22.13.1
-   │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
-   │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
-   ├─ ip-address@10.0.1
-   │  ├─ URL: git://github.com/beaugunderson/ip-address.git
-   │  ├─ VendorName: Beau Gunderson
-   │  └─ VendorUrl: https://beaugunderson.com/
-   ├─ ip@2.0.1
-   │  ├─ URL: http://github.com/indutny/node-ip.git
-   │  ├─ VendorName: Fedor Indutny
-   │  └─ VendorUrl: https://github.com/indutny/node-ip
-   ├─ smart-buffer@4.2.0
-   │  ├─ URL: https://github.com/JoshGlazebrook/smart-buffer.git
-   │  ├─ VendorName: Josh Glazebrook
-   │  └─ VendorUrl: https://github.com/JoshGlazebrook/smart-buffer/
-   ├─ socks@2.8.7
-   │  ├─ URL: https://github.com/JoshGlazebrook/socks.git
-   │  ├─ VendorName: Josh Glazebrook
-   │  └─ VendorUrl: https://github.com/JoshGlazebrook/socks/
-   └─ undici-types@6.20.0
-      ├─ URL: git+https://github.com/nodejs/undici.git
-      └─ VendorUrl: https://undici.nodejs.org/
-Done in 1.39s.
-```
-
-※ 更新履歴: 2025/09/23
+※ 更新履歴: 2025/10/06
