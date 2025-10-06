@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'version'
+
 class CommentsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_comment, only: %i[ show edit update destroy ]
@@ -10,7 +17,7 @@ class CommentsController < ApplicationController
       @comments_index = @comments_index.full_text_search(query)
     end
     @comments = Kaminari.paginate_array(Comment.search(params[:query]).order(created_at: :desc)).page(params[:page])
-    @version = 3.2
+    @version = CoreNYM.version
     sql = "SHOW pgroonga.libgroonga_version;"
     query = ActiveRecord::Base.connection.select_all(sql).to_a
     pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip

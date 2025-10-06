@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'time'
+require 'version'
 
 class TopController < ActionController::Base
   def index
@@ -11,7 +15,7 @@ class TopController < ActionController::Base
     @status = Kaminari.paginate_array(Blog.where(status: 'false').order(days: :desc)).page(params[:page])
     # comment paginate 5 page
     @comments = Kaminari.paginate_array(Comment.search(params[:search]).order(created_at: :desc)).page(params[:page]).per(5)
-    @version = 3.2
+    @version = CoreNYM.version
     sql = "SHOW pgroonga.libgroonga_version;"
     query = ActiveRecord::Base.connection.select_all(sql).to_a
     pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip

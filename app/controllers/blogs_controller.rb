@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'time'
+require 'version'
 
 class BlogsController < ApplicationController
   before_action :authenticate_user!
@@ -14,7 +20,7 @@ class BlogsController < ApplicationController
       @blogs_index = @blogs_index.full_text_search(query)
     end
     @blogs = Kaminari.paginate_array(Blog.search(params[:query]).order(days: :desc)).page(params[:page])
-    @version = 3.2
+    @version = CoreNYM.version
     dt = Time.new.getlocal('+09:00')
     week = %w(日 月 火 水 木 金 土)[dt.wday]
     @himekuri = "#{dt.year}年" + "#{dt.month}月" + "#{dt.day}日" + ' : '.to_s + "#{dt.hour}時"+"#{dt.min}分"+"#{dt.sec}秒" + ' : '.to_s + week + "曜日"

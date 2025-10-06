@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'version'
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
   protect_from_forgery with: :exception
@@ -5,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @users = Kaminari.paginate_array(current_user.blogs.search(params[:query]).order("created_at DESC")).page(params[:page])
-    @version = 3.2
+    @version = CoreNYM.version
     sql = "SHOW pgroonga.libgroonga_version;"
     query = ActiveRecord::Base.connection.select_all(sql).to_a
     pg_string = (query).to_s.gsub(/[^A-Za-z]/, ' ').rstrip
