@@ -43,9 +43,7 @@ class ApplicationController < ActionController::Base
 
   def validate_memberscard
     begin
-      # Change, Can do customize naming to memberscard.
       memberscard = ENV['MEMBERS_CARD']
-      # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
       secretword = ENV['SECRET_WORD']
       hyoka_url = ENV['HYOKAPROJECT_URL']
@@ -87,11 +85,8 @@ class ApplicationController < ActionController::Base
 
   def validate_welcome
     begin
-      # Change, Can do customize naming to memberscard.
       memberscard = ENV['MEMBERS_CARD']
-      # Text file reading directly below under this project.
       member = File.expand_path(memberscard)
-      # Check, that String are equal password.
       eq_pass = ENV['EQUAL_PASSWORD']
 
       unless File.exist?(member)
