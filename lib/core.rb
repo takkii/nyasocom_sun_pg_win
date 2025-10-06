@@ -18,9 +18,9 @@ class CoreNYM
         @pg_version = pg_string + " " + pg_number
     end
 
-    # nyasocom_sun_pg_win version
+    # version number x.x
     def self.version
-        ENV['NYASOCOMSUN_VERSION']
+        @version = ENV['NYASOCOMSUN_VERSION']
     end
 end
 

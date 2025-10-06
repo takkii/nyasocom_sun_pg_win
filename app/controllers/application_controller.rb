@@ -55,27 +55,25 @@ class ApplicationController < ActionController::Base
           html = URI.open('http://localhost:8000/hyokapp/').read
           doc = Nokogiri::HTML.parse(html)
           doc_h1 = doc.at_css('h1')
-          elements = Sanitize.clean(doc_h1).parse_csv
-          xxx_utf8 = './config/xxx_utf8.csv'
+          elements = Sanitize.clean(doc_h1).to_s
+          ng_word = '❎'
 
-          CSV.foreach(xxx_utf8) do |xxx_csv|
-            if (elements).to_s.match(/#{xxx_csv}/o) || {}[:match]
-              File.open(member, 'a:utf-8', perm = 0o777) do |f|
-                # Input, secret word in memberscard.
-                f.puts <<-DOC
+          unless elements =~ /#{ng_word}/o
+            File.open(member, 'a:utf-8', perm = 0o777) do |f|
+              # Input, secret word in memberscard.
+              f.puts <<-DOC
 #{secretword}
-                DOC
-              end
-              # passed, Match word contain in csv file.
-              puts "Created, #{secretword} writed to #{memberscard}"
-              return
-            else
-              # Something other than an not xxx_utf8.csv file was matched.
-              exit!
+              DOC
             end
-              redirect_to root_path
+            # passed, Match word contain in csv file.
+            puts "Created, #{secretword} writed to #{memberscard}"
+            return
+          else
+            # Something other than an not xxx_utf8.csv file was matched.
+            puts '❎, contain message, exec tanraku_execute.'
+            tanraku_execute
           end
-            break
+            redirect_to root_path
         end
       else
         puts 'Pass, memberscard checked.'
