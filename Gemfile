@@ -69,6 +69,9 @@ gem 'ostruct'
 # License view
 # gem 'license_finder'
 
+# nyasocom tools
+gem 'grouse'
+
 # Windows ENV.
 if Gem.win_platform?
   gem 'sheltered-girl', '4.0.4.5'
