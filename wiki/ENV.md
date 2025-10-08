@@ -1,6 +1,6 @@
 > git clone git@github.com:takkii/hyokaproject.git
 
-```markdown
+```python
 cd hyokaproject
 
 pip3 install -r requiremens.txt
