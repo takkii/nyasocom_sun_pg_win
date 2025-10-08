@@ -15,7 +15,7 @@
 
 #### Docker側
 
-```markdown
+```sql
 # bashでコンテナ内に入る
 
 docker-compose exec db bash
@@ -51,7 +51,7 @@ CREATE EXTENSION pgroonga;
 
 #### 新規機能追加
 
-```markdown
+```ruby
 # msys2 install
 
 pacman -S mingw-w64-ucrt-x86_64-libyaml
@@ -71,7 +71,7 @@ rails db:migrate:reset
 
 #### 起動
 
-```markdown
+```ruby
 # データセット
 
 docker-compose exec web rails db:default_db
@@ -81,8 +81,8 @@ docker-compose exec web rails db:default_db
 docker-compose exec web rails db:environment:set RAILS_ENV=development
 docker-compose exec web rails db:pg_default_db
 
-# rails c / docker-compose exec web rails c
-adminとuserのメールアドレスとパスワードを入れる。
+# adminとuserのメールアドレスとパスワードを入れる。
+rails c / docker-compose exec web rails c
 ```
 
 #### 管理者側
@@ -109,7 +109,7 @@ end
 
 #### ローカル環境構築
 
-```markdown
+```ruby
 # Nginx
 
 cd C:\nginx-1.22.0
@@ -149,12 +149,10 @@ docker compose up -d
 # config/puma.rb
 
 修正、コメント内容確認。
-
-# その他、nyasocom_sun_pgroonga/wiki/manual.mdを参照。
 ```
 #### 証明書
 
-```markdown
+```shell
 # use scoop
 scoop install mkcert
 
@@ -170,7 +168,7 @@ mkcert localhost
 
 > license_finder
 
-```markdown
+```ruby
 Dependencies that need approval:
 @esbuild/win32-x64, 0.25.10, MIT
 @fortawesome/fontawesome-free, 7.1.0, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
@@ -192,7 +190,7 @@ addressable, 2.8.7, "Apache 2.0"
 base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.20, MIT
 benchmark, 0.4.1, "Simplified BSD, ruby"
-bigdecimal, 3.2.3, "Simplified BSD, ruby"
+bigdecimal, 3.3.0, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
 bootsnap, 1.18.6, MIT
 bootswatch, 5.3.8, MIT
@@ -218,7 +216,7 @@ docile, 1.4.1, MIT
 dotenv, 3.1.8, MIT
 dotenv-rails, 3.1.8, MIT
 drb, 2.2.3, "Simplified BSD, ruby"
-erb, 5.0.2, "Simplified BSD, ruby"
+erb, 5.0.3, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
 esbuild, 0.25.10, MIT
 factory_bot, 6.5.5, MIT
@@ -228,8 +226,9 @@ ffi, 1.17.2, "New BSD"
 fill-range, 7.1.1, MIT
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
+grouse, 1.0.1.1, MIT
 htmlbeautifier, 1.4.3, MIT
-httparty, 0.23.1, MIT
+httparty, 0.23.2, MIT
 i18n, 1.14.7, MIT
 image_processing, 1.14.0, MIT
 immutable, 5.1.3, MIT
@@ -257,10 +256,10 @@ method_source, 1.1.0, MIT
 micromatch, 4.0.8, MIT
 mini_magick, 5.3.1, MIT
 mini_mime, 1.1.5, MIT
-minitest, 5.25.5, MIT
+minitest, 5.26.0, MIT
 msgpack, 1.8.0, "Apache 2.0"
 multi_xml, 0.7.2, MIT
-net-imap, 0.5.11, "Simplified BSD, ruby"
+net-imap, 0.5.12, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
 net-smtp, 0.5.1, "Simplified BSD, ruby"
@@ -274,7 +273,7 @@ paranoia, 3.0.1, MIT
 pg, 1.6.2, "Simplified BSD"
 picomatch, 2.3.1, MIT
 pkg-config, 1.6.4, LGPLv2+
-pp, 0.6.2, "Simplified BSD, ruby"
+pp, 0.6.3, "Simplified BSD, ruby"
 prettyprint, 0.2.0, "Simplified BSD, ruby"
 propshaft, 1.3.1, MIT
 pry, 0.15.2, MIT
@@ -284,7 +283,7 @@ puma, 7.0.4, "New BSD"
 pycall, 1.5.2, MIT
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
-rack, 3.2.1, MIT
+rack, 3.2.2, MIT
 rack-session, 2.1.1, MIT
 rack-test, 2.2.0, MIT
 rackup, 2.2.1, MIT
@@ -336,7 +335,7 @@ tsort, 0.2.0, "Simplified BSD, ruby"
 turbo-rails, 2.0.17, MIT
 tzinfo, 2.0.6, MIT
 tzinfo-data, 1.2025.2, MIT
-uri, 1.0.3, "Simplified BSD, ruby"
+uri, 1.0.4, "Simplified BSD, ruby"
 useragent, 0.16.11, MIT
 warden, 1.2.9, MIT
 wdm, 0.2.0, MIT
@@ -349,7 +348,7 @@ zeitwerk, 2.7.3, MIT
 
 ### yarn licenses list
 
-```markdown
+```javascript
 yarn licenses v1.22.22
 ├─ (CC-BY-4.0 AND OFL-1.1 AND MIT)
 │  └─ @fortawesome/fontawesome-free@7.1.0
@@ -443,7 +442,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/micromatch/to-regex-range.git
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 0.50s.
+Done in 0.32s.
 ```
 
-※ 更新履歴: 2025/10/06
+※ 更新履歴: 2025/10/08
