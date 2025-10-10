@@ -69,7 +69,7 @@ gem 'ostruct'
 # License view
 # gem 'license_finder'
 
-# This Tools is Not Yet Another Software design of Computer.
+# This Tools is used Not Yet Another Software design of Computer.
 gem 'grouse'
 
 # Windows ENV.
