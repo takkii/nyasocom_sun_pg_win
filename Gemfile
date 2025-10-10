@@ -69,7 +69,7 @@ gem 'ostruct'
 # License view
 # gem 'license_finder'
 
-# nyasocom tools
+# This Tools is Not Yet Another Software design of Computer.
 gem 'grouse'
 
 # Windows ENV.
