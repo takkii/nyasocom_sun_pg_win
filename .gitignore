@@ -47,3 +47,6 @@ Gemfile.lock
 # settings file
 .env
 pass.txt
+
+# Use, rubymine
+.idea/*
