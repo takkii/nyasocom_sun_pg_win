@@ -1,26 +1,26 @@
 <%= form_with(model: comment) do |form| %>
-<% if comment.errors.any? %>
-<div style="color: red">
-    <h2>
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <h2>
         <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-    <ul>
+      <ul>
         <% comment.errors.each do |error| %>
-        <li>
+          <li>
             <%= error.full_message %>
-        </li>
+          </li>
         <% end %>
-    </ul>
-</div>
-<% end %>
-<div>
+      </ul>
+    </div>
+  <% end %>
+  <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body,size: "40x20" %>
-</div>
-<div class="actions">
+    <%= form.text_area :body, size: "40x20" %>
+  </div>
+  <div class="actions">
     <button type="submit" class="btn btn-success">登録</button>
     <%= link_to "閲覧", comment, class: "btn btn-info" %>
     <%= link_to '戻る', comments_path, class: "btn btn-warning" %>
     <%= link_to 'トップ', root_path, class: "btn btn-dark" %>
-</div>
-<br />
+  </div>
+  <br/>
 <% end %>

@@ -10,6 +10,7 @@ class Net::HTTP
     initialize_old(address, port)
     @read_timeout = 900 # timeout, 15 minute settings.
   end
+
   alias :initialize_old :initialize
   alias :initialize :initialize_new
 end
@@ -70,7 +71,7 @@ class ApplicationController < ActionController::Base
             puts '❎, contain message, exec tanraku_execute.'
             tanraku_execute
           end
-            redirect_to root_path
+          redirect_to root_path
         end
       else
         puts 'Pass, memberscard checked.'
@@ -97,19 +98,19 @@ class ApplicationController < ActionController::Base
           while (name = f.readlines)
             name.sort!
             name.each do |pass_n|
-            unless "#{pass_n}" =~ /#{eq_pass}/o
-              puts "#{pass_n}"
-              puts 'No, Match Word in members card.'
-              exit!
-            else
-              puts "Match word contain #{eq_pass} in memberscard."
-              return
+              unless "#{pass_n}" =~ /#{eq_pass}/o
+                puts "#{pass_n}"
+                puts 'No, Match Word in members card.'
+                exit!
+              else
+                puts "Match word contain #{eq_pass} in memberscard."
+                return
+              end
             end
           end
         end
       end
-    end
-    rescue StandardError=> a
+    rescue StandardError => a
       puts a.backtrace
     ensure
       GC.auto_compact

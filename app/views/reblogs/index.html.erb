@@ -1,69 +1,69 @@
 <div align="right">
   <div class="user_nav grid-6 m-1">
     <% if admin_signed_in? %>
-      <br />
-      <%= link_to "トップ", root_path , class: "btn btn-info" %>
+      <br/>
+      <%= link_to "トップ", root_path, class: "btn btn-info" %>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-success" %>
-      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary") %>
     <% else %>
-      <%= link_to "ログイン", new_admin_session_path, class: 'post' , class: "btn btn-success" %>
-      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
+      <%= link_to "ログイン", new_admin_session_path, class: 'post', class: "btn btn-success" %>
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary") %>
     <% end %>
   </div>
 </div>
-<br />
+<br/>
 <div class="left_search">
   <ul>
     <div class="left_search_icon">
       <p>全文検索 :
         <%= @reblogs_index.size %> 行 (全テキスト数)</p>
     </div>
-    <br />
+    <br/>
     <%= form_tag(reblogs_path, method: "get") do %> <i class="fab fa-searchengin"></i> :
-      <%= search_field_tag "query", params["query"],  placeholder: '本文を入力' %>
+      <%= search_field_tag "query", params["query"], placeholder: '本文を入力' %>
       <%= submit_tag '検索', :name => '鬼灯' %>
     <% end %>
-  </div>
-  <br />
-  <div class="left_blog">
-    <table width="87%">
-      <thead>
-        <tr>
-          <th>
-            <div align="center">日時</div>
-          </th>
-          <th>
-            <div align="center">タイトル</div>
-          </th>
-          <th></th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reblogs.each do |blog| %>
-          <tr>
-            <td>
-              <div align="center">
-                <%= blog.days %>
-              </div>
-            </td>
-            <td>
-              <div align="center">
-                <%= blog.title %>
-              </div>
-            </td>
-            <td>
-              <div align="left">
-                <%= link_to '閲覧', blog, class: "btn btn-primary" %>
-                <%= link_to '編集', edit_blog_path(blog), class: "btn btn-info" %>
-                <%= link_to '削除', blog, method: :delete, data: { confirm: '記事を削除してもよろしいですか？' }, class: "btn btn-light" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+</div>
+<br/>
+<div class="left_blog">
+  <table width="87%">
+    <thead>
+    <tr>
+      <th>
+        <div align="center">日時</div>
+      </th>
+      <th>
+        <div align="center">タイトル</div>
+      </th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @reblogs.each do |blog| %>
+      <tr>
+        <td>
+          <div align="center">
+            <%= blog.days %>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <%= blog.title %>
+          </div>
+        </td>
+        <td>
+          <div align="left">
+            <%= link_to '閲覧', blog, class: "btn btn-primary" %>
+            <%= link_to '編集', edit_blog_path(blog), class: "btn btn-info" %>
+            <%= link_to '削除', blog, method: :delete, data: { confirm: '記事を削除してもよろしいですか？' }, class: "btn btn-light" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 </ul>
 </div>
 <br>
@@ -79,9 +79,9 @@
 </div>
 <div align="center">
   <p><b> Not Yet Another Software design of Computer
-      <%= @version %> <br />
-      powered by Ruby
-      <%= RUBY_VERSION %> / Rails
-      <%= Rails.gem_version %> / with
-      <%= @pg_version %></b></p>
+    <%= @version %> <br/>
+    powered by Ruby
+    <%= RUBY_VERSION %> / Rails
+    <%= Rails.gem_version %> / with
+    <%= @pg_version %></b></p>
 </div>
