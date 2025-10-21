@@ -1,30 +1,30 @@
-<h1>記事を閲覧</h1>
-<p> <strong>日付: </strong>
-    <%= @blog.days %>
+F<h1>記事を閲覧</h1>
+<p><strong>日付: </strong>
+  <%= @blog.days %>
 </p>
-<p> <strong>タイトル: </strong>
-    <%= @blog.title %>
+<p><strong>タイトル: </strong>
+  <%= @blog.title %>
 </p>
 <% if @blog.switch? %>
-<div class="blog_white">
+  <div class="blog_white">
 <% end %>
-<p> <strong>本文: </strong>
-    <%= markdown(@blog.body).html_safe %>
+<p><strong>本文: </strong>
+  <%= markdown(@blog.body).html_safe %>
 </p>
 </div>
-<p> <strong>写真: </strong>
-    <%= image_tag(@blog.image.url) if @blog.image.present? %>
+<p><strong>写真: </strong>
+  <%= image_tag(@blog.image.url) if @blog.image.present? %>
 </p>
-<br />
+<br/>
 <p>
-    <div class="video-player"> <strong>動画: </strong>
-        <%= video_tag @blog.video.url, autoplay: false, multiple: true, muted: false, controls: true , width: "50%", height: "50%" if @blog.video.present? %>
-    </div>
+<div class="video-player"><strong>動画: </strong>
+  <%= video_tag @blog.video.url, autoplay: false, multiple: true, muted: false, controls: true, width: "50%", height: "50%" if @blog.video.present? %>
+</div>
 </p>
 <%= link_to '編集', edit_blog_path(@blog), class: "btn btn-primary" %>
 <%= link_to '戻る', blogs_path, class: "btn btn-warning" %>
 <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-dark btn") %>
-<%= link_to "トップ", root_path , class: "btn btn-info" %>
-<br /><br />
+<%= link_to "トップ", root_path, class: "btn btn-info" %>
+<br/><br/>
 <%= button_to '削除', @blog, method: :delete, data: { confirm: '記事を削除してもよろしいですか？' }, class: "btn btn-light" %>
-<br />
+<br/>
