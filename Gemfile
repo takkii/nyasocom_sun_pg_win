@@ -70,17 +70,17 @@ gem 'ostruct'
 gem 'grouse'
 
 group :development, :test do
-#   rspec
+  #   rspec
   gem 'rspec'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.9', '>= 3.9.1'
   gem 'spring-commands-rspec'
   gem 'capybara'
 
-#   rubocop
-#   gem 'rubocop', require: false
-#   gem 'rubocop-performance', require: false
-#   gem 'rubocop-rails', require: false
+  #   rubocop
+  #   gem 'rubocop', require: false
+  #   gem 'rubocop-performance', require: false
+  #   gem 'rubocop-rails', require: false
 
   # Use,Windows ENV | other os.
   if Gem.win_platform?
@@ -103,8 +103,8 @@ group :development do
 end
 
 group :test do
-#   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-# gem 'capybara'
-# gem 'webdrivers'
-# gem 'debug'
+  #   Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # gem 'capybara'
+  # gem 'webdrivers'
+  # gem 'debug'
 end
