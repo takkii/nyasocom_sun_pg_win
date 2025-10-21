@@ -170,7 +170,7 @@ mkcert localhost
 
 ```ruby
 Dependencies that need approval:
-@esbuild/win32-x64, 0.25.10, MIT
+@esbuild/win32-x64, 0.25.11, MIT
 @fortawesome/fontawesome-free, 7.1.0, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
 @parcel/watcher, 2.5.1, MIT
 @parcel/watcher-win32-x64, 2.5.1, MIT
@@ -190,7 +190,7 @@ addressable, 2.8.7, "Apache 2.0"
 base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.20, MIT
 benchmark, 0.4.1, "Simplified BSD, ruby"
-bigdecimal, 3.3.0, "Simplified BSD, ruby"
+bigdecimal, 3.3.1, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
 bootsnap, 1.18.6, MIT
 bootswatch, 5.3.8, MIT
@@ -218,7 +218,7 @@ dotenv-rails, 3.1.8, MIT
 drb, 2.2.3, "Simplified BSD, ruby"
 erb, 5.0.3, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
-esbuild, 0.25.10, MIT
+esbuild, 0.25.11, MIT
 factory_bot, 6.5.5, MIT
 factory_bot_rails, 6.5.1, MIT
 feedjira, 3.2.6, MIT
@@ -226,12 +226,12 @@ ffi, 1.17.2, "New BSD"
 fill-range, 7.1.1, MIT
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.0.1.1, MIT
+grouse, 1.0.2, MIT
 htmlbeautifier, 1.4.3, MIT
 httparty, 0.23.2, MIT
 i18n, 1.14.7, MIT
 image_processing, 1.14.0, MIT
-immutable, 5.1.3, MIT
+immutable, 5.1.4, MIT
 io-console, 0.8.1, "Simplified BSD, ruby"
 irb, 1.15.2, "Simplified BSD, ruby"
 is-extglob, 2.1.1, MIT
@@ -365,7 +365,7 @@ yarn licenses v1.22.22
 │     ├─ VendorName: Valentin 7rulnik Semirulnik
 │     └─ VendorUrl: https://github.com/7rulnik/source-map-js
 └─ MIT
-   ├─ @esbuild/win32-x64@0.25.10
+   ├─ @esbuild/win32-x64@0.25.11
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ @parcel/watcher-win32-x64@2.5.1
    │  └─ URL: https://github.com/parcel-bundler/watcher.git
@@ -386,13 +386,13 @@ yarn licenses v1.22.22
    │  ├─ URL: git+https://github.com/paulmillr/chokidar.git
    │  ├─ VendorName: Paul Miller
    │  └─ VendorUrl: https://github.com/paulmillr/chokidar
-   ├─ esbuild@0.25.10
+   ├─ esbuild@0.25.11
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ fill-range@7.1.1
    │  ├─ URL: https://github.com/jonschlinkert/fill-range.git
    │  ├─ VendorName: Jon Schlinkert
    │  └─ VendorUrl: https://github.com/jonschlinkert/fill-range
-   ├─ immutable@5.1.3
+   ├─ immutable@5.1.4
    │  ├─ URL: git://github.com/immutable-js/immutable-js.git
    │  ├─ VendorName: Lee Byron
    │  └─ VendorUrl: https://immutable-js.com/
@@ -442,7 +442,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/micromatch/to-regex-range.git
       ├─ VendorName: Jon Schlinkert
       └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 0.32s.
+Done in 0.30s.
 ```
 
-※ 更新履歴: 2025/10/08
+※ 更新履歴: 2025/10/21
