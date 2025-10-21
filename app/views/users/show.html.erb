@@ -9,21 +9,21 @@
 <div class="header__bar row">
   <div align="right">
     <div class="user_nav grid-6 m-1">
-      <%= link_to "トップ", root_path , class: "btn btn-info" %>
+      <%= link_to "トップ", root_path, class: "btn btn-info" %>
       <%= link_to "新規投稿", new_blog_url, class: "btn btn-warning" %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
       <%= link_to "記事一覧", blogs_path, class: "btn btn-success" %>
       <%= link_to "期間限定", secret_index_path, class: "btn btn-dark" %>
-      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary")  %>
-      <br />
+      <%= link_to('再読込', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-primary") %>
+      <br/>
     </div>
   </div>
 </div>
-<br />
+<br/>
 <div align="center">
-  <br />
+  <br/>
   <%= paginate @users %>
-  <br />
+  <br/>
 </div>
 <div class="left_top">
   <table>
@@ -49,9 +49,9 @@
             </strong>
           </p>
           <p>
-            <div align="left">
-              <%= image_tag(blog.image.url) if blog.image.present? %>
-            </div>
+          <div align="left">
+            <%= image_tag(blog.image.url) if blog.image.present? %>
+          </div>
           </p>
           <p>
             <strong>
@@ -66,27 +66,27 @@
             <strong>
               <div align="left">
                 <div class="video-player">
-                  <%= video_tag blog.video.url, autoplay: false, multiple: true, muted: false, controls: true , width: "50%", height: "50%" if blog.video.present? %>
+                  <%= video_tag blog.video.url, autoplay: false, multiple: true, muted: false, controls: true, width: "50%", height: "50%" if blog.video.present? %>
                 </div>
               </div>
             </strong>
           </p>
           <p>
             <% if blog.file.present? %>
-              <div align="left">
-                <audio src="<%= " #{blog.file}" %>" controls=""></audio>
-              </div>
-            <% else %>
-            <% end %>
+            <div align="left">
+              <audio src="<%= " #{blog.file}" %>" controls=""></audio>
+            </div>
+          <% else %>
+          <% end %>
           </p>
           <% if blog.switch? %>
             <div class="top_white">
-            <% end %>
-            <p>
-              <div align="left">
-                <%= markdown(blog.body).html_safe %>
-              </div>
-            </p>
+          <% end %>
+          <p>
+          <div align="left">
+            <%= markdown(blog.body).html_safe %>
+          </div>
+          </p>
           </div>
           <% if @user == current_user %>
             <div align="left">
@@ -98,18 +98,18 @@
               <% Array(blog.user_id).each do |blog_user| %>
                 <% if "#{blog_user}".match?(/^[0]$/) %>
                   原文 : <i class="fa fa-smile smile-btn"></i>
-                <% else%>
+                <% else %>
                   編集 : <i class="fa fa-smile smile-btn"></i> <%= blog_user %>
                 <% end %>
               <% end %>
               <div id="blog_<%= blog.id %>" class="horizen-line">
                 <% if current_user.liked_by?(blog.id) %>
-                  <%= link_to destroy_like_path(blog), class: "like-link" , method: :DELETE, remote: true, data: {"turbolinks"=> false} do %>
+                  <%= link_to destroy_like_path(blog), class: "like-link", method: :DELETE, remote: true, data: { "turbolinks" => false } do %>
                     <i class="fa fa-heart unlike-btn"></i>
                     <%= blog.likes.count %>
                   <% end %>
                 <% else %>
-                  <%= link_to create_like_path(blog), class: "like-link" , method: :POST, remote: true, data: {"turbolinks" => false} do %>
+                  <%= link_to create_like_path(blog), class: "like-link", method: :POST, remote: true, data: { "turbolinks" => false } do %>
                     <i class="fa fa-heart like-btn"></i>
                     <%= blog.likes.count %>
                   <% end %>
@@ -121,17 +121,17 @@
             <%= raise_not_found! %>
           <% end %>
         </td>
-      <% end %>
+    <% end %>
     </tr>
   </table>
 </div>
-<br />
+<br/>
 <div align="center">
-  <br />
+  <br/>
   <%= paginate @users %>
-  <br />
+  <br/>
 </div>
-<br />
+<br/>
 <div align="center">
   <p> Copyright &copy; 2018 -
     <%= Time.now.year %> Takayuki, Kamiyama. </p>
@@ -139,7 +139,7 @@
 <div align="center">
   <p>
     <b> Not Yet Another Software design of Computer
-      <%= @version %> <br />
+      <%= @version %> <br/>
       powered by Ruby
       <%= RUBY_VERSION %> / Rails
       <%= Rails.gem_version %> / with
@@ -147,4 +147,4 @@
     </b>
   </p>
 </div>
-<br />
+<br/>
