@@ -3,94 +3,94 @@
     <div class="user_nav grid-6 m-1">
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-success" %>
       <%= link_to "トップ", root_path, class: "btn btn-info" %>
-      <br />
+      <br/>
     </div>
   </div>
 </div>
-<br />
+<br/>
 <div class="left_search">
   <ul>
     <div class="left_search_icon">
       <p>全文検索 :
         <%= @users_index.size %> 行 (全メールアドレス数)</p>
     </div>
-    <br />
+    <br/>
     <%= form_tag(user_index_path, method: "get") do %> <i class="fab fa-searchengin"></i> :
-      <%= search_field_tag "query", params["query"],  placeholder: 'メールアドレスを入力' %>
+      <%= search_field_tag "query", params["query"], placeholder: 'メールアドレスを入力' %>
       <%= submit_tag '検索', :name => '鬼灯' %>
     <% end %>
-  </div>
-  <br />
-  <div align="center">
-    <h3>ユーザ一覧</h3>
-  </div>
-  <br />
-  <div class="left_blog">
-    <table width="67%">
-      <thead>
-        <tr>
-          <th>
-            <div align="center">ID</div>
-          </th>
-          <th>
-            <div align="center">メールアドレス</div>
-          </th>
-          <th>
-            <div align="center">作成日</div>
-          </th>
-          <th>
-            <div align="center">更新日</div>
-          </th>
-          <th>
-            <div align="center">退会処理</div>
-          </th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td>
-              <div align="center">
-                <%= user.id %>
-              </div>
-            </td>
-            <td>
-              <div align="center">
-                <%= user.email %>
-              </div>
-            </td>
-            <td>
-              <div align="center">
-                <%= user.created_at %>
-              </div>
-            </td>
-            <td>
-              <div align="center">
-                <%= user.updated_at %>
-              </div>
-            </td>
-            <td>
-              <div align="center">
-                <%= button_to "退会", user_path(user.id), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <%= paginate @users %>
-  <br />
-  <div align="center">
-    <p> Copyright &copy; 2018 -
-      <%= Time.now.year %> Takayuki, Kamiyama. </p>
-  </div>
-  <div align="center">
-    <p><b> Not Yet Another Software design of Computer
-        <%= @version %> <br />
-        powered by Ruby
-        <%= RUBY_VERSION %> / Rails
-        <%= Rails.gem_version %> / with
-        <%= @pg_version %></b></p>
-  </div>
+</div>
+<br/>
+<div align="center">
+  <h3>ユーザ一覧</h3>
+</div>
+<br/>
+<div class="left_blog">
+  <table width="67%">
+    <thead>
+    <tr>
+      <th>
+        <div align="center">ID</div>
+      </th>
+      <th>
+        <div align="center">メールアドレス</div>
+      </th>
+      <th>
+        <div align="center">作成日</div>
+      </th>
+      <th>
+        <div align="center">更新日</div>
+      </th>
+      <th>
+        <div align="center">退会処理</div>
+      </th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <div align="center">
+            <%= user.id %>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <%= user.email %>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <%= user.created_at %>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <%= user.updated_at %>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <%= button_to "退会", user_path(user.id), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @users %>
+<br/>
+<div align="center">
+  <p> Copyright &copy; 2018 -
+    <%= Time.now.year %> Takayuki, Kamiyama. </p>
+</div>
+<div align="center">
+  <p><b> Not Yet Another Software design of Computer
+    <%= @version %> <br/>
+    powered by Ruby
+    <%= RUBY_VERSION %> / Rails
+    <%= Rails.gem_version %> / with
+    <%= @pg_version %></b></p>
+</div>
