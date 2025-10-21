@@ -66,20 +66,8 @@ gem 'bootsnap', require: false
 # The default gems starting from Ruby 3.5.0.
 gem 'ostruct'
 
-# License view
-# gem 'license_finder'
-
-# This Tools is used Not Yet Another Software design of Computer.
+# This Tools is used nyasocom_sun_pg_win.
 gem 'grouse'
-
-# Windows ENV.
-if Gem.win_platform?
-  gem 'sheltered-girl', '4.0.4.5'
-  gem 'tzinfo-data'
-  gem 'wdm'
-else
-  gem 'sheltered-girl'
-end
 
 group :development, :test do
 #   rspec
@@ -93,6 +81,15 @@ group :development, :test do
 #   gem 'rubocop', require: false
 #   gem 'rubocop-performance', require: false
 #   gem 'rubocop-rails', require: false
+
+  # Use,Windows ENV | other os.
+  if Gem.win_platform?
+    gem 'sheltered-girl', '4.0.4.5'
+    gem 'tzinfo-data'
+    gem 'wdm'
+  else
+    gem 'sheltered-girl'
+  end
 end
 
 group :development do
@@ -101,7 +98,8 @@ group :development do
 
   # Don't delete My Gemfile in Library.
   gem 'listen'
-  gem 'htmlbeautifier'
+  # gem 'htmlbeautifier'
+  # gem 'license_finder'
 end
 
 group :test do
