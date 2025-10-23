@@ -7,7 +7,7 @@ Dotenv.load
 # Mini_test file load.
 class VersionTest < Minitest::Test
   def test_version
-    # dotenv == string
+    # dotenv == String type, version number.
     @v1 = ENV['NYASOCOMSUN_VERSION']
     @v2 = '3.2'
 
