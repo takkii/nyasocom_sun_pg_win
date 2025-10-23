@@ -33,7 +33,7 @@ class MiniTestFile
     when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
       begin
         # Full, Switch ON / (true, string, string).
-        @mini_test = Full(true, "#{Dir.home}".to_s, '/GitHub/nyasocom_sun_pg_win/mini_test')
+        @mini_test = Full(true, "#{Dir.home}".to_s, '/GitHub/nyasocom_sun_pg_win/unit')
       rescue
         tanraku_execute
       end
@@ -42,7 +42,7 @@ class MiniTestFile
     when /linux/
       begin
         # FullW, Switch ON / (true, string, string).
-        @mini_test = FullW(true, '/mnt/c/Users/sudok', '/GitHub/nyasocom_sun_pg_win/mini_test')
+        @mini_test = FullW(true, '/mnt/c/Users/sudok', '/GitHub/nyasocom_sun_pg_win/unit')
       rescue
         tanraku_execute
       end
