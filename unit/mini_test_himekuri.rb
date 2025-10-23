@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
-require 'time'
 require 'core'
+require 'himekuri'
 require 'minitest/autorun'
+require 'time'
 
-# Mini_test file load.
+# rubygems/grouse and rubygems/sheltered-girl
 class HimekuriTest < Minitest::Test
   def test_himekuri
-    # koyomi in CoreNYM == himekuri function
+    # koyomi in CoreNYM == himekuri in HimekuriClass
     @koyomi = CoreNYM.koyomi
+    @himekuri = HimekuriClass.new.himekuri
 
-    dt = Time.new.getlocal('+09:00')
-    week = %w(日 月 火 水 木 金 土)[dt.wday]
-    @himekuri = "#{dt.year}年" + "#{dt.month}月" + "#{dt.day}日" + ' : '.to_s + "#{dt.hour}時"+"#{dt.min}分"+"#{dt.sec}秒" + ' : '.to_s + week + "曜日"
-
+    # When failed is contain zero value, example 01 ~ 09 etc.
     assert_equal(@koyomi, @himekuri)
   end
 end
