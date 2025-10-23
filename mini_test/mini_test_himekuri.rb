@@ -7,7 +7,7 @@ require 'minitest/autorun'
 # Mini_test file load.
 class HimekuriTest < Minitest::Test
   def test_himekuri
-    # dotenv == string
+    # koyomi in CoreNYM == himekuri function
     @koyomi = CoreNYM.koyomi
 
     dt = Time.new.getlocal('+09:00')
