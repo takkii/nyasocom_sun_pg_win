@@ -125,16 +125,16 @@ class ApplicationController < ActionController::Base
     adrs
   end
 
-  def eq_socket
-    Socket.ip_address_list.find do |ai|
-      ai.ipv4? && !ai.ipv4_loopback?
+  def list_socket
+    Socket.ip_address_list.find do |intf|
+      intf.ipv4? && !intf.ipv4_loopback? && !intf.ipv4_multicast?
     end.ip_address
   end
 
   def validate_ipaddress
     begin
-      unless "#{udp_socket}" == "#{eq_socket}"
-        puts "#{udp_socket} | #{eq_socket}"
+      unless "#{udp_socket}" == "#{list_socket}"
+        puts "#{udp_socket} | #{list_socket}"
         puts 'Something other than an IP address was matched.'
         exit!
       else
