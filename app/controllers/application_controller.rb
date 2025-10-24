@@ -1,3 +1,4 @@
+require 'grouse'
 require 'open3'
 require 'open-uri'
 require 'nokogiri'
@@ -115,20 +116,6 @@ class ApplicationController < ActionController::Base
     ensure
       GC.auto_compact
     end
-  end
-
-  def udp_socket
-    udp = UDPSocket.new
-    udp.connect("128.0.0.0", 7)
-    adrs = Socket.unpack_sockaddr_in(udp.getsockname)[1]
-    udp.close
-    adrs
-  end
-
-  def list_socket
-    Socket.ip_address_list.find do |intf|
-      intf.ipv4? && !intf.ipv4_loopback? && !intf.ipv4_multicast?
-    end.ip_address
   end
 
   def validate_ipaddress
