@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'core'
+require 'nym'
 
 class UserController < ApplicationController
   before_action :authenticate_admin!
