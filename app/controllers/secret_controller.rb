@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'nym'
 require 'date'
+require 'grouse'
 require 'time'
 
 class SecretController < BlogsController
@@ -10,9 +10,9 @@ class SecretController < BlogsController
 
   def index
     @status = Kaminari.paginate_array(Blog.where(status: 'true').order(days: :desc)).page(params[:page]).per(5)
-    @version = CoreNYM.version
-    @himekuri = CoreNYM.koyomi
-    @pg_version = CoreNYM.pg_version
+    @version = version
+    @himekuri = koyomi
+    @pg_version = pg_version
   end
 
 private
