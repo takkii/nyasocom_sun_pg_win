@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nym'
+require 'grouse'
 require 'time'
 
 class TopController < ActionController::Base
@@ -12,8 +12,8 @@ class TopController < ActionController::Base
     @status = Kaminari.paginate_array(Blog.where(status: 'false').order(days: :desc)).page(params[:page])
     # comment paginate 5 page
     @comments = Kaminari.paginate_array(Comment.search(params[:search]).order(created_at: :desc)).page(params[:page]).per(5)
-    @version = CoreNYM.version
-    @himekuri = CoreNYM.koyomi
-    @pg_version = CoreNYM.pg_version
+    @version = version
+    @himekuri = koyomi
+    @pg_version = pg_version
   end
 end

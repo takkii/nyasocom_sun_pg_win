@@ -120,8 +120,8 @@ class ApplicationController < ActionController::Base
 
   def validate_ipaddress
     begin
-      unless "#{udp_socket}" == "#{list_socket}"
-        puts "#{udp_socket} | #{list_socket}"
+      unless "#{udp_socket}" == "#{list_socket}" || "#{eq_socket}"
+        puts "#{udp_socket} == #{list_socket} || #{eq_socket}"
         puts 'Something other than an IP address was matched.'
         exit!
       else

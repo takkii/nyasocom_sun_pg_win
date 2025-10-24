@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nym'
+require 'grouse'
 
 class CommentsController < ApplicationController
   before_action :authenticate_admin!
@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
       @comments_index = @comments_index.full_text_search(query)
     end
     @comments = Kaminari.paginate_array(Comment.search(params[:query]).order(created_at: :desc)).page(params[:page])
-    @version = CoreNYM.version
-    @himekuri = CoreNYM.koyomi
-    @pg_version = CoreNYM.pg_version
+    @version = version
+    @himekuri = koyomi
+    @pg_version = pg_version
   end
 
   # GET /comments/1 or /comments/1.json
