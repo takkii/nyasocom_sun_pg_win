@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nym'
+require 'grouse'
 require 'time'
 
 class BlogsController < ApplicationController
@@ -17,9 +17,9 @@ class BlogsController < ApplicationController
       @blogs_index = @blogs_index.full_text_search(query)
     end
     @blogs = Kaminari.paginate_array(Blog.search(params[:query]).order(days: :desc)).page(params[:page])
-    @version = CoreNYM.version
-    @himekuri = CoreNYM.koyomi
-    @pg_version = CoreNYM.pg_version
+    @version = version
+    @himekuri = koyomi
+    @pg_version = pg_version
 
     respond_to do |format|
       format.html
