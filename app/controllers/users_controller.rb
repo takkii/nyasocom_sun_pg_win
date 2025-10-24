@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nym'
+require 'grouse'
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
@@ -9,9 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @users = Kaminari.paginate_array(current_user.blogs.search(params[:query]).order("created_at DESC")).page(params[:page])
-    @version = CoreNYM.version
-    @himekuri = CoreNYM.koyomi
-    @pg_version = CoreNYM.pg_version
+    @version = version
+    @himekuri = koyomi
+    @pg_version = pg_version
   end
 
   private
