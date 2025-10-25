@@ -4,7 +4,7 @@ require 'minitest/autorun'
 require 'dotenv'
 Dotenv.load
 
-# Mini_test file load.
+# Version Test in .env == String
 class VersionTest < Minitest::Test
   def test_version
     # dotenv == String type, version number.
