@@ -32,10 +32,6 @@ class BlogsController < ApplicationController
     redirect_to blogs_url, notice: 'CSV imported.'
   end
 
-  def set_csrf_token_header
-    response.set_header('X-CSRF-Token', form_authenticity_token)
-  end
-
   # GET /blogs/1 or /blogs/1.json
   def show
   end
