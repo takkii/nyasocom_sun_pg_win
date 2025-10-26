@@ -21,10 +21,6 @@ class ReblogsController < ApplicationController
     @pg_version = pg_version
   end
 
-  def set_csrf_token_header
-    response.set_header('X-CSRF-Token', form_authenticity_token)
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_blog
