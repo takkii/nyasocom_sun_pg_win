@@ -17,3 +17,5 @@ class KoyomiTest < Minitest::Test
     assert_equal(@v1, @v2)
   end
 end
+
+__END__

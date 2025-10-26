@@ -12,3 +12,5 @@ class MatchTest < Minitest::Test
     assert_match(pattern, ng_word, message)
   end
 end
+
+__END__

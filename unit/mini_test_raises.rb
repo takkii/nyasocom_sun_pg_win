@@ -21,3 +21,5 @@ class RaisesTest < Minitest::Test
     assert_equal 'raises', e.message
   end
 end
+
+__END__
