@@ -22,7 +22,7 @@ require 'minitest/runner'
 
 # The new instance will be deleted after process ends.
 class MiniTestFile
-  attr_reader :mini_test, :mini_unit
+  attr_reader :mini_test
 
   def initialize
     encoding_style
@@ -66,7 +66,7 @@ rescue
   puts 'Tanraku_VERSION: '.to_s + Tanraku::VERSION
   tanraku_execute
 ensure
-  GC.compact
+  GC.auto_compact
 end
 
 __END__

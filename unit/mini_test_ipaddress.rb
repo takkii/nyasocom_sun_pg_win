@@ -25,3 +25,5 @@ class IPAddressTest < Minitest::Test
     assert_equal(@v4_1, @v4_2)
   end
 end
+
+__END__
