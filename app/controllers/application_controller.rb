@@ -17,6 +17,7 @@ class Net::HTTP
 end
 
 class ApplicationController < ActionController::Base
+  after_action :set_csrf_token_header
   before_action :set_locale
   before_action :validate_ipaddress # ※1
   before_action :validate_memberscard # ※1
@@ -39,6 +40,10 @@ class ApplicationController < ActionController::Base
   def raise_not_found!
     e = ActionController::RoutingError.new("No route matches #{params[:unmatched_route]}")
     render_404(e)
+  end
+
+  def set_csrf_token_header
+    response.set_header('X-CSRF-Token', form_authenticity_token)
   end
 
   private
