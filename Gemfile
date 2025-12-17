@@ -69,6 +69,9 @@ gem 'ostruct'
 # This Tools is used nyasocom_sun_pg_win.
 gem 'grouse'
 
+# Windows ENV
+# gem 'sheltered-girl', '4.0.4.5'
+
 group :development, :test do
   #   rspec
   gem 'rspec'
@@ -82,14 +85,8 @@ group :development, :test do
   #   gem 'rubocop-performance', require: false
   #   gem 'rubocop-rails', require: false
 
-  # Use,Windows ENV | other os.
-  if Gem.win_platform?
-    gem 'sheltered-girl', '4.0.4.5'
-    gem 'tzinfo-data'
-    gem 'wdm'
-  else
-    gem 'sheltered-girl'
-  end
+  gem 'tzinfo-data' if Gem.win_platform?
+  gem 'wdm' if Gem.win_platform?
 end
 
 group :development do
