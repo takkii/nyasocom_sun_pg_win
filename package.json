@@ -3,13 +3,14 @@
   "private": "true",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
-    "@rails/ujs": "^7.1.502",
+    "@rails/ujs": "^7.1.600",
     "bootswatch": "^5.3.8",
-    "esbuild": "^0.25.11",
+    "esbuild": "^0.27.2",
     "jquery": "^3.7.1",
     "jquery-ujs": "^1.2.3",
     "pygments-rouge-css": "^0.1.0",
-    "sass": "^1.93.2"
+    "sass": "^1.97.0",
+    "types-server": "^1.0.5"
   },
   "scripts": {
     "build": "esbuild app/assets/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
