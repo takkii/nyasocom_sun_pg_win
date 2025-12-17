@@ -170,29 +170,29 @@ mkcert localhost
 
 ```ruby
 Dependencies that need approval:
-@esbuild/win32-x64, 0.25.11, MIT
+@esbuild/win32-x64, 0.27.2, MIT
 @fortawesome/fontawesome-free, 7.1.0, "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
 @parcel/watcher, 2.5.1, MIT
 @parcel/watcher-win32-x64, 2.5.1, MIT
-@rails/ujs, 7.1.502, MIT
-actioncable, 8.0.3, MIT
-actionmailbox, 8.0.3, MIT
-actionmailer, 8.0.3, MIT
-actionpack, 8.0.3, MIT
-actiontext, 8.0.3, MIT
-actionview, 8.0.3, MIT
-activejob, 8.0.3, MIT
-activemodel, 8.0.3, MIT
-activerecord, 8.0.3, MIT
-activestorage, 8.0.3, MIT
-activesupport, 8.0.3, MIT
-addressable, 2.8.7, "Apache 2.0"
+@rails/ujs, 7.1.600, MIT
+action_text-trix, 2.1.15, MIT
+actioncable, 8.1.1, MIT
+actionmailbox, 8.1.1, MIT
+actionmailer, 8.1.1, MIT
+actionpack, 8.1.1, MIT
+actiontext, 8.1.1, MIT
+actionview, 8.1.1, MIT
+activejob, 8.1.1, MIT
+activemodel, 8.1.1, MIT
+activerecord, 8.1.1, MIT
+activestorage, 8.1.1, MIT
+activesupport, 8.1.1, MIT
+addressable, 2.8.8, "Apache 2.0"
 base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.20, MIT
-benchmark, 0.4.1, "Simplified BSD, ruby"
 bigdecimal, 3.3.1, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
-bootsnap, 1.18.6, MIT
+bootsnap, 1.19.0, MIT
 bootswatch, 5.3.8, MIT
 braces, 3.0.3, MIT
 builder, 3.3.0, MIT
@@ -201,39 +201,38 @@ capybara, 3.40.0, MIT
 carrierwave, 3.1.2, MIT
 chokidar, 4.0.3, MIT
 coderay, 1.1.3, MIT
-concurrent-ruby, 1.3.5, MIT
-connection_pool, 2.5.4, MIT
+concurrent-ruby, 1.3.6, MIT
+connection_pool, 3.0.2, MIT
 crass, 1.0.6, MIT
 cssbundling-rails, 1.4.3, MIT
 csv, 3.3.5, "Simplified BSD, ruby"
-date, 3.4.1, "Simplified BSD, ruby"
+date, 3.5.1, "Simplified BSD, ruby"
 detect-libc, 1.0.3, "Apache 2.0"
 devise, 4.9.4, MIT
 devise-bootstrap-views, 1.1.0, MIT
 devise-i18n, 1.15.0, MIT
 diff-lcs, 1.6.2, "Artistic-1.0-Perl, GPL-2.0-or-later, MIT"
 docile, 1.4.1, MIT
-dotenv, 3.1.8, MIT
-dotenv-rails, 3.1.8, MIT
+dotenv, 3.2.0, MIT
+dotenv-rails, 3.2.0, MIT
 drb, 2.2.3, "Simplified BSD, ruby"
-erb, 5.0.3, "Simplified BSD, ruby"
+erb, 6.0.1, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
-esbuild, 0.25.11, MIT
-factory_bot, 6.5.5, MIT
+esbuild, 0.27.2, MIT
+factory_bot, 6.5.6, MIT
 factory_bot_rails, 6.5.1, MIT
 feedjira, 3.2.6, MIT
 ffi, 1.17.2, "New BSD"
 fill-range, 7.1.1, MIT
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.0.2, MIT
-htmlbeautifier, 1.4.3, MIT
+grouse, 1.1.1, MIT
 httparty, 0.23.2, MIT
 i18n, 1.14.7, MIT
 image_processing, 1.14.0, MIT
 immutable, 5.1.4, MIT
-io-console, 0.8.1, "Simplified BSD, ruby"
-irb, 1.15.2, "Simplified BSD, ruby"
+io-console, 0.8.2, "Simplified BSD, ruby"
+irb, 1.16.0, "Simplified BSD, ruby"
 is-extglob, 2.1.1, MIT
 is-glob, 4.0.3, MIT
 is-number, 7.0.0, MIT
@@ -241,6 +240,7 @@ jbuilder, 2.14.1, MIT
 jquery, 3.7.1, MIT
 jquery-ujs, 1.2.3, MIT
 jsbundling-rails, 1.3.1, MIT
+json, 2.18.0, ruby
 kaminari, 1.2.2, MIT
 kaminari-actionview, 1.2.2, MIT
 kaminari-activerecord, 1.2.2, MIT
@@ -248,59 +248,59 @@ kaminari-core, 1.2.2, MIT
 kaminari-i18n, 0.5.0, MIT
 listen, 3.9.0, MIT
 logger, 1.7.0, "Simplified BSD, ruby"
-loofah, 2.24.1, MIT
-mail, 2.8.1, MIT
+loofah, 2.25.0, MIT
+mail, 2.9.0, MIT
 marcel, 1.0.4, "Apache 2.0, MIT"
 matrix, 0.4.3, "Simplified BSD, ruby"
 method_source, 1.1.0, MIT
 micromatch, 4.0.8, MIT
 mini_magick, 5.3.1, MIT
 mini_mime, 1.1.5, MIT
-minitest, 5.26.0, MIT
+minitest, 5.27.0, MIT
 msgpack, 1.8.0, "Apache 2.0"
 multi_xml, 0.7.2, MIT
-net-imap, 0.5.12, "Simplified BSD, ruby"
+net-imap, 0.6.0, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
 net-smtp, 0.5.1, "Simplified BSD, ruby"
-nio4r, 2.7.4, "MIT, Simplified BSD"
+nio4r, 2.7.5, "MIT, Simplified BSD"
 node-addon-api, 7.1.1, MIT
 nokogiri, 1.18.10, MIT
 observer, 0.1.2, "Simplified BSD, ruby"
 orm_adapter, 0.5.0, MIT
 ostruct, 0.6.3, "Simplified BSD, ruby"
-paranoia, 3.0.1, MIT
+paranoia, 3.1.0, MIT
 pg, 1.6.2, "Simplified BSD"
 picomatch, 2.3.1, MIT
-pkg-config, 1.6.4, LGPLv2+
+pkg-config, 1.6.5, LGPLv2+
 pp, 0.6.3, "Simplified BSD, ruby"
 prettyprint, 0.2.0, "Simplified BSD, ruby"
 propshaft, 1.3.1, MIT
 pry, 0.15.2, MIT
-psych, 5.2.6, MIT
-public_suffix, 6.0.2, MIT
-puma, 7.0.4, "New BSD"
+psych, 5.3.0, MIT
+public_suffix, 7.0.0, MIT
+puma, 7.1.0, "New BSD"
 pycall, 1.5.2, MIT
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
-rack, 3.2.2, MIT
+rack, 3.2.4, MIT
 rack-session, 2.1.1, MIT
 rack-test, 2.2.0, MIT
-rackup, 2.2.1, MIT
-rails, 8.0.3, MIT
+rackup, 2.3.1, MIT
+rails, 8.1.1, MIT
 rails-dom-testing, 2.3.0, MIT
 rails-html-sanitizer, 1.6.2, MIT
-rails-i18n, 8.0.2, MIT
-railties, 8.0.3, MIT
-rake, 13.3.0, MIT
+rails-i18n, 8.1.0, MIT
+railties, 8.1.1, MIT
+rake, 13.3.1, MIT
 rb-fsevent, 0.11.2, MIT
 rb-inotify, 0.11.1, MIT
-rdoc, 6.15.0, ruby
+rdoc, 6.17.0, ruby
 readdirp, 4.1.2, MIT
 redcarpet, 3.6.1, MIT
 regexp_parser, 2.11.3, MIT
-reline, 0.6.2, ruby
-responders, 3.1.1, MIT
+reline, 0.6.3, ruby
+responders, 3.2.0, MIT
 rinku, 2.0.6, ISC
 rmagick, 6.1.4, MIT
 roo, 3.0.0, MIT
@@ -311,14 +311,14 @@ rspec-expectations, 3.9.4, MIT
 rspec-mocks, 3.9.1, MIT
 rspec-rails, 3.9.1, MIT
 rspec-support, 3.9.4, MIT
-ruby-vips, 2.2.5, MIT
-rubyzip, 3.1.1, "Simplified BSD"
+ruby-vips, 2.3.0, MIT
+rubyzip, 3.2.2, "Simplified BSD"
 sanitize, 7.0.0, MIT
-sass, 1.93.2, MIT
+sass, 1.97.0, MIT
 sassc, 2.4.0, MIT
 sax-machine, 1.3.2, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
-sheltered-girl, 4.0.4.5, MIT
+sheltered-girl, 4.0.7.1, MIT
 simplecov, 0.22.0, MIT
 simplecov-html, 0.13.2, MIT
 simplecov_json_formatter, 0.1.4, MIT
@@ -327,15 +327,16 @@ spring, 4.4.0, MIT
 spring-commands-rspec, 1.0.4, MIT
 ssrf_filter, 1.3.0, MIT
 stimulus-rails, 1.3.4, MIT
-stringio, 3.1.7, "Simplified BSD, ruby"
+stringio, 3.1.9, "Simplified BSD, ruby"
 thor, 1.4.0, MIT
-timeout, 0.4.3, "Simplified BSD, ruby"
+timeout, 0.5.0, "Simplified BSD, ruby"
 to-regex-range, 5.0.1, MIT
 tsort, 0.2.0, "Simplified BSD, ruby"
-turbo-rails, 2.0.17, MIT
+turbo-rails, 2.0.20, MIT
+types-server, 1.0.5, MIT
 tzinfo, 2.0.6, MIT
-tzinfo-data, 1.2025.2, MIT
-uri, 1.0.4, "Simplified BSD, ruby"
+tzinfo-data, 1.2025.3, MIT
+uri, 1.1.1, "Simplified BSD, ruby"
 useragent, 0.16.11, MIT
 warden, 1.2.9, MIT
 wdm, 0.2.0, MIT
@@ -343,7 +344,7 @@ web-console, 4.2.1, MIT
 websocket-driver, 0.8.0, "Apache 2.0"
 websocket-extensions, 0.1.5, "Apache 2.0"
 xpath, 3.2.0, MIT
-zeitwerk, 2.7.3, MIT
+zeitwerk, 2.7.4, MIT
 ```
 
 ### yarn licenses list
@@ -365,13 +366,13 @@ yarn licenses v1.22.22
 │     ├─ VendorName: Valentin 7rulnik Semirulnik
 │     └─ VendorUrl: https://github.com/7rulnik/source-map-js
 └─ MIT
-   ├─ @esbuild/win32-x64@0.25.11
+   ├─ @esbuild/win32-x64@0.27.2
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ @parcel/watcher-win32-x64@2.5.1
    │  └─ URL: https://github.com/parcel-bundler/watcher.git
    ├─ @parcel/watcher@2.5.1
    │  └─ URL: https://github.com/parcel-bundler/watcher.git
-   ├─ @rails/ujs@7.1.502
+   ├─ @rails/ujs@7.1.600
    │  ├─ URL: https://github.com/rails/rails.git
    │  └─ VendorUrl: https://rubyonrails.org/
    ├─ bootswatch@5.3.8
@@ -386,7 +387,7 @@ yarn licenses v1.22.22
    │  ├─ URL: git+https://github.com/paulmillr/chokidar.git
    │  ├─ VendorName: Paul Miller
    │  └─ VendorUrl: https://github.com/paulmillr/chokidar
-   ├─ esbuild@0.25.11
+   ├─ esbuild@0.27.2
    │  └─ URL: git+https://github.com/evanw/esbuild.git
    ├─ fill-range@7.1.1
    │  ├─ URL: https://github.com/jonschlinkert/fill-range.git
@@ -434,15 +435,19 @@ yarn licenses v1.22.22
    │  ├─ URL: git://github.com/paulmillr/readdirp.git
    │  ├─ VendorName: Thorsten Lorenz
    │  └─ VendorUrl: https://github.com/paulmillr/readdirp
-   ├─ sass@1.93.2
+   ├─ sass@1.97.0
    │  ├─ URL: https://github.com/sass/dart-sass
    │  ├─ VendorName: Natalie Weizenbaum
    │  └─ VendorUrl: https://github.com/sass/dart-sass
-   └─ to-regex-range@5.0.1
-      ├─ URL: https://github.com/micromatch/to-regex-range.git
-      ├─ VendorName: Jon Schlinkert
-      └─ VendorUrl: https://github.com/micromatch/to-regex-range
-Done in 0.30s.
+   ├─ to-regex-range@5.0.1
+   │  ├─ URL: https://github.com/micromatch/to-regex-range.git
+   │  ├─ VendorName: Jon Schlinkert
+   │  └─ VendorUrl: https://github.com/micromatch/to-regex-range
+   └─ types-server@1.0.5
+      ├─ URL: https://github.com/takkii/typeserver.git
+      ├─ VendorName: Takayuki Kamiyama
+      └─ VendorUrl: http://pieceof.shop/
+Done in 0.32s.
 ```
 
-※ 更新履歴: 2025/10/21
+※ 更新履歴: 2025/12/17
