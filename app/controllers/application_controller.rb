@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
   before_action :validate_ipaddress # ※1
-  before_action :validate_memberscard # ※1
   before_action :validate_welcome # ※1
 
   # ※1 If not use, head position is comment add.
@@ -47,48 +46,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def validate_memberscard
-    begin
-      memberscard = ENV['MEMBERS_CARD']
-      member = File.expand_path(memberscard)
-      secretword = ENV['SECRET_WORD']
-      hyoka_url = ENV['HYOKAPROJECT_URL']
-
-      unless File.exist?(member)
-        while true do
-          html = URI.open(hyoka_url).read
-          doc = Nokogiri::HTML.parse(html)
-          doc_h1 = doc.at_css('h1')
-          elements = Sanitize.clean(doc_h1).to_s
-          ng_word = '❎'
-
-          unless elements =~ /#{ng_word}/o
-            File.open(member, 'a:utf-8', perm = 0o777) do |f|
-              f.puts <<-DOC
-#{secretword}
-              DOC
-            end
-            # passed, hyoka accuary number is normal.
-            puts "Created, #{secretword} writed to #{memberscard}"
-            return
-          else
-            # misstake, hyoka accuary number is unusual.
-            puts '❎, contain message, exec tanraku_execute.'
-            tanraku_execute
-          end
-          redirect_to root_path
-        end
-      else
-        puts 'Pass, memberscard checked.'
-        return
-      end
-    rescue Exception => e
-      puts e.backtrace
-    ensure
-      GC.auto_compact
-    end
-  end
 
   def validate_welcome
     begin
