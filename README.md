@@ -2,7 +2,7 @@
 
 <hr />
 <div align="center">
-  <p><h1> にゃそこん参ぴーじーうぃん : [<a href="https://youtu.be/6Rq5Jdilko0">動画</a>]</h1></p>
+  <p><h1> にゃそこん参ぴーじーうぃん : <a href="https://youtu.be/6Rq5Jdilko0">動画</a></h1></p>
 </div>
 <br />
 <div align="center">
@@ -10,7 +10,7 @@
 </div>
 <br />
 <div align="center">
-  <h4><p>※ 仕様書は、<a href="https://github.com/takkii/nyasocom_sun_pg_win/wiki/manual">こちら</a>です。</p></h4>
+  <h2><p><ins>※ 仕様書は、<a href="https://github.com/takkii/nyasocom_sun_pg_win/wiki/manual">こちら</a>です。</ins></p></h2>
 </div>
 <br />
 <hr />
