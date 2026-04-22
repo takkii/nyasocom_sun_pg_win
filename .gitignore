@@ -36,9 +36,10 @@
 # mysql db backup folder
 /backup
 
+# Ignore, vendor/bundle
 /vendor/bundle
 
-# lock
+# rubygems
 Gemfile.lock
 
 # Sass
@@ -53,3 +54,6 @@ pass.txt
 
 # Ignore, public/uploads
 public/uploads/*
+
+# Ignore yarn
+yarn.lock
