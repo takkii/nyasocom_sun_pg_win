@@ -204,7 +204,7 @@ rails s
 
 ### .env / 設定例
 
-- [ ] 現在、WindowsでRubyの動作確認ができないため動作未検証❎️です。
+- [x] Windows 11 pro 25H2/ruby-3.4.9/pgroonga-4.0.6で動作を確認しました。
 
 ```ruby
 # postgresユーザ
@@ -219,7 +219,7 @@ MEMBERS_CARD = "~/hyokaproject/effect.txt"
 NYASOCOMSUN_VERSION = "3.2"
 ```
 
-[golden-eagle](https://github.com/takkii/golden_eagle/tree/main/wiki)を参考に、flare/meteor and clarifyなどを使いeffect.txtを生成してください。
+[golden-eagle](https://github.com/takkii/golden_eagle/tree/main/wiki)を参考に、flare/meteorなどを使いeffect.txtを生成しclarifyで出力結果を確認してください。
 
 _※ にゃそこん参ぴーじるんがを起動する前に、上記手順を行って下さい。_
 
