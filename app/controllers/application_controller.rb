@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
                 puts 'No, Match Word in members card.'
                 exit!
               else
-                puts "Match word contain #{eq_pass} in memberscard."
+                puts "Match word contain #{eq_pass} in effect.txt"
                 return
               end
             end

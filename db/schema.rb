@@ -62,13 +62,28 @@ ActiveRecord::Schema[8.1].define(version: 2024_10_05_195341) do
     t.integer "user_id"
   end
 
-# Could not dump table "blogs" because of following ActiveRecord::StatementInvalid
-#   PG::UndefinedFile: ERROR:  could not access file "$libdir/pgroonga": No such file or directory
+  create_table "blogs", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.date "days"
+    t.string "file"
+    t.string "image"
+    t.boolean "status", default: false, null: false
+    t.boolean "switch", default: false, null: false
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", default: 0, null: false
+    t.string "video"
+    t.index ["body"], name: "index_blogs_on_body", using: :pgroonga
+    t.index ["title"], name: "index_blogs_on_title", unique: true
+  end
 
-
-# Could not dump table "comments" because of following ActiveRecord::StatementInvalid
-#   PG::UndefinedFile: ERROR:  could not access file "$libdir/pgroonga": No such file or directory
-
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body"], name: "index_comments_on_body", using: :pgroonga
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "blog_id"
@@ -82,9 +97,24 @@ ActiveRecord::Schema[8.1].define(version: 2024_10_05_195341) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "users" because of following ActiveRecord::StatementInvalid
-#   PG::UndefinedFile: ERROR:  could not access file "$libdir/pgroonga": No such file or directory
-
+  create_table "users", force: :cascade do |t|
+    t.datetime "confirmation_sent_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "created_at", null: false
+    t.datetime "deleted_at"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at"
+    t.string "reset_password_token"
+    t.string "unconfirmed_email"
+    t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.index ["email"], name: "index_users_on_email", using: :pgroonga
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
