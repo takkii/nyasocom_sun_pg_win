@@ -49,10 +49,10 @@ class ApplicationController < ActionController::Base
 
   def validate_welcome
     begin
-      memberscard = ENV['MEMBERS_CARD']
-      member = File.expand_path(memberscard)
-      eq_pass = ENV['EQUAL_PASSWORD']
       card_name = ENV['CARD_NAME']
+      memberscard = ENV['MEMBERS_CARD']
+      member = File.expand_path(memberscard + card_name)
+      eq_pass = ENV['EQUAL_PASSWORD']
 
       unless File.exist?(member)
         puts 'Not found ' + card_name.to_s + ', Exec tanraku.'
