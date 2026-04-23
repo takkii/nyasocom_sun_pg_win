@@ -52,9 +52,10 @@ class ApplicationController < ActionController::Base
       memberscard = ENV['MEMBERS_CARD']
       member = File.expand_path(memberscard)
       eq_pass = ENV['EQUAL_PASSWORD']
+      card_name = ENV['CARD_NAME']
 
       unless File.exist?(member)
-        puts 'Not found effect.txt, Exec tanraku.'
+        puts 'Not found ' + card_name.to_s + ', Exec tanraku.'
         tanraku_execute
       else
         open(member) do |f|
@@ -63,10 +64,10 @@ class ApplicationController < ActionController::Base
             name.each do |pass_n|
               unless "#{pass_n}" =~ /#{eq_pass}/o
                 puts "#{pass_n}"
-                puts 'No, Match Word in effect.txt.'
+                puts 'No, Match Word in ' + card_name.to_s
                 exit!
               else
-                puts "Match word contain #{eq_pass} in effect.txt"
+                puts "Match word contain #{eq_pass} in #{card_name}"
                 return
               end
             end
