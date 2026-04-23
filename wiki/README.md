@@ -214,7 +214,7 @@ DATABASE_PASSWORD = "20070920"
 # 検索単語: 一人称
 EQUAL_PASSWORD = "Takayuki"
 # 設定: ./ファイル名.txt
-MEMBERS_CARD = "~/hyokaproject/effect.txt"
+MEMBERS_CARD = "~/hyokaproject/"
 # カード名: ファイル名
 CARD_NAME = "effect.txt"
 # バージョン情報: x.x
