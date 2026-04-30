@@ -67,7 +67,12 @@ class ApplicationController < ActionController::Base
               else
                 puts "Match word contain #{eq_pass} in #{card_name}"
                 return
-            end
+              end
+          end
+          if f.eof?
+            f.close
+          elsif !f.eof
+            tanraku_execute
           end
         end
       end
