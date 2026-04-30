@@ -58,24 +58,22 @@ class ApplicationController < ActionController::Base
         puts 'Not found ' + card_name.to_s + ', Exec tanraku.'
         tanraku_execute
       else
-        open(member) do |f|
-          while (name = f.readlines)
-            name.sort!
-            name.each do |pass_n|
-              unless "#{pass_n}" =~ /#{eq_pass}/o
-                puts "#{pass_n}"
+        File.open(member) do |f|
+          while (name = f.gets)
+            name_c = name.chomp
+              unless name_c =~ /#{eq_pass}/o
                 puts 'No, Match Word in ' + card_name.to_s
                 exit!
               else
                 puts "Match word contain #{eq_pass} in #{card_name}"
                 return
-              end
             end
           end
         end
       end
     rescue StandardError => a
       puts a.backtrace
+      tanraku_execute
     ensure
       GC.auto_compact
     end
