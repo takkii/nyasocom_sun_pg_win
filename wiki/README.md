@@ -1,11 +1,14 @@
-### 開発環境
+### 仕様の説明
 
 ```markdown
-・ Windows11
+# 検証済: 開発環境
+・ Windows11 pro
 ・ Docker
 ・ Nginx
+```
 
-# 環境構築前提条件
+```markdown
+# 環境構築: 前提条件
 git clone git@github.com:takkii/nyasocom_sun_pg_win.git
 cd nyasocom_sun_pg_win
 bundle update
@@ -14,7 +17,9 @@ yarn build
 yarn build:css
 ```
 
-※ 環境構築前提条件を満たすこと、リアルタイム顔認識システムでログを書き出し調整すること。
+
+
+※ 環境構築前提条件を満たすこと、リアルタイム顔認識システムでログを書き出すこと。
 
 #### ログイン
 
@@ -196,13 +201,11 @@ rails s
 
 
 
-> hyokaprojectでリアルタイム顔認識を行う →
+> hyokaprojectでリアルタイム顔認識を行う → ログを書き出す
 >
-> nyasocom_sun_pg_win 起動 → パスワードを動作中にチェック
->
-> → 継続|停止を条件分岐で確認するのを繰り返します。
+> nyasocom_sun_pg_winを起動する → 3段階認証確立完了✅️
 
-### .env / 設定例
+### .env：設定
 
 - [x] Windows 11 pro 25H2/ruby-3.4.9/pgroonga-4.0.6で動作を確認しました。
 
@@ -225,7 +228,7 @@ NYASOCOMSUN_VERSION = "3.2"
 
 _※ にゃそこん参ぴーじるんがを起動する前に、上記手順を行って下さい。_
 
-#### 依存ライブラリ
+#### RubyGems: 依存ライブラリのライセンス一覧
 
 > license_finder
 
@@ -265,10 +268,10 @@ base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.22, MIT
 bigdecimal, 4.1.2, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
-bootsnap, 1.23.0, MIT
+bootsnap, 1.24.1, MIT
 bootswatch, 5.3.8, MIT
 builder, 3.3.0, MIT
-bundler, 2.6.9, MIT
+bundler, 4.0.11, MIT
 capybara, 3.40.0, MIT
 carrierwave, 3.1.2, MIT
 chokidar, 4.0.3, MIT
@@ -299,7 +302,7 @@ feedjira, 3.2.6, MIT
 ffi, 1.17.4, "New BSD"
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.1.1, MIT
+grouse, 1.1.2, MIT
 httparty, 0.24.2, MIT
 i18n, 1.14.8, MIT
 image_processing, 1.14.0, MIT
@@ -332,13 +335,13 @@ mini_mime, 1.1.5, MIT
 minitest, 5.27.0, MIT
 msgpack, 1.8.0, "Apache 2.0"
 multi_xml, 0.8.1, MIT
-net-imap, 0.6.3, "Simplified BSD, ruby"
+net-imap, 0.6.4, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
 net-smtp, 0.5.1, "Simplified BSD, ruby"
 nio4r, 2.7.5, "MIT, Simplified BSD"
 node-addon-api, 7.1.1, MIT
-nokogiri, 1.19.2, MIT
+nokogiri, 1.19.3, MIT
 npm-check-updates, 19.6.6, "Apache 2.0"
 observer, 0.1.2, "Simplified BSD, ruby"
 orm_adapter, 0.5.0, MIT
@@ -354,7 +357,7 @@ propshaft, 1.3.2, MIT
 pry, 0.16.0, MIT
 psych, 5.3.1, MIT
 public_suffix, 7.0.5, MIT
-puma, 8.0.0, "New BSD"
+puma, 8.0.1, "New BSD"
 pycall, 1.5.2, MIT
 pygments-rouge-css, 0.1.0, MIT
 racc, 1.8.1, "Simplified BSD, ruby"
@@ -376,6 +379,7 @@ redcarpet, 3.6.1, MIT
 regexp_parser, 2.12.0, MIT
 reline, 0.6.3, ruby
 responders, 3.2.0, MIT
+rice, 4.12.0, MIT
 rinku, 2.0.6, ISC
 rmagick, 6.3.0, MIT
 roo, 3.0.0, MIT
@@ -393,7 +397,7 @@ sass, 1.99.0, MIT
 sassc, 2.4.0, MIT
 sax-machine, 1.3.2, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
-sheltered-girl, 4.0.7.2, MIT
+sheltered-girl, 4.0.7.9, MIT
 simplecov, 0.22.0, MIT
 simplecov-html, 0.13.2, MIT
 simplecov_json_formatter, 0.1.4, MIT
@@ -410,7 +414,7 @@ tsort, 0.2.0, "Simplified BSD, ruby"
 turbo-rails, 2.0.23, MIT
 typescript, 5.9.3, "Apache 2.0"
 tzinfo, 2.0.6, MIT
-tzinfo-data, 1.2026.1, MIT
+tzinfo-data, 1.2026.2, MIT
 undici-types, 7.19.2, MIT
 uri, 1.1.1, "Simplified BSD, ruby"
 useragent, 0.16.11, MIT
@@ -425,7 +429,9 @@ yn, 3.1.1, MIT
 zeitwerk, 2.7.5, MIT
 ```
 
-### yarn licenses list
+#### yarn: 依存ライブラリのライセンス一覧 
+
+> yarn licenses list
 
 ```javascript
 yarn licenses v1.22.22
@@ -568,8 +574,10 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/sindresorhus/yn.git
       ├─ VendorName: Sindre Sorhus
       └─ VendorUrl: sindresorhus.com
-Done in 0.63s.
+Done in 0.27s.
 ```
+
+#### にゃそこん参ぴーじーうぃんのルーティング
 
 ```markdown
  Prefix Verb   URI Pattern                                                                                       Controller#Action
@@ -642,4 +650,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/04/23🔄_
+_※ 更新履歴: 2026/05/01🔄_
