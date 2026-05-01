@@ -214,8 +214,8 @@ rails s
 DATABASE_USER = "takkii"
 # postgresユーザ、パスワード
 DATABASE_PASSWORD = "20070920"
-# 検索単語: 一人称
-EQUAL_PASSWORD = "Takayuki"
+# 名無しの権兵衛: John Doe
+EQUAL_PASSWORD = "Doe"
 # 設定: ./ファイル名.txt
 MEMBERS_CARD = "~/hyokaproject/"
 # カード名: ファイル名
@@ -429,7 +429,7 @@ yn, 3.1.1, MIT
 zeitwerk, 2.7.5, MIT
 ```
 
-#### yarn: 依存ライブラリのライセンス一覧 
+#### yarn: 依存ライブラリのライセンス一覧
 
 > yarn licenses list
 
