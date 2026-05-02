@@ -379,7 +379,6 @@ redcarpet, 3.6.1, MIT
 regexp_parser, 2.12.0, MIT
 reline, 0.6.3, ruby
 responders, 3.2.0, MIT
-rice, 4.12.0, MIT
 rinku, 2.0.6, ISC
 rmagick, 6.3.0, MIT
 roo, 3.0.0, MIT
@@ -397,12 +396,12 @@ sass, 1.99.0, MIT
 sassc, 2.4.0, MIT
 sax-machine, 1.3.2, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
-sheltered-girl, 4.0.7.9, MIT
+sheltered-girl, 4.0.7.10, MIT
 simplecov, 0.22.0, MIT
 simplecov-html, 0.13.2, MIT
 simplecov_json_formatter, 0.1.4, MIT
 source-map-js, 1.2.1, "New BSD"
-spring, 4.4.2, MIT
+spring, 4.5.0, MIT
 spring-commands-rspec, 1.0.4, MIT
 ssrf_filter, 1.5.0, MIT
 stimulus-rails, 1.3.4, MIT
@@ -650,4 +649,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/01🔄_
+_※ 更新履歴: 2026/05/02🔄_
