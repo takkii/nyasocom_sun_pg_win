@@ -334,7 +334,7 @@ mini_magick, 5.3.1, MIT
 mini_mime, 1.1.5, MIT
 minitest, 5.27.0, MIT
 msgpack, 1.8.0, "Apache 2.0"
-multi_xml, 0.8.1, MIT
+multi_xml, 0.9.0, MIT
 net-imap, 0.6.4, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
@@ -380,7 +380,7 @@ regexp_parser, 2.12.0, MIT
 reline, 0.6.3, ruby
 responders, 3.2.0, MIT
 rinku, 2.0.6, ISC
-rmagick, 6.3.0, MIT
+rmagick, 7.0.0, MIT
 roo, 3.0.0, MIT
 rouge, 4.7.0, "MIT, Simplified BSD"
 rspec, 3.9.0, MIT
@@ -390,13 +390,13 @@ rspec-mocks, 3.9.1, MIT
 rspec-rails, 3.9.1, MIT
 rspec-support, 3.9.4, MIT
 ruby-vips, 2.3.0, MIT
-rubyzip, 3.2.2, "Simplified BSD"
+rubyzip, 3.3.0, "Simplified BSD"
 sanitize, 7.0.0, MIT
 sass, 1.99.0, MIT
 sassc, 2.4.0, MIT
 sax-machine, 1.3.2, MIT
 securerandom, 0.4.1, "Simplified BSD, ruby"
-sheltered-girl, 4.0.7.10, MIT
+sheltered-girl, 4.0.7.11, MIT
 simplecov, 0.22.0, MIT
 simplecov-html, 0.13.2, MIT
 simplecov_json_formatter, 0.1.4, MIT
