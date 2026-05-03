@@ -4,7 +4,6 @@ require 'open-uri'
 require 'nokogiri'
 require 'sanitize'
 require 'socket'
-require 'tanraku'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
@@ -20,7 +19,7 @@ class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
   before_action :circuit_check # ※1
-  before_action :validate_welcome # ※1
+  before_action :face_recognition_result # ※1
 
   # ※1 If not use, head position is comment add.
 
@@ -47,41 +46,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def validate_welcome
-    begin
-      card_name = ENV['CARD_NAME']
-      memberscard = ENV['MEMBERS_CARD']
-      member = File.expand_path(memberscard + card_name)
-      eq_pass = ENV['EQUAL_PASSWORD']
-
-      unless File.exist?(member)
-        puts 'Not found ' + card_name.to_s + ', Exec tanraku.'
-        tanraku_execute
-      else
-        File.open(member) do |f|
-          while (name = f.gets)
-            name_c = name.chomp
-              unless name_c =~ /#{eq_pass}/o
-                puts 'No, Match Word in ' + card_name.to_s
-                exit!
-              else
-                puts "Match word contain #{eq_pass} in #{card_name}"
-                return
-              end
-          end
-          if f.eof?
-            f.close
-          elsif !f.eof
-            tanraku_execute
-          end
-        end
-      end
-    rescue StandardError => a
-      puts a.backtrace
-      tanraku_execute
-    ensure
-      GC.auto_compact
-    end
+  def face_recognition_result
+    validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
   end
 
   # BrokenCircuit
