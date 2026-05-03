@@ -19,7 +19,7 @@ end
 class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
-  before_action :validate_ipaddress # ※1
+  before_action :recommender_circuit_check # ※1
   before_action :validate_welcome # ※1
 
   # ※1 If not use, head position is comment add.
@@ -84,19 +84,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def validate_ipaddress
+  # BrokenCircuit
+  def recommender_circuit_check
+    @num_failure = ENV['FAILURE_NUMBER']
+    @within = ENV['WITHIN ']
+    @failure = [].to_s
+
+    if @failure >= @num_failure.to_s
+      cutoff = Time.now - @within.to_i
+      @failure.split.reject!{|t| t < cutoff.to_s}
+      return if @failure.length >= @num_failure.to_i
+    end
+
     begin
-      unless "#{udp_socket}" == "#{list_socket}"
-        puts "#{udp_socket} == #{list_socket}"
-        puts 'Something other than an IP address was matched.'
-        exit!
-      else
-        puts 'Passed, ip address specification.'
-      end
-    rescue StandardError => s
-      puts s.backtrace
-    ensure
-      GC.auto_compact
+      yield
+    rescue
+      @failure.to_i << (Time.now).to_i
+      nil
     end
   end
 
