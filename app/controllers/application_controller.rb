@@ -18,10 +18,8 @@ end
 class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
-  before_action :circuit_check # ※1
-  before_action :face_recognition_result # ※1
-
-  # ※1 If not use, head position is comment add.
+  before_action :face_recognition_result # private functions.
+  before_action :circuit_check # private functions.
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
@@ -46,11 +44,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # Use, effect.txt in hyokaproject.
   def face_recognition_result
     validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
   end
 
-  # BrokenCircuit
+  # BrokenCircuit in grouse.
   def circuit_check
     recommender_circuit(ENV['FAILURE_NUMBER'], ENV['WITHIN'])
   end
