@@ -222,6 +222,10 @@ MEMBERS_CARD = "~/hyokaproject/"
 CARD_NAME = "effect.txt"
 # バージョン情報: x.x
 NYASOCOMSUN_VERSION = "3.2"
+# サーキットブレーカー: 失敗回数
+FAILURE_NUMBER = "3"
+# サーキットブレーカー: 分数を秒計算
+WITHIN = "60"
 ```
 
 [golden-eagle](https://github.com/takkii/golden_eagle/tree/main/wiki)を参考に、flare/meteorなどを使いeffect.txtを生成しclarifyで出力結果を確認してください。
