@@ -1,9 +1,7 @@
 require 'grouse'
-require 'open3'
 require 'open-uri'
 require 'nokogiri'
 require 'sanitize'
-require 'socket'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
