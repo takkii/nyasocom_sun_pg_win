@@ -1,7 +1,6 @@
+# frozen_string_literal: true
+
 require 'grouse'
-require 'open-uri'
-require 'nokogiri'
-require 'sanitize'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
