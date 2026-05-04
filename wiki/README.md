@@ -306,7 +306,7 @@ feedjira, 3.2.6, MIT
 ffi, 1.17.4, "New BSD"
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.1.2, MIT
+grouse, 1.1.5.1, MIT
 httparty, 0.24.2, MIT
 i18n, 1.14.8, MIT
 image_processing, 1.14.0, MIT
@@ -320,7 +320,7 @@ jn-server, 1.0.8, MIT
 jquery, 4.0.0, MIT
 jquery-ujs, 1.2.3, MIT
 jsbundling-rails, 1.3.1, MIT
-json, 2.19.4, ruby
+json, 2.19.5, ruby
 kaminari, 1.2.2, MIT
 kaminari-actionview, 1.2.2, MIT
 kaminari-activerecord, 1.2.2, MIT
@@ -653,4 +653,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/03🔄_
+_※ 更新履歴: 2026/05/04🔄_
