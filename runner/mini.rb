@@ -31,7 +31,7 @@ class MiniTestFile
     when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
       begin
         # Mini, Switch ON / (true, string).
-        @mini_test = Mini(true, '/GitHub/nyasocom_sun_pg_win/unit')
+        @mini_test = Mini(true, '/GitHub/purplehaze/unit')
       rescue
         tanraku_execute
       end
@@ -40,7 +40,7 @@ class MiniTestFile
     when /linux/
       begin
         # MiniW, Switch ON / (true, string, string).
-        @mini_test = MiniW(true, '/mnt/c/Users/sudok', '/GitHub/nyasocom_sun_pg_win/unit')
+        @mini_test = MiniW(true, '/mnt/c/Users/sudok', '/GitHub/purplehaze/unit')
       rescue
         tanraku_execute
       end

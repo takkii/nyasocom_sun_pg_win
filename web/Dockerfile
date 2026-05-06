@@ -20,8 +20,8 @@ RUN npm install -g npm@latest
 RUN npm install -g yarn
 
 # install
-RUN mkdir /nyasocom_sun_pg_win
-ENV APP_ROOT /nyasocom_sun_pg_win
+RUN mkdir /purplehaze
+ENV APP_ROOT /purplehaze
 WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
