@@ -220,8 +220,8 @@ EQUAL_PASSWORD = "Doe"
 MEMBERS_CARD = "~/hyokaproject/"
 # カード名: ファイル名
 CARD_NAME = "effect.txt"
-# バージョン情報: x.x
-NYASOCOMSUN_VERSION = "3.2"
+# バージョン情報: ", in core version x.x"
+NYASOCOMSUN_VERSION = ", in core version 3.2"
 # サーキットブレーカー: 失敗回数
 FAILURE_NUMBER = "3"
 # サーキットブレーカー: 分数を秒計算
@@ -272,7 +272,7 @@ base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.22, MIT
 bigdecimal, 4.1.2, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
-bootsnap, 1.24.1, MIT
+bootsnap, 1.24.3, MIT
 bootswatch, 5.3.8, MIT
 builder, 3.3.0, MIT
 bundler, 4.0.11, MIT
@@ -300,13 +300,13 @@ drb, 2.2.3, "Simplified BSD, ruby"
 erb, 6.0.4, "Simplified BSD, ruby"
 erubi, 1.13.1, MIT
 esbuild, 0.28.0, MIT
-factory_bot, 6.5.6, MIT
+factory_bot, 6.6.0, MIT
 factory_bot_rails, 6.5.1, MIT
 feedjira, 3.2.6, MIT
 ffi, 1.17.4, "New BSD"
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.1.5.2, MIT
+grouse, 1.1.5.3, MIT
 httparty, 0.24.2, MIT
 i18n, 1.14.8, MIT
 image_processing, 1.14.0, MIT
@@ -338,7 +338,7 @@ mini_magick, 5.3.1, MIT
 mini_mime, 1.1.5, MIT
 minitest, 5.27.0, MIT
 msgpack, 1.8.0, "Apache 2.0"
-multi_xml, 0.9.0, MIT
+multi_xml, 0.9.1, MIT
 net-imap, 0.6.4, "Simplified BSD, ruby"
 net-pop, 0.1.2, "Simplified BSD, ruby"
 net-protocol, 0.2.2, "Simplified BSD, ruby"
@@ -653,4 +653,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/04🔄_
+_※ 更新履歴: 2026/05/06🔄_
