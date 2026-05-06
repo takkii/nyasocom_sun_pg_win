@@ -6,7 +6,7 @@
 </div>
 <br />
 <div align="center">
-  <img src="./images/sabacan.gif" alt="ルート計算で解決?!">
+  <img src="./public/images/purple.gif">
 </div>
 <br />
 <div align="center">
