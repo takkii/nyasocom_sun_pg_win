@@ -2,7 +2,7 @@
 
 <hr />
 <div align="center">
-  <p><h1> RE: パープルヘイズ : <a href="https://youtu.be/6Rq5Jdilko0">動画</a></h1></p>
+  <p><h1> パープルヘイズの<a href="https://youtu.be/6Rq5Jdilko0">DTCL動画</a>です。</h1></p>
 </div>
 <br />
 <div align="center">
