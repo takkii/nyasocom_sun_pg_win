@@ -9,8 +9,8 @@
 
 ```markdown
 # 環境構築: 前提条件
-git clone git@github.com:takkii/nyasocom_sun_pg_win.git
-cd nyasocom_sun_pg_win
+git clone git@github.com:takkii/purplehaze.git
+cd purplehaze
 bundle update
 yarn install
 yarn build
@@ -203,7 +203,7 @@ rails s
 
 > hyokaprojectでリアルタイム顔認識を行う → ログを書き出す
 >
-> nyasocom_sun_pg_winを起動する → 3段階認証確立完了✅️
+> purplehazeを起動する → 3段階認証確立完了✅️
 
 ### .env：設定
 
