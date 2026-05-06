@@ -4,17 +4,17 @@ services:
     volumes:
       - psgl_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: '20070920'
+      POSTGRES_PASSWORD: "20070920"
     ports:
-      - '5432:5432'
+      - "5432:5432"
   web:
     build:
       context: .
       dockerfile: ./web/Dockerfile
     volumes:
-      - .:/nyasocom_sun_pg_win
-      - public:/nyasocom_sun_pg_win/public
-      - tmp:/nyasocom_sun_pg_win/tmp
+      - .:/purplehaze
+      - public:/purplehaze/public
+      - tmp:/purplehaze/tmp
     environment:
       - POSTGRES_HOST=db
     tty: true
@@ -28,8 +28,8 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./secret:/etc/nginx/secret
-      - public:/nyasocom_sun_pg_win/public
-      - tmp:/nyasocom_sun_pg_win/tmp
+      - public:/purplehaze/public
+      - tmp:/purplehaze/tmp
     ports:
       - "80:80"
       - "443:443"
