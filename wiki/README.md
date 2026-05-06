@@ -201,9 +201,9 @@ rails s
 
 
 
-> hyokaprojectでリアルタイム顔認識を行う → ログを書き出す
+> hyokaprojectでリアルタイム顔認識を行う → 認証完了ログを書き出す
 >
-> purplehazeを起動する → 3段階認証確立完了✅️
+> →effect.txtを生成する→purplehazeを起動する → 3段階認証確立完了✅️
 
 ### .env：設定
 
@@ -230,7 +230,7 @@ WITHIN = "60"
 
 [golden-eagle](https://github.com/takkii/golden_eagle/tree/main/wiki)を参考に、flare/meteorなどを使いeffect.txtを生成しclarifyで出力結果を確認してください。
 
-_※ にゃそこん参ぴーじるんがを起動する前に、上記手順を行って下さい。_
+_※ パープルヘイズを起動する前に、上記手順を行って下さい。_
 
 #### RubyGems: 依存ライブラリのライセンス一覧
 
@@ -580,7 +580,7 @@ yarn licenses v1.22.22
 Done in 0.27s.
 ```
 
-#### にゃそこん参ぴーじーうぃんのルーティング
+#### パープルヘイズのルーティング
 
 ```markdown
  Prefix Verb   URI Pattern                                                                                       Controller#Action
