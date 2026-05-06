@@ -306,7 +306,7 @@ feedjira, 3.2.6, MIT
 ffi, 1.17.4, "New BSD"
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.1.5.3, MIT
+grouse, 1.1.6, MIT
 httparty, 0.24.2, MIT
 i18n, 1.14.8, MIT
 image_processing, 1.14.0, MIT
@@ -653,4 +653,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/06🔄_
+_※ 更新履歴: 2026/05/07🔄_
