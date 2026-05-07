@@ -6,7 +6,7 @@
 </div>
 <br />
 <div align="center">
-  <img src="./public/images/purple.gif">
+  <img src="./public/images/haze.gif">
 </div>
 <br />
 <div align="center">
