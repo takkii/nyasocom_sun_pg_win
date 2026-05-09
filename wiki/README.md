@@ -251,10 +251,10 @@ Dependencies that need approval:
 @tsconfig/node12, 1.0.11, MIT
 @tsconfig/node14, 1.0.3, MIT
 @tsconfig/node16, 1.0.4, MIT
-@types/node, 25.6.0, MIT
+@types/node, 25.6.2, MIT
 acorn, 8.16.0, MIT
 acorn-walk, 8.3.5, MIT
-action_text-trix, 2.1.18, MIT
+action_text-trix, 2.1.19, MIT
 actioncable, 8.1.3, MIT
 actionmailbox, 8.1.3, MIT
 actionmailer, 8.1.3, MIT
@@ -288,9 +288,9 @@ cssbundling-rails, 1.4.3, MIT
 csv, 3.3.5, "Simplified BSD, ruby"
 date, 3.5.1, "Simplified BSD, ruby"
 detect-libc, 2.1.2, "Apache 2.0"
-devise, 4.9.4, MIT
+devise, 5.0.4, MIT
 devise-bootstrap-views, 1.1.0, MIT
-devise-i18n, 1.15.0, MIT
+devise-i18n, 1.16.0, MIT
 diff, 4.0.4, "New BSD"
 diff-lcs, 1.6.2, "Artistic-1.0-Perl, GPL-2.0-or-later, MIT"
 docile, 1.4.1, MIT
@@ -497,7 +497,7 @@ yarn licenses v1.22.22
    │  └─ URL: https://github.com/tsconfig/bases.git
    ├─ @tsconfig/node16@1.0.4
    │  └─ URL: https://github.com/tsconfig/bases.git
-   ├─ @types/node@25.6.0
+   ├─ @types/node@25.6.2
    │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
    │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
    ├─ acorn-walk@8.3.5
@@ -653,4 +653,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/07🔄_
+_※ 更新履歴: 2026/05/10🔄_
