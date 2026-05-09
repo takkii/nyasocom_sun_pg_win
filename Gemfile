@@ -34,7 +34,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # login form
-gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise', '>= 5.0.4'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views'
 gem 'paranoia'
