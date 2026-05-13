@@ -22,8 +22,10 @@ end
 class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
-  before_action :validate_ipaddress
-  before_action :face_recognition_result # private functions.
+  before_action :validate_ipaddress      # ※1
+  before_action :face_recognition_result # ※1
+
+  # ※1 If not use, head position is comment add.
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
