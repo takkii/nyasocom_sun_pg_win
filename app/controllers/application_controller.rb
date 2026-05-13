@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'grouse'
+require 'tanraku'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
@@ -8,15 +9,21 @@ class Net::HTTP
     @read_timeout = 900 # timeout, 15 minute settings.
   end
 
+    # BrokenCircuit in grouse.
+  def circuit_check
+    recommender_circuit(ENV['FAILURE_NUMBER'], ENV['WITHIN'])
+  end
+
   alias :initialize_old :initialize
   alias :initialize :initialize_new
+  alias :initialize_new :circuit_check
 end
 
 class ApplicationController < ActionController::Base
   after_action :set_csrf_token_header
   before_action :set_locale
+  before_action :validate_ipaddress
   before_action :face_recognition_result # private functions.
-  before_action :circuit_check # private functions.
 
   def after_sign_in_path_for(resource)
     root_path # Set the path to transition to after logging in
@@ -46,9 +53,22 @@ class ApplicationController < ActionController::Base
     validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
   end
 
-  # BrokenCircuit in grouse.
-  def circuit_check
-    recommender_circuit(ENV['FAILURE_NUMBER'], ENV['WITHIN'])
+  # ipaddress certification
+  def validate_ipaddress
+    begin
+      unless "#{udp_socket}" == "#{list_socket}"
+        puts "#{udp_socket} == #{list_socket}"
+        puts 'Something other than an IP address was matched.'
+        exit!
+      else
+        puts 'Passed, ip address specification.'
+      end
+    rescue StandardError => s
+      puts s.backtrace
+      tanraku_execute
+    ensure
+      GC.auto_compact
+    end
   end
 
   def render_404(e)
