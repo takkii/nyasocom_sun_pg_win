@@ -306,7 +306,7 @@ feedjira, 3.2.6, MIT
 ffi, 1.17.4, "New BSD"
 font-awesome-sass, 6.7.2, MIT
 globalid, 1.3.0, MIT
-grouse, 1.1.6, MIT
+grouse, 1.1.7, MIT
 httparty, 0.24.2, MIT
 i18n, 1.14.8, MIT
 image_processing, 1.14.0, MIT
