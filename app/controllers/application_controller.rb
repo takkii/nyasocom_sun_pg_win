@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'grouse'
-require 'tanraku'
 
 class Net::HTTP
   def initialize_new(address, port = nil)
