@@ -251,7 +251,7 @@ Dependencies that need approval:
 @tsconfig/node12, 1.0.11, MIT
 @tsconfig/node14, 1.0.3, MIT
 @tsconfig/node16, 1.0.4, MIT
-@types/node, 25.6.2, MIT
+@types/node, 25.7.0, MIT
 acorn, 8.16.0, MIT
 acorn-walk, 8.3.5, MIT
 action_text-trix, 2.1.19, MIT
@@ -272,7 +272,7 @@ base64, 0.3.0, "Simplified BSD, ruby"
 bcrypt, 3.1.22, MIT
 bigdecimal, 4.1.2, "Simplified BSD, ruby"
 bindex, 0.8.1, MIT
-bootsnap, 1.24.3, MIT
+bootsnap, 1.24.4, MIT
 bootswatch, 5.3.8, MIT
 builder, 3.3.0, MIT
 bundler, 4.0.11, MIT
@@ -326,6 +326,7 @@ kaminari-actionview, 1.2.2, MIT
 kaminari-activerecord, 1.2.2, MIT
 kaminari-core, 1.2.2, MIT
 kaminari-i18n, 0.5.0, MIT
+license_finder, 5.10.2, MIT
 listen, 3.10.0, MIT
 logger, 1.7.0, "Simplified BSD, ruby"
 loofah, 2.25.1, MIT
@@ -351,6 +352,7 @@ observer, 0.1.2, "Simplified BSD, ruby"
 orm_adapter, 0.5.0, MIT
 ostruct, 0.6.3, "Simplified BSD, ruby"
 paranoia, 3.1.0, MIT
+parslet, 1.8.2, MIT
 pg, 1.6.3, "Simplified BSD"
 picomatch, 4.0.4, MIT
 pkg-config, 1.6.5, LGPLv2+
@@ -383,6 +385,7 @@ redcarpet, 3.6.1, MIT
 regexp_parser, 2.12.0, MIT
 reline, 0.6.3, ruby
 responders, 3.2.0, MIT
+rexml, 3.4.4, "Simplified BSD"
 rinku, 2.0.6, ISC
 rmagick, 7.0.0, MIT
 roo, 3.0.0, MIT
@@ -412,13 +415,14 @@ stimulus-rails, 1.3.4, MIT
 stringio, 3.2.0, "Simplified BSD, ruby"
 thor, 1.5.0, MIT
 timeout, 0.6.1, "Simplified BSD, ruby"
+toml, 0.2.0, MIT
 ts-node, 10.9.2, MIT
 tsort, 0.2.0, "Simplified BSD, ruby"
 turbo-rails, 2.0.23, MIT
 typescript, 5.9.3, "Apache 2.0"
 tzinfo, 2.0.6, MIT
 tzinfo-data, 1.2026.2, MIT
-undici-types, 7.19.2, MIT
+undici-types, 7.21.0, MIT
 uri, 1.1.1, "Simplified BSD, ruby"
 useragent, 0.16.11, MIT
 v8-compile-cache-lib, 3.0.1, MIT
@@ -427,6 +431,8 @@ wdm, 0.2.0, MIT
 web-console, 4.3.0, MIT
 websocket-driver, 0.8.0, "Apache 2.0"
 websocket-extensions, 0.1.5, "Apache 2.0"
+with_env, 1.1.0, MIT
+xml-simple, 1.1.9, MIT
 xpath, 3.2.0, MIT
 yn, 3.1.1, MIT
 zeitwerk, 2.7.5, MIT
@@ -497,7 +503,7 @@ yarn licenses v1.22.22
    │  └─ URL: https://github.com/tsconfig/bases.git
    ├─ @tsconfig/node16@1.0.4
    │  └─ URL: https://github.com/tsconfig/bases.git
-   ├─ @types/node@25.6.2
+   ├─ @types/node@25.7.0
    │  ├─ URL: https://github.com/DefinitelyTyped/DefinitelyTyped.git
    │  └─ VendorUrl: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
    ├─ acorn-walk@8.3.5
@@ -567,7 +573,7 @@ yarn licenses v1.22.22
    │  ├─ URL: git://github.com/TypeStrong/ts-node.git
    │  ├─ VendorName: Blake Embrey
    │  └─ VendorUrl: https://typestrong.org/ts-node
-   ├─ undici-types@7.19.2
+   ├─ undici-types@7.21.0
    │  ├─ URL: git+https://github.com/nodejs/undici.git
    │  └─ VendorUrl: https://undici.nodejs.org/
    ├─ v8-compile-cache-lib@3.0.1
@@ -577,7 +583,7 @@ yarn licenses v1.22.22
       ├─ URL: https://github.com/sindresorhus/yn.git
       ├─ VendorName: Sindre Sorhus
       └─ VendorUrl: sindresorhus.com
-Done in 0.27s.
+Done in 0.29s.
 ```
 
 #### パープルヘイズのルーティング
@@ -653,4 +659,4 @@ rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/
                     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 ```
 
-_※ 更新履歴: 2026/05/10🔄_
+_※ 更新履歴: 2026/05/14🔄_
