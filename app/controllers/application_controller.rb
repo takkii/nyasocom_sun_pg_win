@@ -49,12 +49,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def face_recognition_result
-    validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
-  end
-
   def validate_ipaddress
     ipaddress_certification(udp_socket, list_socket)
+  end
+
+  def face_recognition_result
+    validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
   end
 
   def render_404(e)
