@@ -50,27 +50,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Use, effect.txt in hyokaproject.
   def face_recognition_result
     validation_check(ENV['CARD_NAME'], ENV['MEMBERS_CARD'], ENV['EQUAL_PASSWORD'])
   end
 
-  # ipaddress certification
   def validate_ipaddress
-    begin
-      unless "#{udp_socket}" == "#{list_socket}"
-        puts "#{udp_socket} == #{list_socket}"
-        puts 'Something other than an IP address was matched.'
-        exit!
-      else
-        puts 'Passed, ip address specification.'
-      end
-    rescue StandardError => s
-      puts s.backtrace
-      tanraku_execute
-    ensure
-      GC.auto_compact
-    end
+    ipaddress_certification(udp_socket, list_socket)
   end
 
   def render_404(e)
