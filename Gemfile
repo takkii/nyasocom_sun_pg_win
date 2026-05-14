@@ -66,11 +66,8 @@ gem 'bootsnap', require: false
 # The default gems starting from Ruby 3.5.0.
 gem 'ostruct'
 
-# This Tools is used nyasocom_sun_pg_win.
+# core tools in purplehaze.
 gem 'grouse'
-
-# Windows ENV
-# gem 'sheltered-girl', '4.0.4.5'
 
 group :development, :test do
   #   rspec
@@ -95,8 +92,7 @@ group :development do
 
   # Don't delete My Gemfile in Library.
   gem 'listen'
-  # gem 'htmlbeautifier'
-  # gem 'license_finder'
+  gem 'license_finder'
 end
 
 group :test do
